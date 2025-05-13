@@ -1,0 +1,33 @@
+STEP 1 - VALIDATING SA REQUIREMENTS
+        - PROVIDE TICKET SA CLIENTS REGULAR OR PRIORITY
+STEP 2 - ENCODING
+STEP 3 - ASSESMENT SA CLIENTS
+STEP 4 - RELEASING
+
+
+rgb(176, 27, 27 90%) red
+rgb(27, 75, 176, 90%) blue
+
+
+
+
+
+
+
+
+
+
+php -S localhost:8080
+
+adding dswd division query
+INSERT INTO `tbl_divisions` (`id`, `division_name`) VALUES ('1', 'DISASTER RESPONSE MANAGEMENT DIVISION');
+
+adding dswd category query
+INSERT INTO `tbl_categories` (`id`, `category_name`) VALUES ('1', 'REGULAR');
+
+adding dswd section query
+INSERT INTO `tbl_sections` (`id`, `division_id`, `section_name`) VALUES ('1', '1', 'DISASTER RESPONSE MANAGEMENT SECTION');
+
+createFunc = createCatFunc
+
+pacdCreateFunc = pacdCreateCatFunc

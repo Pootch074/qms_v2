@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    container_name: qms-web
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: qms-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass # ✅ Correct way to set root password
+      MYSQL_DATABASE: qms # ✅ Optional: creates a default DB
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: qms-pma
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpass # ✅ Must match db
+    depends_on:
+      - db
+
+volumes:
+  db_data:

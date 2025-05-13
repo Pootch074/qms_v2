@@ -1,0 +1,60 @@
+.clock {
+	height: 5vh; /* Fits within the 5vh header */
+	color: #1b4bb0;
+	font-size: 3rem; /* Adjusted font size */
+	font-family: sans-serif;
+	line-height: 5vh;
+	display: flex;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+	padding: 30px 90px;
+	font-weight: bold;
+}
+
+/* Separator (:) Styling */
+.tick {
+	margin: 0 0.5ch;
+	font-size: 3rem;
+	line-height: 5vh;
+}
+
+/* AM/PM Indicator Styling */
+.am-pm {
+	/*position: absolute;*/
+	margin-left: 10px;
+	font-size: 3rem; /* Smaller font size for AM/PM */
+	/* bottom: 50%; Vertically center the indicator */
+}
+
+/* Optional: Adjusting the size of individual digits if necessary */
+.hours,
+.minutes,
+.seconds {
+	display: flex;
+}
+
+.hours .first,
+.hours .second,
+.minutes .first,
+.minutes .second,
+.seconds .first,
+.seconds .second {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Animation for seconds (if desired) */
+.move {
+	animation: move linear 1s infinite;
+}
+
+@keyframes move {
+	from {
+		transform: translateY(0vh);
+	}
+	to {
+		transform: translateY(-5vh);
+	}
+}
