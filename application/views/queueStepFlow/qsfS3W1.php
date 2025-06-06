@@ -221,7 +221,6 @@
   </section>
 </main>
 
-<script src="<?= base_url('assets/') ?>plugins/jquery/jquery.min.js"></script>
 <script>
   function S3loadPendingData() {
     $.ajax({
@@ -315,7 +314,7 @@
     $('#pendingBttnModal').modal('show');
     $('#pendingBtnCnfrmYes').off('click').on('click', function() {
       $.ajax({
-        url: '<?= base_url('qsfS3UpdPend/') ?>' + id,
+        url: '<?= base_url('qsfS3W1UpdPend/') ?>' + id,
         type: 'POST',
         success: function(response) {
           var data = JSON.parse(response);
@@ -330,7 +329,7 @@
 
   $(document).ready(function() {
     S3loadPendingData();
-    setInterval(S3loadPendingData, 1000);
+    setInterval(S3loadPendingData, 2000);
   });
 </script>
 
@@ -339,7 +338,7 @@
 <script>
   $(document).ready(function() {
     loadStepFlow(); // Initial load
-    setInterval(loadStepFlow, 1000); // Refresh every second
+    setInterval(loadStepFlow, 2000); // Refresh every second
   });
 
   function loadStepFlow() {

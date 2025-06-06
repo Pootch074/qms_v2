@@ -5,21 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DSWD - QMS</title>
-  <link href="./assets/logo/dswdIcon.png" rel="icon">
+  <link href="./assets/resources/dswdIcon.png" rel="icon">
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="./ui/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./ui/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="./ui/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="./ui/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="./ui/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="./ui/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="./ui/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="./assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="./assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="./assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="./assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="./assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="./assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
-  <link href="./ui/assets/css/style.css" rel="stylesheet"><!-- Template Main CSS File -->
+  <link href="./assets/css/style.css" rel="stylesheet">
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
 
@@ -188,19 +188,17 @@
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     <?php endif; ?>
-
-
     <?php echo validation_errors('<div class="error">', '</div>'); ?>
 
     <form class="row g-3 needs-validation" action="<?php echo base_url('login'); ?>" method="post">
       <div class="col">
         <a href="" class="logo d-flex align-items-center justify-content-center w-100">
-          <img src="./assets/logo/dswdLogo.png" alt="" style="width:100%;">
+          <img src="./assets/resources/dswdLogo.png" alt="" style="width:100%;">
         </a>
       </div>
 
       <div class="input-field">
-        <input type="text" name="employee_id" id="employeeID" value="<?php echo set_value('employee_id'); ?>" required>
+        <input type="text" name="employee_id" id="employeeID" oninput="formatID(this)" value="<?php echo set_value('employee_id'); ?>" required>
         <label>Employee No.</label>
       </div>
 
@@ -226,16 +224,43 @@
       </div>
     </form>
   </div>
-  <script src="<?= base_url('assets/') ?>plugins/jquery/jquery.min.js"></script>
+  <script src="./assets/plugins/jquery/jquery.min.js"></script>
+
   <!-- Vendor JS Files -->
-  <script src="./ui/assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="./ui/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="./ui/assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="./ui/assets/vendor/echarts/echarts.min.js"></script>
-  <script src="./ui/assets/vendor/quill/quill.js"></script>
-  <script src="./ui/assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="./ui/assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="./ui/assets/vendor/php-email-form/validate.js"></script>
+  <script src="./assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="./assets/vendor/echarts/echarts.min.js"></script>
+  <script src="./assets/vendor/quill/quill.js"></script>
+  <script src="./assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="./assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="./assets/vendor/php-email-form/validate.js"></script>
+  <script>
+    function formatID(input) {
+      let value = input.value.replace(/[^0-9]/g, ''); // Remove non-digit characters
+      if (value.length > 6) value = value.slice(0, 6); // Limit to 6 digits
+
+      if (value.length > 2) {
+        value = value.slice(0, 2) + '-' + value.slice(2);
+      }
+
+      input.value = value;
+    }
+  </script>
+  <script>
+    function formatID(input) {
+      let value = input.value.replace(/[^0-9]/g, ''); // Remove non-digit characters
+      if (value.length > 6) value = value.slice(0, 6); // Limit to 6 digits
+
+      if (value.length > 2) {
+        value = value.slice(0, 2) + '-' + value.slice(2);
+      }
+
+      input.value = value;
+    }
+  </script>
+
+
 
   <script>
     const password = document.querySelector('#password');

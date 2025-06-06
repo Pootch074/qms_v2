@@ -53,8 +53,8 @@
     <div class="container-fluid h-100">
         <div class="row h-100 pt-1" style="background: rgb(12,48,128); background: linear-gradient(180deg, rgba(12,48,128,1) 0%, rgba(28,75,178,1) 82%, rgba(101,130,194,1) 100%);">
             <div class="col-6 text-center border d-flex flex-column">
-                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%; background-color:;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS2Reg" style="width:60%;">
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS2W1Reg" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -62,6 +62,20 @@
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="margin-right:2vw; width:20%;">
+                        <h2 class="qsdStepFont">1</h2>
+                    </div>
+                </div>
+
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS2W2Reg" style="width:60%;">
+                    </div>
+
+                    <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
+                        <h2 class="qsdStepFont">2</h2>
+                    </div>
+
+                    <div class="h-100 d-flex align-items-center justify-content-center" style="margin-right:2vw; width:20%;">
+                        <h2 class="qsdStepFont">2</h2>
                     </div>
                 </div>
 
@@ -74,7 +88,6 @@
                             3
                         </h2>
                     </div>
-
 
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="margin-right:2vw; width:20%;">
@@ -119,6 +132,23 @@
                         </h2>
                     </div>
                 </div>
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W4Reg" style="width:60%;">
+                    </div>
+
+                    <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
+                        <h2 class="qsdStepFont">
+                            3
+                        </h2>
+                    </div>
+
+
+                    <div class="h-100 d-flex align-items-center justify-content-center" style="margin-right:2vw; width:20%;">
+                        <h2 class="qsdStepFont">
+                            4
+                        </h2>
+                    </div>
+                </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
 
@@ -156,12 +186,29 @@
                         </h2>
                     </div>
                 </div>
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS4W3Reg" style="width:60%;">
+                    </div>
+
+                    <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
+                        <h2 class="qsdStepFont">
+                            4
+                        </h2>
+                    </div>
+
+                    <div class="h-100 d-flex align-items-center justify-content-center" style="margin-right:2vw; width:20%;">
+                        <h2 class="qsdStepFont">
+                            3
+                        </h2>
+                    </div>
+                </div>
 
             </div>
             <div class="col-6 text-center border" style="background: rgb(12,48,128); background: linear-gradient(180deg, rgba(12,48,128,1) 0%, rgba(28,75,178,1) 82%, rgba(101,130,194,1) 100%);">
                 <div class="cardCstm flex-grow-1 mb-1 d-flex">
                     <video width="100%" height="auto%" autoplay loop muted>
-                        <source src="assets\resources\qsdVideos\dswd.mp4" type="video/mp4">
+                        <source src="assets\resources\qsdVideos\vid1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -211,8 +258,7 @@
         </div>
     </div>
 </main>
-<script src="<?= base_url('assets/') ?>plugins/jquery/jquery.minQSD.js"></script>
-<script src="<?= base_url('ui/') ?>assets/js/digitalClock.js"></script>
+<script src="./assets/plugins/jquery/jquery.minQSD.js"></script>
 <script async src="https://app3.weatherwidget.org/js/?id=ww_bfc7f2428757d"></script>
 
 <audio id="audioPlayer" src="assets\resources\ascend.mp3"></audio>
@@ -389,18 +435,23 @@
 
 
         function qsdLoadStepFlow() {
-            handleQueueDatas2('<?= base_url('qsdS2RegRou') ?>', '#qsdS2Reg', 2);
+            handleQueueData('<?= base_url('qsdS2W1RegRou') ?>', '#qsdS2W1Reg', 2, 1);
+            handleQueueData('<?= base_url('qsdS2W2RegRou') ?>', '#qsdS2W2Reg', 2, 2);
+
             handleQueueData('<?= base_url('qsdS3W1RegRou') ?>', '#qsdS3W1Reg', 3, 1);
             handleQueueData('<?= base_url('qsdS3W2RegRou') ?>', '#qsdS3W2Reg', 3, 2);
             handleQueueData('<?= base_url('qsdS3W3RegRou') ?>', '#qsdS3W3Reg', 3, 3);
+            handleQueueData('<?= base_url('qsdS3W4RegRou') ?>', '#qsdS3W4Reg', 3, 4);
+
             handleQueueData('<?= base_url('qsdS4W1RegRou') ?>', '#qsdS4W1Reg', 4, 1);
             handleQueueData('<?= base_url('qsdS4W2RegRou') ?>', '#qsdS4W2Reg', 4, 2);
+            handleQueueData('<?= base_url('qsdS4W3RegRou') ?>', '#qsdS4W3Reg', 4, 3);
         }
 
         // Remove setInterval and instead chain the calls with a delay only after each message is processed
         function qsdLoadStepFlowWithDelay() {
             qsdLoadStepFlow();
-            setTimeout(qsdLoadStepFlowWithDelay, 1000); // Adjust time based on expected message length
+            setTimeout(qsdLoadStepFlowWithDelay, 100); // Adjust time based on expected message length
         }
 
         qsdLoadStepFlowWithDelay(); // Initial call to start the sequence

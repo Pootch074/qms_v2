@@ -1,4 +1,4 @@
-FROM php:8.1-apache
+FROM php:8.3-apache
 
 
 # Install required PHP extensions
@@ -16,3 +16,5 @@ COPY . /var/www/html
 # Set permissions (optional but recommended)
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
+
+    

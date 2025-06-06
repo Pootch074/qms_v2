@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+/**
+ * @property CI_Session $session
+ * @property QsfModel $QsfModel
+ * @property UserModel $UserModel
+ */
 class QsfController extends CI_Controller
 {
 	public function __construct()
@@ -11,8 +15,7 @@ class QsfController extends CI_Controller
 		$this->load->library('session');
 	}
 
-	// STEP 2 PRIORITY
-	public function qsfS2P()
+	public function qsfs2w1PrioCont()
 	{
 		$fname = $this->session->userdata('fname');
 		$lname = $this->session->userdata('lname');
@@ -31,12 +34,34 @@ class QsfController extends CI_Controller
 		];
 
 		$this->load->view('template/header', $data);
-		$this->load->view('queueStepFlow/qsfPriority', $data);
+		$this->load->view('queueStepFlow/qsfS2W1Prio', $data);
 		$this->load->view('template/footer');
 	}
-	public function s2autoDQPrioCont()
+	public function qsfs2w2PrioCont()
 	{
-		$queues = $this->QsfModel->s2autoDQPrioMod();
+		$fname = $this->session->userdata('fname');
+		$lname = $this->session->userdata('lname');
+		$position = $this->session->userdata('position');
+		$ass_step = $this->session->userdata('ass_step');
+		$ass_category = $this->session->userdata('ass_category');
+		$section = $this->session->userdata('section');
+
+		$data = [
+			'fname' => $fname,
+			'lname' => $lname,
+			'position' => $position,
+			'ass_step' => $ass_step,
+			'ass_category' => $ass_category,
+			'section' => $section
+		];
+
+		$this->load->view('template/header', $data);
+		$this->load->view('queueStepFlow/qsfS2W2Prio', $data);
+		$this->load->view('template/footer');
+	}
+	public function s2w1QuePrioCont()
+	{
+		$queues = $this->QsfModel->s2w1QuePrioMod();
 		if (!empty($queues)) {
 			foreach ($queues as $row) {
 				echo '<div class="d-grid gap-2 mt-1">
@@ -49,15 +74,46 @@ class QsfController extends CI_Controller
 			echo '<p>Empty</p>';
 		}
 	}
-	public function s2autoDPPrioCont()
+	public function s2w2QuePrioCont()
 	{
-		$pending = $this->QsfModel->s2autoDPPrioMod();
+		$queues = $this->QsfModel->s2w2QuePrioMod();
+		if (!empty($queues)) {
+			foreach ($queues as $row) {
+				echo '<div class="d-grid gap-2 mt-1">
+                <button class="qsfS2PendingVal btn pe-none btnCstmPriorityUpcoming">
+                    P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
+                </button>
+            </div>';
+			}
+		} else {
+			echo '<p>Empty</p>';
+		}
+	}
+	public function s2w1PendPrioCont()
+	{
+		$pending = $this->QsfModel->s2w1PendPrioMod();
 		$json_data['data'] = $pending;
 		echo json_encode($json_data);
 	}
-	public function s2autoDSPrioCont() // Auto Display Serving
+	public function s2w2PendPrioCont()
 	{
-		$serving = $this->QsfModel->s2autoDSPrioMod();
+		$pending = $this->QsfModel->s2w2PendPrioMod();
+		$json_data['data'] = $pending;
+		echo json_encode($json_data);
+	}
+	public function s2w1ServPrioCont()
+	{
+		$serving = $this->QsfModel->s2w1ServPrioMod();
+		if (!empty($serving)) {
+			foreach ($serving as $row) {
+				echo '<h1 class="serveTicketPrio">P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '</h1>';
+			}
+		} else {
+		}
+	}
+	public function s2w2ServPrioCont()
+	{
+		$serving = $this->QsfModel->s2w2ServPrioMod();
 		if (!empty($serving)) {
 			foreach ($serving as $row) {
 				echo '<h1 class="serveTicketPrio">P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '</h1>';
@@ -66,35 +122,61 @@ class QsfController extends CI_Controller
 		}
 	}
 
-	public function s2PrioBtnCont()
+	public function s2w1PrioBtnCont()
 	{
 		$this->load->model('QsfModel');
-		$this->QsfModel->s2PrioBtnMod();
+		$this->QsfModel->s2w1PrioBtnMod();
 		echo json_encode(array('status' => 'success'));
 	}
-	public function s2SkipPrioBtnCont()
+	public function s2w2PrioBtnCont()
 	{
 		$this->load->model('QsfModel');
-		$this->QsfModel->s2SkipPrioBtnMod();
+		$this->QsfModel->s2w2PrioBtnMod();
 		echo json_encode(array('status' => 'success'));
 	}
-	public function s2ProceedPrioBtnCont()
+	public function s2w1SkipPrioBtnCont()
+	{
+		$this->load->model('QsfModel');
+		$this->QsfModel->s2w1SkipPrioBtnMod();
+		echo json_encode(array('status' => 'success'));
+	}
+	public function s2w2SkipPrioBtnCont()
+	{
+		$this->load->model('QsfModel');
+		$this->QsfModel->s2w2SkipPrioBtnMod();
+		echo json_encode(array('status' => 'success'));
+	}
+	public function s2w1ProceedPrioBtnCont()
 	{
 		$this->load->model('QsfModel');
 		$ass_step = $this->session->userdata('ass_step');
 		$ass_category = $this->session->userdata('ass_category');
-		$this->QsfModel->s2ProceedPrioBtnMod($ass_step, $ass_category);
+		$this->QsfModel->s2w1ProceedPrioBtnMod($ass_step, $ass_category);
 		echo json_encode(array('status' => 'success'));
 	}
-	public function s2UpdatePendingPrioCont($id)
+	public function s2w2ProceedPrioBtnCont()
 	{
 		$this->load->model('QsfModel');
-		$this->QsfModel->s2UpdatePendingPrioMod($id);
+		$ass_step = $this->session->userdata('ass_step');
+		$ass_category = $this->session->userdata('ass_category');
+		$this->QsfModel->s2w2ProceedPrioBtnMod($ass_step, $ass_category);
+		echo json_encode(array('status' => 'success'));
+	}
+	public function s2w1UpdPendPrioCont($id)
+	{
+		$this->load->model('QsfModel');
+		$this->QsfModel->s2w1UpdPendPrioMod($id);
+		echo json_encode(['status' => 'success']);
+	}
+	public function s2w2UpdPendPrioCont($id)
+	{
+		$this->load->model('QsfModel');
+		$this->QsfModel->s2w2UpdPendPrioMod($id);
 		echo json_encode(['status' => 'success']);
 	}
 
 	// STEP 2 REGULAR
-	public function qsfS2R()
+	public function qsfs2w1ReguCont()
 	{
 		$fname = $this->session->userdata('fname');
 		$lname = $this->session->userdata('lname');
@@ -113,12 +195,35 @@ class QsfController extends CI_Controller
 		];
 
 		$this->load->view('template/header', $data);
-		$this->load->view('queueStepFlow/qsfRegular', $data);
+		$this->load->view('queueStepFlow/qsfS2W1Regu', $data);
 		$this->load->view('template/footer');
 	}
-	public function s2autoDQReguCont()
+	public function qsfs2w2ReguCont()
 	{
-		$queues = $this->QsfModel->s2autoDQReguMod();
+		$fname = $this->session->userdata('fname');
+		$lname = $this->session->userdata('lname');
+		$position = $this->session->userdata('position');
+		$ass_step = $this->session->userdata('ass_step');
+		$ass_category = $this->session->userdata('ass_category');
+		$section = $this->session->userdata('section');
+
+		$data = [
+			'fname' => $fname,
+			'lname' => $lname,
+			'position' => $position,
+			'ass_step' => $ass_step,
+			'ass_category' => $ass_category,
+			'section' => $section
+		];
+
+		$this->load->view('template/header', $data);
+		$this->load->view('queueStepFlow/qsfS2W2Regu', $data);
+		$this->load->view('template/footer');
+	}
+
+	public function s2w1QueReguCont()
+	{
+		$queues = $this->QsfModel->s2w1QueReguMod();
 		if (!empty($queues)) {
 			foreach ($queues as $row) {
 				echo '<div class="d-grid gap-2 mt-1">
@@ -131,20 +236,92 @@ class QsfController extends CI_Controller
 			echo '<p>Empty</p>';
 		}
 	}
-	public function s2autoDPReguCont()
+	public function s2w2QueReguCont()
+	{
+		$queues = $this->QsfModel->s2w2QueReguMod();
+		if (!empty($queues)) {
+			foreach ($queues as $row) {
+				echo '<div class="d-grid gap-2 mt-1">
+                <button class="qsfS2PendingVal btn pe-none btnCstmRegularUpcoming">
+                    R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
+                </button>
+            </div>';
+			}
+		} else {
+			echo '<p>Empty</p>';
+		}
+	}
+	public function s2w3QueReguCont()
+	{
+		$queues = $this->QsfModel->s2w3QueReguMod();
+		if (!empty($queues)) {
+			foreach ($queues as $row) {
+				echo '<div class="d-grid gap-2 mt-1">
+                <button class="qsfS2PendingVal btn pe-none btnCstmRegularUpcoming">
+                    R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
+                </button>
+            </div>';
+			}
+		} else {
+			echo '<p>Empty</p>';
+		}
+	}
+	public function s2w1PendReguCont()
 	{
 		$ass_step = $this->session->userdata('ass_step');
 		if (!$ass_step) {
 			echo "Error: ass_step is not set in the session.";
 			return;
 		}
-		$pending = $this->QsfModel->s2autoDPReguMod($ass_step);
+		$pending = $this->QsfModel->s2w1PendReguMod($ass_step);
 		$json_data['data'] = $pending;
 		echo json_encode($json_data);
 	}
-	public function s2autoDSReguCont()
+	public function s2w2PendReguCont()
 	{
-		$serving = $this->QsfModel->s2autoDSReguMod();
+		$ass_step = $this->session->userdata('ass_step');
+		if (!$ass_step) {
+			echo "Error: ass_step is not set in the session.";
+			return;
+		}
+		$pending = $this->QsfModel->s2w2PendReguMod($ass_step);
+		$json_data['data'] = $pending;
+		echo json_encode($json_data);
+	}
+	public function s2w3PendReguCont()
+	{
+		$ass_step = $this->session->userdata('ass_step');
+		if (!$ass_step) {
+			echo "Error: ass_step is not set in the session.";
+			return;
+		}
+		$pending = $this->QsfModel->s2w3PendReguMod($ass_step);
+		$json_data['data'] = $pending;
+		echo json_encode($json_data);
+	}
+	public function s2w1ServReguCont()
+	{
+		$serving = $this->QsfModel->s2w1ServReguMod();
+		if (!empty($serving)) {
+			foreach ($serving as $row) {
+				echo '<h1 class="serveTicketRegu">R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '</h1>';
+			}
+		} else {
+		}
+	}
+	public function s2w2ServReguCont()
+	{
+		$serving = $this->QsfModel->s2w2ServReguMod();
+		if (!empty($serving)) {
+			foreach ($serving as $row) {
+				echo '<h1 class="serveTicketRegu">R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '</h1>';
+			}
+		} else {
+		}
+	}
+	public function s2w3ServReguCont()
+	{
+		$serving = $this->QsfModel->s2w3ServReguMod();
 		if (!empty($serving)) {
 			foreach ($serving as $row) {
 				echo '<h1 class="serveTicketRegu">R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '</h1>';
@@ -153,19 +330,38 @@ class QsfController extends CI_Controller
 		}
 	}
 
-	public function s2ReguBtnCont()
+	public function s2w3ReguBtnCont()
 	{
 		$this->load->model('QsfModel');
-		$this->QsfModel->s2ReguBtnMod();
+		$this->QsfModel->s2w3ReguBtnMod();
 		echo json_encode(array('status' => 'success'));
 	}
-	public function s2SkipReguBtnCont()
+	public function s2w2ReguBtnCont()
 	{
 		$this->load->model('QsfModel');
-		$this->QsfModel->s2SkipReguBtnMod();
+		$this->QsfModel->s2w2ReguBtnMod();
 		echo json_encode(array('status' => 'success'));
 	}
-	public function s2ProceedReguBtnCont()
+	public function s2w1ReguBtnCont()
+	{
+		$this->load->model('QsfModel');
+		$this->QsfModel->s2w1ReguBtnMod();
+		echo json_encode(array('status' => 'success'));
+	}
+	public function s2w1SkipReguBtnCont()
+	{
+		$this->load->model('QsfModel');
+		$this->QsfModel->s2w1SkipReguBtnMod();
+		echo json_encode(array('status' => 'success'));
+	}
+	public function s2w2SkipReguBtnCont()
+	{
+		$this->load->model('QsfModel');
+		$this->QsfModel->s2w2SkipReguBtnMod();
+		echo json_encode(array('status' => 'success'));
+	}
+
+	public function s2w1ProceedReguBtnCont()
 	{
 		$this->load->model('QsfModel');
 		$ass_step = $this->session->userdata('ass_step');
@@ -173,12 +369,33 @@ class QsfController extends CI_Controller
 		$this->QsfModel->s2ProceedReguBtnMod($ass_step, $ass_category);
 		echo json_encode(array('status' => 'success'));
 	}
-	public function s2UpdatePendingReguCont($id)
+	public function s2w2ProceedReguBtnCont()
 	{
 		$this->load->model('QsfModel');
-		$this->QsfModel->s2UpdatePendingReguMod($id);
+		$ass_step = $this->session->userdata('ass_step');
+		$ass_category = $this->session->userdata('ass_category');
+		$this->QsfModel->s2w2ProceedReguBtnMod($ass_step, $ass_category);
+		echo json_encode(array('status' => 'success'));
+	}
+
+
+
+	private function updatePendingRegu($modelMethod, $id)
+	{
+		$this->load->model('QsfModel');
+		$this->QsfModel->$modelMethod($id);
 		echo json_encode(['status' => 'success']);
 	}
+	public function s2w1UpdPendReguCont($id)
+	{
+		$this->updatePendingRegu('s2UpdatePendingReguMod', $id);
+	}
+
+	public function s2w2UpdPendReguCont($id)
+	{
+		$this->updatePendingRegu('s2UpdatePendingReguMod', $id);
+	}
+
 
 
 

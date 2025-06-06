@@ -7,60 +7,36 @@ class QndController extends CI_Controller
     {
         parent::__construct();
         date_default_timezone_set('Asia/Manila');
-        // Load the model in the constructor
         $this->load->model('QndModel');
         $this->load->library('session');
     }
 
-    public function qndP()
+    private function loadQndView($viewName)
     {
         $this->load->model("QndModel");
-        $fname = $this->session->userdata('fname');
-        $lname = $this->session->userdata('lname');
-        $position = $this->session->userdata('position');
-        $ass_step = $this->session->userdata('ass_step');
-        $ass_category = $this->session->userdata('ass_category');
-        $section = $this->session->userdata('section');
-        $prioCat = $this->QndModel->getPrioCategory();
-
         $data = [
-            'gpc' => $prioCat,
-            'fname' => $fname,
-            'lname' => $lname,
-            'position' => $position,
-            'ass_step' => $ass_step,
-            'ac' => $ass_category,
-            'sctn' => $section
+            'zxcvbnm'   => $this->session->userdata('ass_category'),
+            'fname'     => $this->session->userdata('fname'),
+            'lname'     => $this->session->userdata('lname'),
+            'position'  => $this->session->userdata('position'),
+            'ass_step'  => $this->session->userdata('ass_step'),
+            'sctn'      => $this->session->userdata('section')
         ];
-        $this->load->view('queueNumberDispenser/header', $data);
-        $this->load->view('queueNumberDispenser/qndPriority', $data);
-        $this->load->view('queueNumberDispenser/footer');
+        $this->load->view('template/header', $data);
+        $this->load->view("queueNumberDispenser/{$viewName}", $data);
+        $this->load->view('template/footer');
+    }
+
+    public function qndP()
+    {
+        $this->loadQndView('qndPriority');
     }
 
     public function qndR()
     {
-        $this->load->model("QndModel");
-        $fname = $this->session->userdata('fname');
-        $lname = $this->session->userdata('lname');
-        $position = $this->session->userdata('position');
-        $ass_step = $this->session->userdata('ass_step');
-        $ass_category = $this->session->userdata('ass_category');
-        $section = $this->session->userdata('section');
-        $reguCat = $this->QndModel->getReguCategory();
-
-        $data = [
-            'grc' => $reguCat,
-            'fname' => $fname,
-            'lname' => $lname,
-            'position' => $position,
-            'ass_step' => $ass_step,
-            'ac' => $ass_category,
-            'sctn' => $section
-        ];
-        $this->load->view('queueNumberDispenser/header', $data);
-        $this->load->view('queueNumberDispenser/qndRegular', $data);
-        $this->load->view('queueNumberDispenser/footer');
+        $this->loadQndView('qndRegular');
     }
+
 
     public function addQuePrio()
     {

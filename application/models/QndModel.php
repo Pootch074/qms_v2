@@ -15,12 +15,7 @@ class QndModel extends CI_Model
         return $query->result();
     }
 
-    public function getPrioCategory()
-    {
-        $this->db->where('category_name', 'PRIORITY');
-        $query = $this->db->get('tbl_categories');
-        return $query->result();
-    }
+
 
     public function getReguCategory()
     {
@@ -30,15 +25,15 @@ class QndModel extends CI_Model
     }
 
 
-    public function getLastPrio() // Defines a function called 'getLastRegu' to retrieve the last queue number.
+    public function getLastPrio()
     {
-        $this->db->select('queue_num'); // Selects the 'queue_num' column from the database.
+        $this->db->select('queue_num');
         $this->db->where('category', 'PRIORITY');
-        $this->db->from('tbl_transactions'); // Specifies the table 'tbl_transactions' from which to retrieve data.
-        $this->db->order_by('queue_num', 'DESC'); // Orders the results by 'queue_num' in descending order, so the highest number is first.
-        $this->db->limit(1); // Limits the query to only one result, i.e., the highest 'queue_num'.
-        $query = $this->db->get(); // Executes the query and stores the result in the variable '$query'.
-        return ($query->num_rows() > 0) ? $query->row()->queue_num : 0; // Returns the 'queue_num' if a result is found; otherwise, returns 0.
+        $this->db->from('tbl_transactions');
+        $this->db->order_by('queue_num', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return ($query->num_rows() > 0) ? $query->row()->queue_num : 0;
     }
 
 
@@ -63,15 +58,15 @@ class QndModel extends CI_Model
         return ($this->db->affected_rows() > 0) ? ['queue_num' => $newQueueNum, 'datetoday' => $formattedDateTime] : false;
     }
 
-    public function getLastRegu() // Defines a function called 'getLastRegu' to retrieve the last queue number.
+    public function getLastRegu()
     {
-        $this->db->select('queue_num'); // Selects the 'queue_num' column from the database.
+        $this->db->select('queue_num');
         $this->db->where('category', 'REGULAR');
-        $this->db->from('tbl_transactions'); // Specifies the table 'tbl_transactions' from which to retrieve data.
-        $this->db->order_by('queue_num', 'DESC'); // Orders the results by 'queue_num' in descending order, so the highest number is first.
-        $this->db->limit(1); // Limits the query to only one result, i.e., the highest 'queue_num'.
-        $query = $this->db->get(); // Executes the query and stores the result in the variable '$query'.
-        return ($query->num_rows() > 0) ? $query->row()->queue_num : 0; // Returns the 'queue_num' if a result is found; otherwise, returns 0.
+        $this->db->from('tbl_transactions');
+        $this->db->order_by('queue_num', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return ($query->num_rows() > 0) ? $query->row()->queue_num : 0;
     }
 
     public function insertNewQueueRegu()

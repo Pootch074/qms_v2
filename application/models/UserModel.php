@@ -12,7 +12,7 @@ class UserModel extends CI_Model
     // Method to retrieve user by employee id for login
     public function loginUser($employeeID)
     {
-        $this->db->where('user_id', $employeeID);
+        $this->db->where('employee_id', $employeeID);
         $query = $this->db->get('qms_users');
 
         if ($query->num_rows() === 1) {
@@ -26,17 +26,24 @@ class UserModel extends CI_Model
     {
         return $this->db->insert('qms_users', $data);
     }
+    public function accReqAddMod($employee_id, $data)
+    {
+        $this->db->where('id', $employee_id);
+        return $this->db->update('qms_users', $data);
+    }
+
+
 
     public function updateUserStatus($employeeID, $status)
     {
-        $this->db->set('status', $status);
-        $this->db->where('user_id', $employeeID);
+        $this->db->set('log_status', $status);
+        $this->db->where('employee_id', $employeeID);
         $this->db->update('qms_users');
     }
     public function updateUserStatusLogout($employeeID)
     {
-        $this->db->set('status', 'INACTIVE');
-        $this->db->where('user_id', $employeeID);
+        $this->db->set('log_status', 'INACTIVE');
+        $this->db->where('employee_id', $employeeID);
         $this->db->update('qms_users');
     }
 }

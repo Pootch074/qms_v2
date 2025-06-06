@@ -28,18 +28,19 @@ class LoginController extends CI_Controller
 			$password = $this->input->post('password');
 			$result = $this->UserModel->loginUser($employeeID);
 
-			if ($result && password_verify($password, $result->user_pass)) {
+			if ($result && !empty($result->user_pass) && password_verify($password, $result->user_pass)) {
+
 				// Set user status to ACTIVE
 				$this->UserModel->updateUserStatus($employeeID, 'ACTIVE');
 
 				$auth_userdetails = [
-					'user_id'    => $result->user_id,
-					'position'   => $result->position,
+					'employee_id'    => $result->employee_id,
+					'role'   => $result->role,
 					'fname'      => $result->fname,
 					'lname'      => $result->lname,
+					'role'      => $result->role,
 					'ass_step'   => $result->ass_step,
 					'ass_category' => $result->ass_category,
-					'section'    => $result->section,
 					'logged_in'  => TRUE
 				];
 
@@ -57,26 +58,38 @@ class LoginController extends CI_Controller
 
 	private function redirectUserBasedOnRole($result)
 	{
-		if ($result->user_type == 'QND' && $result->ass_step == 1 && $result->ass_category == 'PRIORITY') {
+		if ($result->role == 'Preasses' && $result->ass_step == 1 && $result->ass_category == 'PRIORITY' && $result->status == 'APPROVED') {
 			redirect(base_url('qndPrio'));
-		} elseif ($result->user_type == 'QND' && $result->ass_step == 1 && $result->ass_category == 'REGULAR') {
+		} elseif ($result->role == 'Preasses' && $result->ass_step == 1 && $result->ass_category == 'REGULAR' && $result->status == 'APPROVED') {
 			redirect(base_url('qndRegu'));
-		} elseif ($result->user_type == 'QSF' && $result->ass_step == 2 && $result->ass_category == 'PRIORITY') {
-			redirect(base_url('qsfS2Prio'));
-		} elseif ($result->user_type == 'QSF' && $result->ass_step == 2 && $result->ass_category == 'REGULAR') {
-			redirect(base_url('qsfS2Regu'));
-		} elseif ($result->user_type == 'QSF' && $result->ass_step == 3 && $result->ass_window == 1) {
-			redirect(base_url('qsfS3W1'));
-		} elseif ($result->user_type == 'QSF' && $result->ass_step == 3 && $result->ass_window == 2) {
-			redirect(base_url('qsfS3W2'));
-		} elseif ($result->user_type == 'QSF' && $result->ass_step == 3 && $result->ass_window == 3) {
-			redirect(base_url('qsfS3W3'));
-		} elseif ($result->user_type == 'QSF' && $result->ass_step == 4) {
-			redirect(base_url('qsfS4'));
-		} elseif ($result->user_type == 'QSD' && $result->ass_category == 'PRIORITY') {
+		} elseif ($result->role == 'Encode' && $result->ass_step == 2 && $result->ass_window == 1 && $result->ass_category == 'PRIORITY' && $result->status == 'APPROVED') {
+			redirect(base_url('qsfs2w1PrioRou'));
+		} elseif ($result->role == 'Encode' && $result->ass_step == 2 && $result->ass_window == 2 && $result->ass_category == 'PRIORITY' && $result->status == 'APPROVED') {
+			redirect(base_url('qsfs2w2PrioRou'));
+		} elseif ($result->role == 'Encode' && $result->ass_step == 2 && $result->ass_window == 1 && $result->ass_category == 'REGULAR' && $result->status == 'APPROVED') {
+			redirect(base_url('qsfs2w1Regu'));
+		} elseif ($result->role == 'Encode' && $result->ass_step == 2 && $result->ass_window == 2 && $result->ass_category == 'REGULAR' && $result->status == 'APPROVED') {
+			redirect(base_url('qsfs2w2Regu'));
+		} elseif ($result->role == 'Assesment' && $result->ass_step == 3 && $result->ass_window == 1 && $result->status == 'APPROVED') {
+			redirect(base_url('qsfS3W1Rou'));
+		} elseif ($result->role == 'Assesment' && $result->ass_step == 3 && $result->ass_window == 2 && $result->status == 'APPROVED') {
+			redirect(base_url('qsfS3W2Rou'));
+		} elseif ($result->role == 'Assesment' && $result->ass_step == 3 && $result->ass_window == 3 && $result->status == 'APPROVED') {
+			redirect(base_url('qsfS3W3Rou'));
+		} elseif ($result->role == 'Assesment' && $result->ass_step == 3 && $result->ass_window == 4 && $result->status == 'APPROVED') {
+			redirect(base_url('qsfS3W4Rou'));
+		} elseif ($result->role == 'Release' && $result->ass_step == 4 && $result->ass_window == 1 && $result->status == 'APPROVED') {
+			redirect(base_url('qsfS4W1Rou'));
+		} elseif ($result->role == 'Release' && $result->ass_step == 4 && $result->ass_window == 2 && $result->status == 'APPROVED') {
+			redirect(base_url('qsfS4W2Rou'));
+		} elseif ($result->role == 'Release' && $result->ass_step == 4 && $result->ass_window == 3 && $result->status == 'APPROVED') {
+			redirect(base_url('qsfS4W3Rou'));
+		} elseif ($result->role == 'Display' && $result->ass_category == 'PRIORITY' && $result->status == 'APPROVED') {
 			redirect(base_url('qsdPrio'));
-		} elseif ($result->user_type == 'QSD' && $result->ass_category == 'REGULAR') {
+		} elseif ($result->role == 'Display' && $result->ass_category == 'REGULAR' && $result->status == 'APPROVED') {
 			redirect(base_url('qsdRegu'));
+		} elseif ($result->role == 'Admin' && $result->ass_category == 'BOTH' && $result->status == 'APPROVED') {
+			redirect(base_url('admin'));
 		} else {
 			redirect(base_url('login'));
 		}
@@ -84,7 +97,7 @@ class LoginController extends CI_Controller
 
 	public function logout()
 	{
-		$employeeID = $this->session->userdata('user_id');
+		$employeeID = $this->session->userdata('employee_id');
 		if ($employeeID) {
 			$this->UserModel->updateUserStatusLogout($employeeID);
 		}

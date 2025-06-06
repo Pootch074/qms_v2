@@ -184,13 +184,13 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <button class="btn btn-primary btn-lg regular3dBtn my-2 w-100" onclick="s3w1ReguBtn()" id="s3w1nextReguID">
+              <button class="btn btn-primary btn-lg regular3dBtn my-2 w-100" onclick="s3w3ReguBtn()" id="s3w1nextReguID">
                 <i class="bi bi-people-fill" style="font-size: 2em;"></i>
               </button>
             </div>
 
             <div class="col">
-              <button class="btn btn-danger btn-lg priority3dBtn my-2 w-100" onclick="s3w1PrioBtn()" id="s3nextPrioID">
+              <button class="btn btn-danger btn-lg priority3dBtn my-2 w-100" onclick="s3w3PrioBtn()" id="s3nextPrioID">
                 <i class="bi bi-people" style="font-size: 2em;"></i>
               </button>
             </div>
@@ -198,7 +198,7 @@
 
           <div class="row">
             <div class="col">
-              <button class="btn btn-secondary btn-lg skip3dBtn my-2 w-100" onclick="s3w1SkipBtn()" id="s3skipID">
+              <button class="btn btn-secondary btn-lg skip3dBtn my-2 w-100" onclick="s3w3SkipBtn()" id="s3skipID">
                 <i class="bi bi-skip-backward-fill" style="font-size: 2em;"></i>
               </button>
             </div>
@@ -210,7 +210,7 @@
             </div>
 
             <div class="col">
-              <button class="btn btn-success btn-lg proceed3dBtn my-2 w-100" onclick="s3w1ProceedBtn()" id="s3proceedID">
+              <button class="btn btn-success btn-lg proceed3dBtn my-2 w-100" onclick="s3w3ProceedBtn()" id="s3proceedID">
                 <i class="bi bi-check2-circle" style="font-size: 2em;"></i>
               </button>
             </div>
@@ -221,7 +221,6 @@
   </section>
 </main>
 
-<script src="<?= base_url('assets/') ?>plugins/jquery/jquery.min.js"></script>
 <script>
   function S3loadPendingData() {
     $.ajax({
@@ -315,7 +314,7 @@
     $('#pendingBttnModal').modal('show');
     $('#pendingBtnCnfrmYes').off('click').on('click', function() {
       $.ajax({
-        url: '<?= base_url('qsfS3UpdPend/') ?>' + id,
+        url: '<?= base_url('qsfS3W3UpdPend/') ?>' + id,
         type: 'POST',
         success: function(response) {
           var data = JSON.parse(response);
@@ -373,11 +372,11 @@
 
 
 <script>
-  function s3w1ReguBtn() {
+  function s3w3ReguBtn() {
     $('#reguBttnModal').modal('show');
     $('#reguBtnCnfrmYes').off('click').on('click', function() {
       $.ajax({
-        url: '<?= base_url('s3w1RegBtnRou') ?>',
+        url: '<?= base_url('s3w3RegBtnRou') ?>',
         type: 'POST',
         success: function(response) {
           var data = JSON.parse(response);
@@ -393,11 +392,11 @@
   }
 
 
-  function s3w1PrioBtn() {
+  function s3w3PrioBtn() {
     $('#prioBttnModal').modal('show');
     $('#prioBtnCnfrmYes').off('click').on('click', function() {
       $.ajax({
-        url: '<?= base_url('s3w1PrioBtnRou') ?>',
+        url: '<?= base_url('s3w3PrioBtnRou') ?>',
         type: 'POST',
         success: function(response) {
           var data = JSON.parse(response);
@@ -413,11 +412,11 @@
 
   }
 
-  function s3w1SkipBtn() {
+  function s3w3SkipBtn() {
     $('#skipBttnModal').modal('show');
     $('#skipBtnCnfrmYes').off('click').on('click', function() {
       $.ajax({
-        url: '<?= base_url('s3w1SkipRou') ?>',
+        url: '<?= base_url('s3w3SkipRou') ?>',
         type: 'POST',
         success: function(response) {
           var data = JSON.parse(response);
@@ -433,11 +432,11 @@
   }
 
 
-  function s3w1ProceedBtn() {
+  function s3w3ProceedBtn() {
     $('#proceedBttnModal').modal('show');
     $('#proceedBtnCnfrmYes').off('click').on('click', function() {
       $.ajax({
-        url: '<?= base_url('s3w1ProceedRou') ?>',
+        url: '<?= base_url('s3w3ProceedRou') ?>',
         type: 'POST',
         success: function(response) {
           var data = JSON.parse(response);

@@ -221,7 +221,6 @@
   </section>
 </main>
 
-<script src="<?= base_url('assets/') ?>plugins/jquery/jquery.min.js"></script>
 <script>
   function S3loadPendingData() {
     $.ajax({
@@ -315,7 +314,7 @@
     $('#pendingBttnModal').modal('show');
     $('#pendingBtnCnfrmYes').off('click').on('click', function() {
       $.ajax({
-        url: '<?= base_url('qsfS3UpdPend/') ?>' + id,
+        url: '<?= base_url('qsfS3W2UpdPend/') ?>' + id,
         type: 'POST',
         success: function(response) {
           var data = JSON.parse(response);

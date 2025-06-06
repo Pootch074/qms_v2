@@ -11,24 +11,25 @@
 
   <!-- Favicons -->
   <link href="./assets/logo/dswdIcon.png" rel="icon">
-  <link href="./ui/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="./assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="./ui/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./ui/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="./ui/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="./ui/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="./ui/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="./ui/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="./ui/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="./assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="./assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="./assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="./assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="./assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="./assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
-  <link href="./ui/assets/css/style.css" rel="stylesheet"><!-- Template Main CSS File -->
-  <link href="./ui/assets/css/qsfButtonStyle.css" rel="stylesheet"><!-- qsf buttons CSS File -->
-  <link href="./ui/assets/css/qsfDigitalClock.css" rel="stylesheet"><!-- header digital clock CSS JS File -->
+  <link href="./assets/css/style.css" rel="stylesheet"><!-- Template Main CSS File -->
+  <link href="./assets/css/qsfButtonStyle.css" rel="stylesheet"><!-- qsf buttons CSS File -->
+  <link href="./assets/css/qsfDigitalClock.css" rel="stylesheet"><!-- header digital clock CSS JS File -->
+  <link href="./assets/css/qndDatatable.css" rel="stylesheet"><!-- header digital clock CSS JS File -->
 
   <style>
     #header {
@@ -39,6 +40,41 @@
       height: 8vh;
       color: white;
       background-color: #f9fafc;
+    }
+
+    .main {
+      margin-top: 8vh;
+    }
+
+    #footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .status-waiting {
+      background-color: #73c0de;
+      padding: 3px 8px;
+      border-radius: 15px;
+    }
+
+    .status-serving {
+      background-color: #91cc75;
+      padding: 3px 8px;
+      border-radius: 15px;
+    }
+
+    .status-pending {
+      background-color: #fac858;
+      padding: 3px 8px;
+      border-radius: 15px;
+    }
+
+    .queueCat {
+      color: #fff;
+      font-weight: bolder;
     }
   </style>
 
@@ -98,7 +134,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" style="color:#fff;">
-            <img src="./ui/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="./assets/resources/user.png" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">
 
               <?php
@@ -140,16 +176,19 @@
                 ?>
               </span>
             </li>
+            <!--
             <li>
               <hr class="dropdown-divider">
             </li>
-
+              
             <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
             </li>
+            -->
+
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -170,4 +209,4 @@
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
-  <script src="<?= base_url('ui/') ?>assets/js/digitalClock.js"></script>
+  <script src="./assets/plugins/jquery/jquery.min.js"></script>

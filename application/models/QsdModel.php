@@ -43,27 +43,44 @@ class QsdModel extends CI_Model
     {
         $this->db->where('status', 1);
         $this->db->where('step_id', 2);
+        $this->db->where('window_id', 1);
         $this->db->where('category', 'PRIORITY');
         $this->db->Limit(1);
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
-    public function s2RegMod()
+    public function s2w2Mod()
     {
         $this->db->where('status', 1);
         $this->db->where('step_id', 2);
-        $this->db->where('category', 'REGULAR');
+        $this->db->where('window_id', 2);
+        $this->db->where('category', 'PRIORITY');
         $this->db->Limit(1);
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
 
-    public function s3w1PrioMod()
+
+
+
+    /*-------------------- REGULAR MODELS --------------------*/
+
+    public function s2w1RegMod()
     {
         $this->db->where('status', 1);
-        $this->db->where('step_id', 3);
+        $this->db->where('step_id', 2);
         $this->db->where('window_id', 1);
-        $this->db->where('category', 'PRIORITY');
+        $this->db->where('category', 'REGULAR');
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+    public function s2w2RegMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 2);
+        $this->db->where('category', 'REGULAR');
         $this->db->Limit(1);
         $query = $this->db->get('tbl_transactions');
         return $query->result();
@@ -78,34 +95,12 @@ class QsdModel extends CI_Model
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
-
-    public function s3w2PrioMod()
-    {
-        $this->db->where('status', 1);
-        $this->db->where('step_id', 3);
-        $this->db->where('window_id', 2);
-        $this->db->where('category', 'PRIORITY');
-        $this->db->Limit(1);
-        $query = $this->db->get('tbl_transactions');
-        return $query->result();
-    }
     public function s3w2RegMod()
     {
         $this->db->where('status', 1);
         $this->db->where('step_id', 3);
         $this->db->where('window_id', 2);
         $this->db->where('category', 'REGULAR');
-        $this->db->Limit(1);
-        $query = $this->db->get('tbl_transactions');
-        return $query->result();
-    }
-
-    public function s3w3PrioMod()
-    {
-        $this->db->where('status', 1);
-        $this->db->where('step_id', 3);
-        $this->db->where('window_id', 3);
-        $this->db->where('category', 'PRIORITY');
         $this->db->Limit(1);
         $query = $this->db->get('tbl_transactions');
         return $query->result();
@@ -120,12 +115,12 @@ class QsdModel extends CI_Model
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
-    public function s4w1PrioMod()
+    public function s3w4RegMod()
     {
         $this->db->where('status', 1);
-        $this->db->where('step_id', 4);
-        $this->db->where('window_id', 1);
-        $this->db->where('category', 'PRIORITY');
+        $this->db->where('step_id', 3);
+        $this->db->where('window_id', 4);
+        $this->db->where('category', 'REGULAR');
         $this->db->Limit(1);
         $query = $this->db->get('tbl_transactions');
         return $query->result();
@@ -140,16 +135,6 @@ class QsdModel extends CI_Model
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
-    public function s4w2PrioMod()
-    {
-        $this->db->where('status', 1);
-        $this->db->where('step_id', 4);
-        $this->db->where('window_id', 2);
-        $this->db->where('category', 'PRIORITY');
-        $this->db->Limit(1);
-        $query = $this->db->get('tbl_transactions');
-        return $query->result();
-    }
     public function s4w2RegMod()
     {
         $this->db->where('status', 1);
@@ -160,6 +145,127 @@ class QsdModel extends CI_Model
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
+    public function s4w3RegMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 4);
+        $this->db->where('window_id', 3);
+        $this->db->where('category', 'REGULAR');
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function s2w3RegMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 3);
+        $this->db->where('category', 'REGULAR');
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+    public function s3w1PrioMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 3);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
+
+    public function s3w2PrioMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 3);
+        $this->db->where('window_id', 2);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
+
+    public function s3w3PrioMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 3);
+        $this->db->where('window_id', 3);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+    public function s3w4PrioMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 3);
+        $this->db->where('window_id', 4);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
+    public function s4w1PrioMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 4);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
+    public function s4w2PrioMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 4);
+        $this->db->where('window_id', 2);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+    public function s4w3PrioMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 4);
+        $this->db->where('window_id', 3);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
 
     public function qsdS3PrioModel()
     {

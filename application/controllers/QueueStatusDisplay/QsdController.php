@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+/**
+ * @property CI_Session $session
+ * @property QsdModel $QsdModel
+ */
 class QsdController extends CI_Controller
 {
 	public function __construct()
@@ -8,8 +11,8 @@ class QsdController extends CI_Controller
 		parent::__construct();
 		$this->load->model('QsdModel');
 	}
-
-	public function qsdPriorityCont()
+	/*-------------------- PRIORITY CONTROLLERS --------------------*/
+	public function qsdPrioCont()
 	{
 		$this->load->view('queueStatusDisplay/header');
 		$queStep = $this->QsdModel->getQsdStepPrio();
@@ -23,6 +26,74 @@ class QsdController extends CI_Controller
 		$this->load->view('queueStatusDisplay/footer');
 	}
 
+	private function displayPrioTicket($modelMethod)
+	{
+		$serving = $this->QsdModel->$modelMethod();
+
+		if (!empty($serving)) {
+			foreach ($serving as $row) {
+				echo '<h1 class="serveTicketPrio">
+                  P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
+                  </h1>';
+			}
+		}
+	}
+	public function s2w1PrioCont()
+	{
+		$this->displayPrioTicket('s2Mod');
+	}
+
+	public function s2w2PrioCont()
+	{
+		$this->displayPrioTicket('s2w2Mod');
+	}
+
+	public function s3w1PrioCont()
+	{
+		$this->displayPrioTicket('s3w1PrioMod');
+	}
+
+	public function s3w2PrioCont()
+	{
+		$this->displayPrioTicket('s3w2PrioMod');
+	}
+
+	public function s3w3PrioCont()
+	{
+		$this->displayPrioTicket('s3w3PrioMod');
+	}
+
+	public function s3w4PrioCont()
+	{
+		$this->displayPrioTicket('s3w4PrioMod');
+	}
+
+	public function s4w1PrioCont()
+	{
+		$this->displayPrioTicket('s4w1PrioMod');
+	}
+
+	public function s4w2PrioCont()
+	{
+		$this->displayPrioTicket('s4w2PrioMod');
+	}
+
+	public function s4w3PrioCont()
+	{
+		$this->displayPrioTicket('s4w3PrioMod');
+	}
+
+
+
+
+
+
+
+
+
+
+
+	/*-------------------- REGULAR CONTROLLERS --------------------*/
 	public function qsdRegCont()
 	{
 		$this->load->view('queueStatusDisplay/header');
@@ -36,222 +107,61 @@ class QsdController extends CI_Controller
 		$this->load->view('queueStatusDisplay/qsdRegular', $data);
 		$this->load->view('queueStatusDisplay/footer');
 	}
-
-	public function s2PrioCont()
+	private function displayRegTicket($modelMethod)
 	{
-
-		$serving = $this->QsdModel->s2Mod();
-
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketPrio">
-                  P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-              		</h1>';
-			}
-		} else {
-		}
-	}
-	public function s2RegCont()
-	{
-
-		$serving = $this->QsdModel->s2RegMod();
+		$serving = $this->QsdModel->$modelMethod();
 
 		if (!empty($serving)) {
 			foreach ($serving as $row) {
 				echo '<h1 class="serveTicketRegu">
                   R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-              		</h1>';
+                  </h1>';
 			}
-		} else {
 		}
 	}
-
-	public function s3w1PrioCont()
+	public function s2w1RegCont()
 	{
-
-		$serving = $this->QsdModel->s3w1PrioMod();
-
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketPrio">
-                  P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-              		</h1>';
-			}
-		} else {
-		}
+		$this->displayRegTicket('s2w1RegMod');
 	}
+
+	public function s2w2RegCont()
+	{
+		$this->displayRegTicket('s2w2RegMod');
+	}
+
 	public function s3w1RegCont()
 	{
-
-		$serving = $this->QsdModel->s3w1RegMod();
-
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketRegu">
-                  R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-              		</h1>';
-			}
-		} else {
-		}
+		$this->displayRegTicket('s3w1RegMod');
 	}
 
-	public function s3w2PrioCont()
-	{
-
-		$serving = $this->QsdModel->s3w2PrioMod();
-
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketPrio">
-                  P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-              		</h1>';
-			}
-		} else {
-		}
-	}
 	public function s3w2RegCont()
 	{
-
-		$serving = $this->QsdModel->s3w2RegMod();
-
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketRegu">
-                  R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-              		</h1>';
-			}
-		} else {
-		}
+		$this->displayRegTicket('s3w2RegMod');
 	}
 
-	public function s3w3PrioCont()
-	{
-
-		$serving = $this->QsdModel->s3w3PrioMod();
-
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketPrio">
-                  P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-              		</h1>';
-			}
-		} else {
-		}
-	}
 	public function s3w3RegCont()
 	{
-
-		$serving = $this->QsdModel->s3w3RegMod();
-
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketRegu">
-                  R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-              		</h1>';
-			}
-		} else {
-		}
+		$this->displayRegTicket('s3w3RegMod');
 	}
 
-	public function s4w1PrioCont()
+	public function s3w4RegCont()
 	{
-
-		$serving = $this->QsdModel->s4w1PrioMod();
-
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketPrio">
-                  P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-              		</h1>';
-			}
-		} else {
-		}
+		$this->displayRegTicket('s3w4RegMod');
 	}
+
 	public function s4w1RegCont()
 	{
-
-		$serving = $this->QsdModel->s4w1RegMod();
-
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketRegu">
-                  R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-              		</h1>';
-			}
-		} else {
-		}
+		$this->displayRegTicket('s4w1RegMod');
 	}
-	public function s4w2PrioCont()
-	{
 
-		$serving = $this->QsdModel->s4w2PrioMod();
-
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketPrio">
-                  P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-              		</h1>';
-			}
-		} else {
-		}
-	}
 	public function s4w2RegCont()
 	{
-
-		$serving = $this->QsdModel->s4w2RegMod();
-
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketRegu">
-                  R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-              		</h1>';
-			}
-		} else {
-		}
+		$this->displayRegTicket('s4w2RegMod');
 	}
 
-	public function qsdStep3Prio()
+	public function s4w3RegCont()
 	{
-
-		$serving = $this->QsdModel->qsdS3PrioModel();
-
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketPrio">
-                  P' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-              		</h1>';
-			}
-		} else {
-		}
-	}
-
-	public function qsdS2ReguCont()
-	{
-
-		$serving = $this->QsdModel->qsdS2ReguModel();
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketRegu">
-                  R' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . ' ' . $row->step_id . '
-              		</h1>';
-			}
-		} else {
-		}
-	}
-
-	public function qsdS3()
-	{
-
-		$serving = $this->QsdModel->qsdS3Model();
-
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class=" ' . (($row->category == 'REGULAR') ? 'serveTicketRegu' : 'serveTicketPrio') . '">
-                  ' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . ' - ' . $row->category . '
-              		</h1>';
-			}
-		} else {
-		}
+		$this->displayRegTicket('s4w3RegMod');
 	}
 
 	public function qsdFM()
