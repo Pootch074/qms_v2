@@ -334,30 +334,39 @@
                 const h1 = $(elementID + ' h1');
                 if (!h1.length) return;
 
-                const [queueNum, category] = h1.text().trim().split('-');
-                if (!queueNum || !category) return;
+                const rawText = h1.text().trim();
+                if (!rawText) return;
+
+                // Extract queue number like "P 000", "A 005", etc.
+                const queueNum = rawText;
+
+                // Normalize queue number by removing all non-digits (e.g. "P 000" → "000")
+                const normalizedQueueNum = queueNum.replace(/[^\d]/g, '');
+
+                if (parseInt(normalizedQueueNum, 10) === 0) {
+                    console.log(`Skipped audio/speech for queue number ${queueNum}`);
+                    return;
+                }
 
                 if (!prevData[url]) prevData[url] = {
-                    queueNum: null,
-                    category: null
+                    queueNum: null
                 };
 
-                const changed = queueNum !== prevData[url].queueNum || category !== prevData[url].category;
+                const changed = queueNum !== prevData[url].queueNum;
                 if (!changed) {
                     $(elementID).removeClass('elementID');
                     return;
                 }
 
                 prevData[url] = {
-                    queueNum,
-                    category
+                    queueNum
                 };
                 $(elementID).addClass('elementID');
 
-                const baseMsg = `Client number, ${queueNum} ${category}. Please proceed to step ${step}`;
+                const baseMsg = `Client number, ${queueNum}. Please proceed to step ${step}`;
                 const fullMessage = windowNum ?
-                    `${baseMsg} window ${windowNum}. ${queueNum} ${category}, to step ${step} window ${windowNum}.` :
-                    `${baseMsg}. ${queueNum} ${category}, to step ${step}.`;
+                    `${baseMsg} window ${windowNum}. ${queueNum}, to step ${step} window ${windowNum}.` :
+                    `${baseMsg}. ${queueNum}, to step ${step}.`;
 
                 console.log(`New message: ${fullMessage}`);
                 queue.push({
@@ -369,6 +378,8 @@
                 console.error("Error fetching queue data:", error);
             });
         }
+
+
 
         function qsdLoadStepFlow() {
             handleQueueData('<?= base_url('qsdS2W1PrioRou') ?>', '#qsdS2W1Prio', 2, 1);

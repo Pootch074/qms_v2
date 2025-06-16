@@ -10,6 +10,42 @@ class QsfModel extends CI_Model
     }
 
     //============================== STEP 2 PRIORITY ==============================//
+    public function s2w1RecallBtnPrioMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'PRIORITY');
+
+        $query = $this->db->get('tbl_transactions');
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+
+            // Update the status of the found row to 2 (or skipped)
+            $this->db->where('id', $row->id);
+            $this->db->update('tbl_transactions', array('queue_num' => 0));
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function s2w1QuePrioMod()
     {
         $this->db->where('status', 0);

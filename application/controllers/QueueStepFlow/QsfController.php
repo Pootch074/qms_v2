@@ -15,6 +15,47 @@ class QsfController extends CI_Controller
 		$this->load->library('session');
 	}
 
+	public function s2w1RecallBtnPrioCont()
+	{
+		$this->load->model('QsfModel');
+		$this->QsfModel->s2w1RecallBtnPrioMod();
+		echo json_encode(array('status' => 'success'));
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public function qsfs2w1PrioCont()
 	{
 		$fname = $this->session->userdata('fname');

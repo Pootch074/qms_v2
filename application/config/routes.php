@@ -152,6 +152,13 @@ $route['s2w1UpdPendPrioRou/(:num)'] = 'QueueStepFlow/QsfController/s2w1UpdPendPr
 $route['s2w2UpdPendPrioRou/(:num)'] = 'QueueStepFlow/QsfController/s2w2UpdatePendPrioCont/$1';
 
 
+$route['s2w1RecallBtnPrioRou'] = 'QueueStepFlow/QsfController/s2w1RecallBtnPrioCont';
+
+
+
+
+
+
 /*-------------------- STEP 2 REGULAR ROUTES --------------------*/
 $route['qsfs2w1Regu'] = 'QueueStepFlow/QsfController/qsfs2w1ReguCont';
 $route['qsfs2w2Regu'] = 'QueueStepFlow/QsfController/qsfs2w2ReguCont';

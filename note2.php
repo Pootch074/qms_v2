@@ -8,49 +8,7 @@
 </head>
 
 <body>
-    route
-    <!-- REFERENCE -->
 
-
-
-
-
-
-    <!-- OWN -->
-
-
-
-
-    controller
-    <!-- REFERENCE -->
-
-
-
-
-
-
-    <!-- OWN -->
-
-
-
-
-
-    model
-    <!-- REFERENCE -->
-
-
-
-
-
-
-    <!-- OWN -->
-
-
-
-
-
-    view
-    <!-- REFERENCE -->
 
     <!-- OWN -->
 

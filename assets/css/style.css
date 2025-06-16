@@ -560,7 +560,6 @@ h6 {
 	max-height: 50px; /* Try 50px or less to avoid overflow */
 	width: auto;
 	height: auto;
-	margin-right: 6px;
 }
 
 .logo span {
