@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="./assets/logo/dswdIcon.png" rel="icon">
+  <link href="./assets/resources/dswdIcon.png" rel="icon">
   <link href="./assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -86,7 +86,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center mx-3">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="./assets/logo/dswdLogo.png" alt="">
+        <img src="./assets/resources/dswd-color.png" alt="">
       </a>
       <!--<i class="bi bi-list toggle-sidebar-btn"></i>-->
     </div>

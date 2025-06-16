@@ -545,19 +545,21 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 .logo {
-	line-height: 1;
+	display: flex;
+	align-items: center;
+	height: 100%; /* Add this line */
 }
 
 @media (min-width: 1200px) {
 	.logo {
 		width: 280px;
-		margin-top: 15px;
 	}
 }
 
 .logo img {
-	max-height: 100%;
-	max-width: 100%;
+	max-height: 50px; /* Try 50px or less to avoid overflow */
+	width: auto;
+	height: auto;
 	margin-right: 6px;
 }
 
@@ -1401,9 +1403,6 @@ h6 {
 	}
 }
 
-/*--------------------------------------------------------------
-# Footer
---------------------------------------------------------------*/
 .footer {
 	padding: 10px 0;
 	font-size: 14px;

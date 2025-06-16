@@ -2,18 +2,41 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <style>
+        .new-footer-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: stretch;
+            align-content: stretch;
+        }
+
+        .flex-items:nth-child(1) {
+            display: block;
+            flex-grow: 0;
+            flex-shrink: 1;
+            flex-basis: auto;
+            align-self: auto;
+            order: 0;
+        }
+
+        .flex-items:nth-child(2) {
+            display: block;
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: auto;
+            align-self: auto;
+            order: 0;
+        }
+    </style>
 </head>
 
 <body>
-    <div>
-
-        still theres no video on playlist and nowstreaming. I think the row of my table is wrong??
-        id is 1, title is "Video 1" and file_path is assets/resources/qsdVideos/vid2.mp4
-
-
+    <div class="new-footer-container">
+        <div class="flex-items"></div>
+        <div class="flex-items"></div>
     </div>
 </body>
 

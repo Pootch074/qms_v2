@@ -1,18 +1,19 @@
 <style>
   .footer {
-    height: 8vh;
-    /*background-image: url('./assets/resources/header2.png');*/
-    background-size: cover;
-    /* Makes the background cover the header */
+    /* background-size: cover;
     background-position: center;
-    /* Centers the image */
-    background-repeat: no-repeat;
-    /* Prevents the image from repeating */
+    background-repeat: no-repeat; */
     height: 8vh;
-    /* Adjust as needed */
     color: white;
-    /* To make the text stand out */
     background-color: #1b4bb0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+    z-index: 2;
   }
 
   #marqueeSlide {
@@ -37,10 +38,49 @@
       transform: translateX(-200%);
     }
   }
+
+
+  .new-footer-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+    z-index: 2;
+    position: fixed;
+  }
+
+  .flex-items:nth-child(1) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+  }
+
+  .flex-items:nth-child(2) {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+  }
 </style>
 
-<footer id="footerMarquee" class="footer">
-  <div></div>
+<footer class="footer">
+  <div id="footerMarquee">
+  </div>
+  <div class="new-footer-container">
+    <div class="flex-items">
+      <img src="./assets/resources/dswd-footer-left.png" class="footer-logo" alt="Footer Left Logo">
+    </div>
+    <div class="flex-items">
+      <img src="./assets/resources/dswd-footer-right.png" class="footer-logo" alt="Footer Left Logo">
+    </div>
+  </div>
 </footer><!-- End Footer -->
 
 <script src="./assets/js/digitalClock.js"></script>

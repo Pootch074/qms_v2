@@ -3,11 +3,9 @@ $segment1 = $this->uri->segment(1); // Get the first URI segment
 ?>
 <!-------------------- START OF SIDEBAR -------------------->
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-    <div class="app-brand demo">
+    <div class="app-brand demo" style="display: flex; align-items: center; justify-content: center;">
         <a href="index.html" class="app-brand-link">
-            <span class="app-brand-logo demo">
-                <img src="./assets/resources/dswdLogo.png" alt="DSWD Logo" style="height: 10%; width: 10%;">
-            </span>
+            <img src="./assets/resources/dswd-color.png" style="width: 80%; height: 80%;">
         </a>
     </div>
 

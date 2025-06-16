@@ -59,6 +59,21 @@
       -webkit-backdrop-filter: blur(8px);
     }
 
+    .loginlogo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      /* Optional: ensures vertical centering if parent has height */
+    }
+
+    .loginlogo img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+
     form {
       display: flex;
       flex-direction: column;
@@ -190,12 +205,14 @@
     <?php endif; ?>
     <?php echo validation_errors('<div class="error">', '</div>'); ?>
 
-    <form class="row g-3 needs-validation" action="<?php echo base_url('login'); ?>" method="post">
-      <div class="col">
-        <a href="" class="logo d-flex align-items-center justify-content-center w-100">
-          <img src="./assets/resources/dswdLogo.png" alt="" style="width:100%;">
-        </a>
-      </div>
+    <div class="col">
+      <a href="" class="loginlogo">
+        <img src="./assets/resources/dswd-bagong-pilipinas.png">
+      </a>
+    </div>
+
+    <form style="margin-top:50px;" class="row g-1 needs-validation" action="<?php echo base_url('login'); ?>" method="post">
+
 
       <div class="input-field">
         <input type="text" name="employee_id" id="employeeID" oninput="formatID(this)" value="<?php echo set_value('employee_id'); ?>" required>
