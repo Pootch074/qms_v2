@@ -164,7 +164,7 @@
             </div>
 
             <div class="col">
-              <button class="btn btn-secondary btn-lg call3dBtn my-2 w-100" onclick="recallBtn()" id="callBtnID">
+              <button class="btn btn-secondary btn-lg call3dBtn my-2 w-100" id="callBtnID">
                 <i class="bi bi-volume-up-fill" style="font-size: 2em;"></i>
               </button>
             </div>
@@ -326,16 +326,6 @@
     });
   }
 
-  function recallBtn() {
-    $('#recallBtnModal').modal('show');
-    $('#recallBtnCnfrmYs').off('click').on('click', function() {
-      $.ajax({
-        url: <?= base_url('s2w1RecallBtnPrioRou') ?>,
-        type: 'POST',
-        success: error('Hello'),
-      })
-    });
-  }
 
   function callButton() {
     $.ajax({

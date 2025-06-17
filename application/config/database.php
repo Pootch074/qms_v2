@@ -73,11 +73,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+//  SETUP FOR LARAGON
 $db['default'] = array(
 	'dsn'   => '',
-	'hostname' => 'db',  // this should match the service name in docker-compose
+	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => 'rootpass',
+	'password' => 'MyNewSecurePassword123!',
 	'database' => 'qms',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
@@ -88,3 +89,20 @@ $db['default'] = array(
 	'char_set' => 'utf8',
 	'dbcollat' => 'utf8_general_ci',
 );
+
+//  SETUP FOR DOCKER
+// $db['default'] = array(
+// 	'dsn'   => '',
+// 	'hostname' => 'db',
+// 	'username' => 'root',
+// 	'password' => 'rootpass',
+// 	'database' => 'qms',
+// 	'dbdriver' => 'mysqli',
+// 	'dbprefix' => '',
+// 	'pconnect' => FALSE,
+// 	'db_debug' => TRUE,
+// 	'cache_on' => FALSE,
+// 	'cachedir' => '',
+// 	'char_set' => 'utf8',
+// 	'dbcollat' => 'utf8_general_ci',
+// );
