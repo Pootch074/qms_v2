@@ -407,6 +407,32 @@ class QsfController extends CI_Controller
 
 
 
+	public function s2w1CallPrioCont()
+	{
+		header('Content-Type: application/json');
+
+		try {
+			$updated = $this->QsfModel->s2w1CallPrioMod();
+
+			echo json_encode(['success' => $updated]);
+		} catch (Exception $e) {
+			echo json_encode(['success' => false, 'error' => $e->getMessage()]);
+		}
+	}
+
+
+	public function hiddednresetCallStatByQueueNum()
+	{
+		$input = json_decode(file_get_contents('php://input'), true);
+		$queueNum = $input['queue_num'] ?? null;
+
+		if ($queueNum) {
+			$updated = $this->QsfModel->resetCallStatByQueueNum($queueNum);
+			echo json_encode(['success' => $updated]);
+		} else {
+			echo json_encode(['success' => false, 'error' => 'Queue number missing']);
+		}
+	}
 
 
 

@@ -28,6 +28,8 @@
   <link href="./assets/css/qsdStyle.css" rel="stylesheet">
   <link href="./assets/css/qsfButtonStyle.css" rel="stylesheet">
   <link href="./assets/css/qsdDigitalClock.css" rel="stylesheet">
+  <link href="<?= base_url('assets/css/qsdPriority.css') ?>" rel="stylesheet">
+
 
 
 

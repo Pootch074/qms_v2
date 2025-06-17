@@ -528,6 +528,58 @@ class QsfModel extends CI_Model
 
 
 
+    // public function s2w1CallPrioMod()
+    // {
+    //     $this->db->where('status', 1);
+    //     $this->db->where('step_id', 2); // SKIP IF STEP MATCHES
+    //     $this->db->where('window_id', 1); // SKIP IF STEP MATCHES
+    //     $this->db->where('category', 'PRIORITY'); // SKIP IF CATEGORY MATCHES
+    //     $this->db->where('call_stat', NULL);
+
+    //     $this->db->limit(1);
+
+    //     $query = $this->db->get('tbl_transactions');
+    //     if ($query->num_rows() > 0) {
+    //         $row = $query->row();
+
+    //         // Update the status of the found row to 2 (or skipped)
+    //         $this->db->where('id', $row->id);
+    //         $this->db->update('tbl_transactions', array('call_stat' => 1));
+    //     }
+    // }
+
+
+    public function s2w1CallPrioMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->where('call_stat', null);
+        $this->db->limit(1);
+
+        $query = $this->db->get('tbl_transactions');
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+
+            $this->db->where('id', $row->id);
+            $this->db->update('tbl_transactions', ['call_stat' => 1]);
+
+            return $row->id; // Return ID so JS can track it
+        }
+
+        return false;
+    }
+
+
+    public function resetCallStatByQueueNum($queueNum)
+    {
+        $this->db->where('queue_num', (int)$queueNum); // cast to int just to be safe
+        $this->db->set('call_stat', null, false); // revert to NULL
+        return $this->db->update('tbl_transactions');
+    }
+
+
 
 
 

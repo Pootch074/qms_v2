@@ -310,4 +310,52 @@ class QsdModel extends CI_Model
         $query = $this->db->get('qsd_marquee');
         return $query->result();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function abcdMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->where('call_stat', NULL);
+
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public function hiddenS2Mod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->where('call_stat', 1);
+
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
 }

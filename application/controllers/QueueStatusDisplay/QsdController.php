@@ -178,4 +178,47 @@ class QsdController extends CI_Controller
 		} else {
 		}
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public function abcdCont()
+	{
+
+		try {
+			$updated = $this->QsdModel->abcdMod();
+
+			echo json_encode(['success' => $updated]);
+		} catch (Exception $e) {
+			echo json_encode(['success' => false, 'error' => $e->getMessage()]);
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public function hiddenS2w1PrioCont()
+	{
+		$this->displayPrioTicket('hiddenS2Mod');
+	}
 }

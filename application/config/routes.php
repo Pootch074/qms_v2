@@ -217,3 +217,36 @@ $route['videos'] = 'video/videocontroller/upload';
 $route['userLogged'] = 'QueueStepFlow/QsfController/userLogged';
 $route['callBtn'] = 'QueueStepFlow/QsfController/nextCall';
 $route['hgu'] = 'QueueStepFlow/QsfController/headerGetUser';
+
+
+$route['s2w1CallPrioRou'] = 'QueueStepFlow/QsfController/s2w1CallPrioCont';
+$route['resetCallStatByQueueNum'] = 'QueueStepFlow/QsfController/hiddednresetCallStatByQueueNum';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$route['hiddenQsdS2W1PrioRou'] = 'QueueStatusDisplay/QsdController/hiddenS2w1PrioCont';
+$route['hiddenQsdS2W2PrioRou'] = 'QueueStatusDisplay/QsdController/hiddenS2w2PrioCont';
+$route['hiddenQsdS3W1PrioRou'] = 'QueueStatusDisplay/QsdController/hiddenS3w1PrioCont';
+$route['hiddenQsdS3W2PrioRou'] = 'QueueStatusDisplay/QsdController/hiddenS3w2PrioCont';
+$route['hiddenQsdS3W3PrioRou'] = 'QueueStatusDisplay/QsdController/hiddenS3w3PrioCont';
+$route['hiddenQsdS3W4PrioRou'] = 'QueueStatusDisplay/QsdController/hiddenS3w4PrioCont';
+$route['hiddenQsdS4W1PrioRou'] = 'QueueStatusDisplay/QsdController/hiddenS4w1PrioCont';
+$route['hiddenQsdS4W2PrioRou'] = 'QueueStatusDisplay/QsdController/hiddenS4w2PrioCont';
+$route['hiddenQsdS4W3PrioRou'] = 'QueueStatusDisplay/QsdController/hiddenS4w3PrioCont';
