@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: db
--- Generation Time: Jun 06, 2025 at 04:50 PM
--- Server version: 8.0.42
--- PHP Version: 8.2.27
+-- Host: localhost:3306
+-- Generation Time: Jun 18, 2025 at 06:12 AM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,7 +48,7 @@ CREATE TABLE `qms_users` (
 
 INSERT INTO `qms_users` (`id`, `fname`, `lname`, `employee_id`, `role`, `ass_step`, `ass_window`, `ass_category`, `log_status`, `status`, `user_pass`, `section`) VALUES
 (18, 'Preasses', 'Priority', '11-1110', 'Preasses', 1, NULL, 'PRIORITY', 'INACTIVE', 'APPROVED', '$2y$10$lSK2mR5iJ8TkBXuNesfbkepteE7O4fcqMnzX8uTVmqvemIeTEukOS', 'CIS'),
-(19, 'EncoderW1', 'Priority', '11-1111', 'Encode', 2, 1, 'PRIORITY', 'INACTIVE', 'APPROVED', '$2y$10$JI6dgc.fZo7H9SIgSpYZzuSgNquMRBilKH/wvcLFscg8TUkJV0tGu', NULL),
+(19, 'EncoderW1', 'Priority', '11-1111', 'Encode', 2, 1, 'PRIORITY', 'ACTIVE', 'APPROVED', '$2y$10$JI6dgc.fZo7H9SIgSpYZzuSgNquMRBilKH/wvcLFscg8TUkJV0tGu', NULL),
 (20, 'EncoderW2', 'Priority', '11-1112', 'Encode', 2, 2, 'PRIORITY', 'INACTIVE', 'APPROVED', '$2y$10$PpdTBBajgjQwejb8g.cm8.8JNcMrQXLWMw7lSq7OfgUksvDte5iq.', NULL),
 (21, 'Preasses', 'Regular', '11-2220', 'Preasses', 1, NULL, 'REGULAR', 'INACTIVE', 'APPROVED', '$2y$10$Dfxo7BPzlmb5VeTGvE1aOu.gmZVjlCgplobfcpF/ETO/lQhIdwyzO', NULL),
 (22, 'EncoderW1', 'Regular', '11-2221', 'Encode', 2, 1, 'REGULAR', 'INACTIVE', 'APPROVED', '$2y$10$TwmU.fdsV84Ix2IjqDk68eRO3rxI3hEnIyoAQp3G76g7kYdo6Lcay', NULL),
@@ -60,7 +60,7 @@ INSERT INTO `qms_users` (`id`, `fname`, `lname`, `employee_id`, `role`, `ass_ste
 (28, 'Release', 'W1', '11-4441', 'Release', 4, 1, 'BOTH', 'INACTIVE', 'APPROVED', '$2y$10$KrXMKWo8JQrAANGZeGebO.XgeD45iMQn6EHtWWHOxNxqrEvaCF2.S', NULL),
 (29, 'Release', 'W2', '11-4442', 'Release', 4, 2, 'BOTH', 'INACTIVE', 'APPROVED', '$2y$10$wYmUHsEKCPo3w/yn0n5S6uCt.yj.3tZC5rl9Um.12BBfyP9lKXYIm', NULL),
 (30, 'Release', 'W3', '11-4443', 'Release', 4, 3, 'BOTH', 'INACTIVE', 'APPROVED', '$2y$10$1LwA6QlDO9BO00HXHK9BguwpDOGUx/LT7rC/h7nWM9eRx2CKDKt.a', NULL),
-(31, 'Display1', 'Priority', '11-5551', 'Display', NULL, NULL, 'PRIORITY', 'INACTIVE', 'APPROVED', '$2y$10$5ln6Jb5b7FELD5m.TIaXpOg1LtM.M5M95V/eNWET1rMp8eacS2TFC', NULL),
+(31, 'Display1', 'Priority', '11-5551', 'Display', NULL, NULL, 'PRIORITY', 'ACTIVE', 'APPROVED', '$2y$10$5ln6Jb5b7FELD5m.TIaXpOg1LtM.M5M95V/eNWET1rMp8eacS2TFC', NULL),
 (32, 'Display2', 'Regular', '11-5552', 'Display', NULL, NULL, 'REGULAR', 'INACTIVE', 'APPROVED', '$2y$10$6vIuYXCAZ9.HAOnqtpcd7.Ye3Z5ypJY2lK.Mtultc8wVgTRtvRlcu', NULL),
 (33, 'System', 'Admin', '11-0000', 'Admin', NULL, NULL, 'BOTH', 'INACTIVE', 'APPROVED', '$2y$10$CIpUs3.2Xk5j9nWj9ZpTpeXoKG6MtNzUWzgXHmXQYbB8uxOn33jZu', NULL);
 
@@ -79,9 +79,9 @@ CREATE TABLE `qms_users2` (
   `ass_step` int DEFAULT NULL,
   `ass_window` int DEFAULT NULL,
   `ass_category` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `log_status` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `log_status` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `status` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Pending',
-  `user_pass` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `user_pass` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -155,6 +155,27 @@ INSERT INTO `qsd_steps` (`id`, `section_id`, `step_number`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `recall`
+--
+
+CREATE TABLE `recall` (
+  `id` int NOT NULL,
+  `step_id` int NOT NULL,
+  `window_id` int NOT NULL,
+  `category` text NOT NULL,
+  `call_num` int NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `recall`
+--
+
+INSERT INTO `recall` (`id`, `step_id`, `window_id`, `category`, `call_num`) VALUES
+(1, 2, 1, 'PRIORITY', 12);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_transactions`
 --
 
@@ -168,17 +189,18 @@ CREATE TABLE `tbl_transactions` (
   `datetoday` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `step_id` int DEFAULT NULL,
-  `window_id` int DEFAULT NULL
+  `window_id` int DEFAULT NULL,
+  `call_stat` int DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_transactions`
 --
 
-INSERT INTO `tbl_transactions` (`id`, `queue_num`, `division_id`, `section_id`, `category`, `service_id`, `datetoday`, `status`, `step_id`, `window_id`) VALUES
-(1, 1, 9, 15, 'PRIORITY', 15, '2025-05-26 11:19:42', '2', 2, NULL),
-(2, 2, 9, 15, 'PRIORITY', 15, '2025-05-26 11:19:49', '0', 2, NULL),
-(3, 3, 9, 15, 'PRIORITY', 15, '2025-05-26 11:19:57', '0', 2, NULL);
+INSERT INTO `tbl_transactions` (`id`, `queue_num`, `division_id`, `section_id`, `category`, `service_id`, `datetoday`, `status`, `step_id`, `window_id`, `call_stat`) VALUES
+(1, 1, 9, 15, 'PRIORITY', 15, '2025-05-26 11:19:42', '0', 2, 1, 0),
+(2, 2, 9, 15, 'PRIORITY', 15, '2025-05-26 11:19:49', '0', 2, 1, 0),
+(3, 3, 9, 15, 'PRIORITY', 15, '2025-05-26 11:19:57', '1', 2, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -215,6 +237,12 @@ ALTER TABLE `qsd_marquee`
 -- Indexes for table `qsd_steps`
 --
 ALTER TABLE `qsd_steps`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `recall`
+--
+ALTER TABLE `recall`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -256,6 +284,12 @@ ALTER TABLE `qsd_marquee`
 --
 ALTER TABLE `qsd_steps`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+
+--
+-- AUTO_INCREMENT for table `recall`
+--
+ALTER TABLE `recall`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_transactions`
