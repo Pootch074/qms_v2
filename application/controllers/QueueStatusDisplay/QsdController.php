@@ -221,4 +221,25 @@ class QsdController extends CI_Controller
 	{
 		$this->displayPrioTicket('hiddenS2Mod');
 	}
+
+
+	public function updateQsdCallStat()
+	{
+		$this->load->model('QsdModel');
+		$this->QsdModel->resetCallStatForPriority();
+		echo json_encode(['status' => 'success']);
+	}
+
+
+
+	public function abcdcallCountCont()
+	{
+		$abcdcall = $this->QsdModel->abcdcallCountMod();
+		if (!empty($abcdcall)) {
+			foreach ($abcdcall as $row) {
+				echo '<h2 class="qsdStepFont">' . ($row->call_num) . '</h2>';
+			}
+		} else {
+		}
+	}
 }

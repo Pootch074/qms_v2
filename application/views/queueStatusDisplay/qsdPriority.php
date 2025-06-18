@@ -162,13 +162,13 @@
                     <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS2W1Prio" style="width:60%;">
                     </div>
 
-                    <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
-                        <h2 class="qsdStepFont">2</h2>
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="abcdcallCount" style="width:20%;">
+                        <!-- <h2 class="qsdStepFont">1</h2> -->
                     </div>
 
-                    <div class="h-100 d-flex align-items-center justify-content-center" style="margin-right:2vw; width:20%;">
+                    <!-- <div class="h-100 d-flex align-items-center justify-content-center" style="margin-right:2vw; width:20%;">
                         <h2 class="qsdStepFont">1</h2>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
@@ -523,3 +523,36 @@
     if (el1) el1.classList.add("hidden");
     if (el2) el2.classList.add("hidden");
 </script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function() {
+        abcd();
+        setInterval(abcd, 1000);
+    });
+
+    function abcd() {
+        $.ajax({
+            url: '<?= base_url('abcdcallCountRou') ?>',
+            type: 'GET',
+            success: function(data) {
+                $('#abcdcallCount').html(data);
+
+            },
+            error: function(xhr, status, error) {
+                console.error("Error: " + error);
+            }
+        });
+    }
+</script>

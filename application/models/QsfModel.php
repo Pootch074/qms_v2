@@ -555,7 +555,7 @@ class QsfModel extends CI_Model
         $this->db->where('step_id', 2);
         $this->db->where('window_id', 1);
         $this->db->where('category', 'PRIORITY');
-        $this->db->where('call_stat', null);
+        $this->db->where('call_stat', 0);
         $this->db->limit(1);
 
         $query = $this->db->get('tbl_transactions');
@@ -572,12 +572,12 @@ class QsfModel extends CI_Model
     }
 
 
-    public function resetCallStatByQueueNum($queueNum)
-    {
-        $this->db->where('queue_num', (int)$queueNum); // cast to int just to be safe
-        $this->db->set('call_stat', null, false); // revert to NULL
-        return $this->db->update('tbl_transactions');
-    }
+    // public function resetCallStatByQueueNum($queueNum)
+    // {
+    //     $this->db->where('queue_num', (int)$queueNum); // cast to int just to be safe
+    //     $this->db->set('call_stat', null, false); // revert to NULL
+    //     return $this->db->update('tbl_transactions');
+    // }
 
 
 

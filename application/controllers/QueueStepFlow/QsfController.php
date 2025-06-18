@@ -421,18 +421,18 @@ class QsfController extends CI_Controller
 	}
 
 
-	public function hiddednresetCallStatByQueueNum()
-	{
-		$input = json_decode(file_get_contents('php://input'), true);
-		$queueNum = $input['queue_num'] ?? null;
+	// public function hiddednresetCallStatByQueueNum()
+	// {
+	// 	$input = json_decode(file_get_contents('php://input'), true);
+	// 	$queueNum = $input['queue_num'] ?? null;
 
-		if ($queueNum) {
-			$updated = $this->QsfModel->resetCallStatByQueueNum($queueNum);
-			echo json_encode(['success' => $updated]);
-		} else {
-			echo json_encode(['success' => false, 'error' => 'Queue number missing']);
-		}
-	}
+	// 	if ($queueNum) {
+	// 		$updated = $this->QsfModel->resetCallStatByQueueNum($queueNum);
+	// 		echo json_encode(['success' => $updated]);
+	// 	} else {
+	// 		echo json_encode(['success' => false, 'error' => 'Queue number missing']);
+	// 	}
+	// }
 
 
 

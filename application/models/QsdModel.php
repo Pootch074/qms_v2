@@ -358,4 +358,36 @@ class QsdModel extends CI_Model
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
+
+
+    public function resetCallStatForPriority()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 1);
+        $this->db->where('call_stat', 1);
+
+        $this->db->set('call_stat', 0);
+        $this->db->update('tbl_transactions');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    public function abcdcallCountMod()
+    {
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'PRIORITY');
+        $query = $this->db->get('recall');
+        return $query->result();
+    }
 }

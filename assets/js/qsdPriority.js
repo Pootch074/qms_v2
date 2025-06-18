@@ -75,7 +75,7 @@ $(document).ready(function () {
 			if (!rawText) return;
 
 			// Extract queue number like "P 000", "A 005", etc.
-			const queueNum = rawText.replace(/[^\d]/g, "");
+			const queueNum = rawText;
 
 			// Normalize queue number by removing all non-digits (e.g. "P 000" → "000")
 			const normalizedQueueNum = queueNum.replace(/[^\d]/g, "");
@@ -107,29 +107,10 @@ $(document).ready(function () {
 				: `${baseMsg}. ${queueNum}, to step ${step}.`;
 
 			console.log(`New message: ${fullMessage}`);
-			// here
 			queue.push({
 				message: fullMessage,
-				callback: () => {
-					processQueue();
-
-					// Trigger reset only after speech is complete
-					setTimeout(() => {
-						console.log("Sending queue_num:", queueNum);
-
-						// Example: send request to reset the call_stat
-						fetch(BASE_URL + "resetCallStatByQueueNum", {
-							method: "POST",
-							headers: {
-								"Content-Type": "application/json",
-							},
-							body: JSON.stringify({ queue_num: queueNum }),
-						});
-					}, 5000); // 5 seconds after speech
-				},
+				callback: processQueue,
 			});
-
-			// here
 			processQueue();
 		}).fail(function (xhr, status, error) {
 			console.error("Error fetching queue data:", error);
@@ -143,62 +124,78 @@ $(document).ready(function () {
 			2,
 			1
 		);
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS2W2PrioRou",
-		// 	"#hiddenQsdS2W2Prio",
-		// 	2,
-		// 	2
-		// );
+		handleQueueData(
+			BASE_URL + "hiddenQsdS2W2PrioRou",
+			"#hiddenQsdS2W2Prio",
+			2,
+			2
+		);
 
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS3W1PrioRou",
-		// 	"#hiddenQsdS3W1Prio",
-		// 	3,
-		// 	1
-		// );
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS3W2PrioRou",
-		// 	"#hiddenQsdS3W2Prio",
-		// 	3,
-		// 	2
-		// );
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS3W3PrioRou",
-		// 	"#hiddenQsdS3W3Prio",
-		// 	3,
-		// 	3
-		// );
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS3W4PrioRou",
-		// 	"#hiddenQsdS3W4Prio",
-		// 	3,
-		// 	4
-		// );
+		handleQueueData(
+			BASE_URL + "hiddenQsdS3W1PrioRou",
+			"#hiddenQsdS3W1Prio",
+			3,
+			1
+		);
+		handleQueueData(
+			BASE_URL + "hiddenQsdS3W2PrioRou",
+			"#hiddenQsdS3W2Prio",
+			3,
+			2
+		);
+		handleQueueData(
+			BASE_URL + "hiddenQsdS3W3PrioRou",
+			"#hiddenQsdS3W3Prio",
+			3,
+			3
+		);
+		handleQueueData(
+			BASE_URL + "hiddenQsdS3W4PrioRou",
+			"#hiddenQsdS3W4Prio",
+			3,
+			4
+		);
 
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS4W1PrioRou",
-		// 	"#hiddenQsdS4W1Prio",
-		// 	4,
-		// 	1
-		// );
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS4W2PrioRou",
-		// 	"#hiddenQsdS4W2Prio",
-		// 	4,
-		// 	2
-		// );
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS4W3PrioRou",
-		// 	"#hiddenQsdS4W3Prio",
-		// 	4,
-		// 	3
-		// );
+		handleQueueData(
+			BASE_URL + "hiddenQsdS4W1PrioRou",
+			"#hiddenQsdS4W1Prio",
+			4,
+			1
+		);
+		handleQueueData(
+			BASE_URL + "hiddenQsdS4W2PrioRou",
+			"#hiddenQsdS4W2Prio",
+			4,
+			2
+		);
+		handleQueueData(
+			BASE_URL + "hiddenQsdS4W3PrioRou",
+			"#hiddenQsdS4W3Prio",
+			4,
+			3
+		);
 	}
+	let previousValue = $("#hiddenQsdS2W1Prio").text();
+	let previousCallCount = $("#abcdcallCount h2").text();
 
-	function qsdLoadStepFlowWithDelay() {
+	setInterval(function () {
+		let currentCallCount = $("#abcdcallCount h2").text();
+		if (currentCallCount !== previousCallCount) {
+			previousCallCount = currentCallCount;
+
+			const queueText =
+				$("#hiddenQsdS2W1Prio h1").text().trim() ||
+				$("#hiddenQsdS2W1Prio").text().trim();
+			if (!queueText) return;
+
+			const message = `Client number, ${queueText}. Please proceed to step 2 window 1. ${queueText}, to step 2 window 1.`;
+			queue.push({ message, callback: processQueue });
+			processQueue();
+		}
+	}, 1000);
+
+	function qsdLoadStepFlowLoop() {
 		qsdLoadStepFlow();
-		setTimeout(qsdLoadStepFlowWithDelay, 1000); // Adjust as needed
 	}
-
-	qsdLoadStepFlowWithDelay();
+	setInterval(qsdLoadStepFlowLoop, 1000);
 });
