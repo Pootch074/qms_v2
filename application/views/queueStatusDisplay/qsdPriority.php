@@ -426,26 +426,6 @@
     });
 </script>
 
-<!-- <script>
-    const el1 = document.getElementById("hiddenQsdS2W1Prio");
-    const el2 = document.getElementById("hiddenQsdS2W2Prio");
-
-    if (el1) el1.classList.add("hidden");
-    if (el2) el2.classList.add("hidden");
-</script> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
     $(document).ready(function() {
         abcd();

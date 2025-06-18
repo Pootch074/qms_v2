@@ -385,26 +385,39 @@
 
 
 <script>
+  // function s2w1CallPrioBtn() {
+  //   fetch('<?= base_url("s2w1CallPrioRou") ?>', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify({})
+  //     })
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       if (data.success) {
+  //         alert('Call status updated successfully!');
+  //       } else {
+  //         alert('Failed to update call status.');
+  //       }
+  //     })
+  //     .catch(error => {
+  //       console.error('Error:', error);
+  //       alert('An error occurred while updating call status.');
+  //     });
+  // }
+
   function s2w1CallPrioBtn() {
-    fetch('<?= base_url("s2w1CallPrioRou") ?>', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({})
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          alert('Call status updated successfully!');
-        } else {
-          alert('Failed to update call status.');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred while updating call status.');
-      });
+    $.ajax({
+      url: '<?= base_url('s2w1CallPrioRou') ?>',
+      type: 'POST',
+      success: function(response) {
+        var data = JSON.parse(response);
+      },
+      error: function() {
+        alert('Error while updating Next Regular');
+      }
+    });
   }
 </script>
 

@@ -409,15 +409,9 @@ class QsfController extends CI_Controller
 
 	public function s2w1CallPrioCont()
 	{
-		header('Content-Type: application/json');
-
-		try {
-			$updated = $this->QsfModel->s2w1CallPrioMod();
-
-			echo json_encode(['success' => $updated]);
-		} catch (Exception $e) {
-			echo json_encode(['success' => false, 'error' => $e->getMessage()]);
-		}
+		$this->load->model('QsfModel');
+		$this->QsfModel->s2w1CallPrioMod();
+		echo json_encode(array('status' => 'success'));
 	}
 
 

@@ -551,25 +551,22 @@ class QsfModel extends CI_Model
 
     public function s2w1CallPrioMod()
     {
-        $this->db->where('status', 1);
         $this->db->where('step_id', 2);
         $this->db->where('window_id', 1);
         $this->db->where('category', 'PRIORITY');
-        $this->db->where('call_stat', 0);
         $this->db->limit(1);
 
-        $query = $this->db->get('tbl_transactions');
+        $query = $this->db->get('recall');
+
         if ($query->num_rows() > 0) {
             $row = $query->row();
 
             $this->db->where('id', $row->id);
-            $this->db->update('tbl_transactions', ['call_stat' => 1]);
-
-            return $row->id; // Return ID so JS can track it
+            $this->db->set('call_num', 'call_num + 1', false); // `false` disables escaping
+            $this->db->update('recall');
         }
-
-        return false;
     }
+
 
 
     // public function resetCallStatByQueueNum($queueNum)
