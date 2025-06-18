@@ -84,7 +84,8 @@ class QsfModel extends CI_Model
 
             // Update the status of the found row to 1
             $this->db->where('id', $row->id);
-            $this->db->update('tbl_transactions', array('status' => 1, 'window_id' => 1));
+            // $this->db->update('tbl_transactions', array('status' => 1, 'window_id' => 1));
+            $this->db->update('tbl_transactions', array('status' => 1, 'window_id' => 1, 'call_stat' => 1));
         }
     }
     public function s2w2PrioBtnMod()

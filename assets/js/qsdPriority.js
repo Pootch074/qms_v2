@@ -1,23 +1,4 @@
-// const el1 = document.getElementById("hiddenQsdS2W1Prio");
-// const el2 = document.getElementById("hiddenQsdS2W2Prio");
-// const el3 = document.getElementById("hiddenQsdS3W1Prio");
-// const el4 = document.getElementById("hiddenQsdS3W2Prio");
-// const el5 = document.getElementById("hiddenQsdS3W3Prio");
-// const el6 = document.getElementById("hiddenQsdS3W4Prio");
-// const el7 = document.getElementById("hiddenQsdS4W1Prio");
-// const el8 = document.getElementById("hiddenQsdS4W2Prio");
-// const el9 = document.getElementById("hiddenQsdS4W3Prio");
 const el10 = document.getElementById("mnbghjk");
-
-// if (el1) el1.classList.add("hidden");
-// if (el2) el2.classList.add("hidden");
-// if (el3) el2.classList.add("hidden");
-// if (el4) el2.classList.add("hidden");
-// if (el5) el2.classList.add("hidden");
-// if (el6) el2.classList.add("hidden");
-// if (el7) el2.classList.add("hidden");
-// if (el8) el2.classList.add("hidden");
-// if (el9) el2.classList.add("hidden");
 if (el10) el10.classList.add("hidden");
 
 $(document).ready(function () {
@@ -123,11 +104,11 @@ $(document).ready(function () {
 				: `${baseMsg}. ${queueNum}, to step ${step}.`;
 
 			console.log(`New message: ${fullMessage}`);
-			queue.push({
-				message: fullMessage,
-				callback: processQueue,
-			});
-			processQueue();
+			// queue.push({
+			// 	message: fullMessage,
+			// 	callback: processQueue,
+			// });
+			// processQueue();
 		}).fail(function (xhr, status, error) {
 			console.error("Error fetching queue data:", error);
 		});
