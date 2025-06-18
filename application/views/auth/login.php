@@ -206,7 +206,7 @@
     <?php echo validation_errors('<div class="error">', '</div>'); ?>
 
     <div class="col">
-      <a href="" class="loginlogo">
+      <a href="https://fo11.dswd.gov.ph/" class="loginlogo">
         <img src="./assets/resources/dswd-bagong-pilipinas.png">
       </a>
     </div>
