@@ -179,54 +179,6 @@ class QsfModel extends CI_Model
             $this->db->update('tbl_transactions', array('step_id' => 3, 'window_id' => null,  'status' => 0));
         }
     }
-    /*
-    public function s2w1ProceedPrioBtnMod()
-    {
-        // Retrieve the transaction record that needs updating
-        $this->db->where('status', 1);
-        $this->db->where('step_id', 2);
-        $this->db->where('window_id', 1);
-        $this->db->where('category', 'PRIORITY');
-        $this->db->limit(1);
-        $query = $this->db->get('tbl_transactions');
-
-        if ($query->num_rows() > 0) {
-            $row = $query->row();
-
-            // Check if all window_id values are 0 for category 'PRIORITY'
-            $this->db->where('category', 'PRIORITY');
-            $this->db->where('window_id !=', 0);
-            $non_zero_window_query = $this->db->get('tbl_transactions');
-
-            if ($non_zero_window_query->num_rows() == 0) {
-                // If all window_id values for 'PRIORITY' are 0, set the next window_id to 1
-                $next_window_id = 1;
-            } else {
-                // Get the last non-zero window_id for 'PRIORITY', ordered by queue_num in descending order
-                $this->db->select('window_id');
-                $this->db->where('step_id', 3);
-                $this->db->where('category', 'PRIORITY');
-                $this->db->where('window_id !=', 0);
-                $this->db->order_by('queue_num', 'DESC');
-                $this->db->limit(1);
-                $last_window_query = $this->db->get('tbl_transactions');
-
-                // Get the last assigned non-zero window_id
-                $last_window_id = $last_window_query->row()->window_id;
-
-                // Determine the next window_id in the cycle (1, 2, 3)
-                $next_window_id = ($last_window_id % 3) + 1;
-            }
-
-            // Update the transaction with the calculated next window_id
-            $this->db->where('id', $row->id);
-            $this->db->update('tbl_transactions', array('window_id' => $next_window_id, 'step_id' => 3, 'status' => 0));
-        }
-    }
-    */
-
-
-
 
     public function s2w1UpdPendPrioMod($id)
     {
@@ -523,33 +475,6 @@ class QsfModel extends CI_Model
         $this->db->update('tbl_transactions', array('step_id' => 3, 'window_id' => null, 'status' => 0));
     }
 
-
-
-
-
-
-
-    // public function s2w1CallPrioMod()
-    // {
-    //     $this->db->where('status', 1);
-    //     $this->db->where('step_id', 2); // SKIP IF STEP MATCHES
-    //     $this->db->where('window_id', 1); // SKIP IF STEP MATCHES
-    //     $this->db->where('category', 'PRIORITY'); // SKIP IF CATEGORY MATCHES
-    //     $this->db->where('call_stat', NULL);
-
-    //     $this->db->limit(1);
-
-    //     $query = $this->db->get('tbl_transactions');
-    //     if ($query->num_rows() > 0) {
-    //         $row = $query->row();
-
-    //         // Update the status of the found row to 2 (or skipped)
-    //         $this->db->where('id', $row->id);
-    //         $this->db->update('tbl_transactions', array('call_stat' => 1));
-    //     }
-    // }
-
-
     public function s2w1CallPrioMod()
     {
         $this->db->where('step_id', 2);
@@ -568,47 +493,23 @@ class QsfModel extends CI_Model
         }
     }
 
+    public function s2w2CallPrioMod()
+    {
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 2);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->limit(1);
 
+        $query = $this->db->get('recall');
 
-    // public function resetCallStatByQueueNum($queueNum)
-    // {
-    //     $this->db->where('queue_num', (int)$queueNum); // cast to int just to be safe
-    //     $this->db->set('call_stat', null, false); // revert to NULL
-    //     return $this->db->update('tbl_transactions');
-    // }
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            $this->db->where('id', $row->id);
+            $this->db->set('call_num', 'call_num + 1', false); // `false` disables escaping
+            $this->db->update('recall');
+        }
+    }
 
     public function nextCall($ass_step, $ass_category)
     {

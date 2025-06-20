@@ -219,12 +219,15 @@ $route['callBtn'] = 'QueueStepFlow/QsfController/nextCall';
 $route['hgu'] = 'QueueStepFlow/QsfController/headerGetUser';
 
 
-$route['s2w1CallPrioRou'] = 'QueueStepFlow/QsfController/s2w1CallPrioCont';
 // $route['resetCallStatByQueueNum'] = 'QueueStepFlow/QsfController/hiddednresetCallStatByQueueNum';
+$route['s2w1CallPrioRou'] = 'QueueStepFlow/QsfController/s2w1CallPrioCont';
+$route['s2w2CallPrioRou'] = 'QueueStepFlow/QsfController/s2w2CallPrioCont';
 
 
 
 
+$route['calls2w1Rou'] = 'QueueStatusDisplay/QsdController/calls2w1Cont';
+$route['calls2w2Rou'] = 'QueueStatusDisplay/QsdController/calls2w2Cont';
 
 
 
@@ -254,12 +257,3 @@ $route['hiddenQsdS4W3PrioRou'] = 'QueueStatusDisplay/QsdController/hiddenS4w3Pri
 
 
 $route['updateQsdCallStat'] = 'QueueStatusDisplay/QsdController/updateQsdCallStat';
-
-
-
-
-
-
-
-
-$route['abcdcallCountRou'] = 'QueueStatusDisplay/QsdController/abcdcallCountCont';

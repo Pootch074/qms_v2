@@ -161,14 +161,14 @@
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
                     <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS2W1Prio" style="width:60%;">
                     </div>
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="abcdcallCount" style="width:20%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls2w1" style="width:20%;">
                     </div>
                 </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
                     <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS2W2Prio" style="width:60%;">
                     </div>
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="abcdcallCount" style="width:20%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls2w2" style="width:20%;">
                     </div>
                 </div>
 
@@ -419,7 +419,7 @@
 
         function qsdLoadStepFlowWithDelay() {
             qsdLoadStepFlow();
-            setTimeout(qsdLoadStepFlowWithDelay, 1000); // Adjust as needed
+            setTimeout(qsdLoadStepFlowWithDelay, 500); // Adjust as needed
         }
 
         qsdLoadStepFlowWithDelay();
@@ -427,22 +427,34 @@
 </script>
 
 <script>
+    // FOR FETCHING VALUE OF call_num FROM recall TABLE
     $(document).ready(function() {
-        abcd();
-        setInterval(abcd, 1000);
+        callCount();
+        setInterval(callCount, 500);
     });
 
-    function abcd() {
-        $.ajax({
-            url: '<?= base_url('abcdcallCountRou') ?>',
-            type: 'GET',
-            success: function(data) {
-                $('#abcdcallCount').html(data);
-
+    function callCount() {
+        const endpoints = [{
+                url: '<?= base_url('calls2w1Rou') ?>',
+                target: '#calls2w1'
             },
-            error: function(xhr, status, error) {
-                console.error("Error: " + error);
-            }
+            {
+                url: '<?= base_url('calls2w2Rou') ?>',
+                target: '#calls2w2'
+            },
+        ];
+
+        endpoints.forEach(({
+            url,
+            target
+        }) => {
+            $.get(url)
+                .done(function(data) {
+                    $(target).html(data);
+                })
+                .fail(function(xhr, status, error) {
+                    console.error(`Error loading ${url}:`, error);
+                });
         });
     }
 </script>

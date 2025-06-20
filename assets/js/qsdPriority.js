@@ -1,5 +1,5 @@
-const el10 = document.getElementById("mnbghjk");
-if (el10) el10.classList.add("hidden");
+// const el10 = document.getElementById("mnbghjk");
+// if (el10) el10.classList.add("hidden");
 
 $(document).ready(function () {
 	let prevData = {};
@@ -128,57 +128,58 @@ $(document).ready(function () {
 			2
 		);
 
-		handleQueueData(
-			BASE_URL + "hiddenQsdS3W1PrioRou",
-			"#hiddenQsdS3W1Prio",
-			3,
-			1
-		);
-		handleQueueData(
-			BASE_URL + "hiddenQsdS3W2PrioRou",
-			"#hiddenQsdS3W2Prio",
-			3,
-			2
-		);
-		handleQueueData(
-			BASE_URL + "hiddenQsdS3W3PrioRou",
-			"#hiddenQsdS3W3Prio",
-			3,
-			3
-		);
-		handleQueueData(
-			BASE_URL + "hiddenQsdS3W4PrioRou",
-			"#hiddenQsdS3W4Prio",
-			3,
-			4
-		);
+		// handleQueueData(
+		// 	BASE_URL + "hiddenQsdS3W1PrioRou",
+		// 	"#hiddenQsdS3W1Prio",
+		// 	3,
+		// 	1
+		// );
+		// handleQueueData(
+		// 	BASE_URL + "hiddenQsdS3W2PrioRou",
+		// 	"#hiddenQsdS3W2Prio",
+		// 	3,
+		// 	2
+		// );
+		// handleQueueData(
+		// 	BASE_URL + "hiddenQsdS3W3PrioRou",
+		// 	"#hiddenQsdS3W3Prio",
+		// 	3,
+		// 	3
+		// );
+		// handleQueueData(
+		// 	BASE_URL + "hiddenQsdS3W4PrioRou",
+		// 	"#hiddenQsdS3W4Prio",
+		// 	3,
+		// 	4
+		// );
 
-		handleQueueData(
-			BASE_URL + "hiddenQsdS4W1PrioRou",
-			"#hiddenQsdS4W1Prio",
-			4,
-			1
-		);
-		handleQueueData(
-			BASE_URL + "hiddenQsdS4W2PrioRou",
-			"#hiddenQsdS4W2Prio",
-			4,
-			2
-		);
-		handleQueueData(
-			BASE_URL + "hiddenQsdS4W3PrioRou",
-			"#hiddenQsdS4W3Prio",
-			4,
-			3
-		);
+		// handleQueueData(
+		// 	BASE_URL + "hiddenQsdS4W1PrioRou",
+		// 	"#hiddenQsdS4W1Prio",
+		// 	4,
+		// 	1
+		// );
+		// handleQueueData(
+		// 	BASE_URL + "hiddenQsdS4W2PrioRou",
+		// 	"#hiddenQsdS4W2Prio",
+		// 	4,
+		// 	2
+		// );
+		// handleQueueData(
+		// 	BASE_URL + "hiddenQsdS4W3PrioRou",
+		// 	"#hiddenQsdS4W3Prio",
+		// 	4,
+		// 	3
+		// );
 	}
-	let previousValue = $("#hiddenQsdS2W1Prio").text();
-	let previousCallCount = $("#abcdcallCount h2").text();
+	let previousCalls2w1 = $("#calls2w1 h2").text();
+	let previousCalls2w2 = $("#calls2w2 h2").text();
 
 	setInterval(function () {
-		let currentCallCount = $("#abcdcallCount h2").text();
-		if (currentCallCount !== previousCallCount) {
-			previousCallCount = currentCallCount;
+		let currentCalls2w1 = $("#calls2w1 h2").text();
+		let currentCalls2w2 = $("#calls2w2 h2").text();
+		if (currentCalls2w1 !== previousCalls2w1) {
+			previousCalls2w1 = currentCalls2w1;
 
 			const queueText =
 				$("#hiddenQsdS2W1Prio h1").text().trim() ||
@@ -188,11 +189,25 @@ $(document).ready(function () {
 			const message = `Client number, ${queueText}. Please proceed to step 2 window 1. ${queueText}, to step 2 window 1.`;
 			queue.push({ message, callback: processQueue });
 			processQueue();
+		} else if (currentCalls2w2 !== previousCalls2w2) {
+			previousCalls2w2 = currentCalls2w2;
+
+			const queueText =
+				$("#hiddenQsdS2W2Prio h1").text().trim() ||
+				$("#hiddenQsdS2W2Prio").text().trim();
+			if (!queueText) return;
+
+			const message = `Client number, ${queueText}. Please proceed to step 2 window 2. ${queueText}, to step 2 window 2.`;
+			queue.push({
+				message,
+				callback: processQueue,
+			});
+			processQueue();
 		}
-	}, 1000);
+	}, 500);
 
 	function qsdLoadStepFlowLoop() {
 		qsdLoadStepFlow();
 	}
-	setInterval(qsdLoadStepFlowLoop, 1000);
+	setInterval(qsdLoadStepFlowLoop, 500);
 });

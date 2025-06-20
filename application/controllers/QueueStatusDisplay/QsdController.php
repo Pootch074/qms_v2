@@ -213,13 +213,27 @@ class QsdController extends CI_Controller
 
 
 
+	private function mnjkli($modelMethod)
+	{
+		$serving = $this->QsdModel->$modelMethod();
 
-
-
+		if (!empty($serving)) {
+			foreach ($serving as $row) {
+				echo '<h1 class="serveTicketPrio">
+                  P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
+                  </h1>';
+			}
+		}
+	}
 
 	public function hiddenS2w1PrioCont()
 	{
-		$this->displayPrioTicket('hiddenS2Mod');
+		$this->mnjkli('hiddenS2w1PrioMod');
+	}
+
+	public function hiddenS2w2PrioCont()
+	{
+		$this->mnjkli('hiddenS2w2PrioMod');
 	}
 
 
@@ -232,9 +246,20 @@ class QsdController extends CI_Controller
 
 
 
-	public function abcdcallCountCont()
+	public function calls2w1Cont()
 	{
-		$abcdcall = $this->QsdModel->abcdcallCountMod();
+		$abcdcall = $this->QsdModel->calls2w1Mod();
+		if (!empty($abcdcall)) {
+			foreach ($abcdcall as $row) {
+				echo '<h2 class="qsdStepFont">' . ($row->call_num) . '</h2>';
+			}
+		} else {
+		}
+	}
+
+	public function calls2w2Cont()
+	{
+		$abcdcall = $this->QsdModel->calls2w2Mod();
 		if (!empty($abcdcall)) {
 			foreach ($abcdcall as $row) {
 				echo '<h2 class="qsdStepFont">' . ($row->call_num) . '</h2>';

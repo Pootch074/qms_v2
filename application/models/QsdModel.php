@@ -345,12 +345,25 @@ class QsdModel extends CI_Model
 
 
 
-
-    public function hiddenS2Mod()
+    // KANI
+    public function hiddenS2w1PrioMod()
     {
         $this->db->where('status', 1);
         $this->db->where('step_id', 2);
         $this->db->where('window_id', 1);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->where('call_stat', 1);
+
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
+    public function hiddenS2w2PrioMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 2);
         $this->db->where('category', 'PRIORITY');
         $this->db->where('call_stat', 1);
 
@@ -381,11 +394,20 @@ class QsdModel extends CI_Model
 
 
 
-
-    public function abcdcallCountMod()
+    // FOR FETCHING call_num VALUE 
+    public function calls2w1Mod()
     {
         $this->db->where('step_id', 2);
         $this->db->where('window_id', 1);
+        $this->db->where('category', 'PRIORITY');
+        $query = $this->db->get('recall');
+        return $query->result();
+    }
+
+    public function calls2w2Mod()
+    {
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 2);
         $this->db->where('category', 'PRIORITY');
         $query = $this->db->get('recall');
         return $query->result();

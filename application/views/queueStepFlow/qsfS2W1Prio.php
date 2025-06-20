@@ -49,25 +49,6 @@
         </div>
       </div>
 
-      <!-- <div class="modal fade" id="recallBttnModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modalLabel">Confirmation</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center">
-              Are you sure to call client?
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-              <button type="button" id="recallBtnCnfrmYes" class="btn btn-primary">Yes</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-
       <div class="modal fade" id="proceedBttnModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -385,28 +366,6 @@
 
 
 <script>
-  // function s2w1CallPrioBtn() {
-  //   fetch('<?= base_url("s2w1CallPrioRou") ?>', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify({})
-  //     })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       if (data.success) {
-  //         alert('Call status updated successfully!');
-  //       } else {
-  //         alert('Failed to update call status.');
-  //       }
-  //     })
-  //     .catch(error => {
-  //       console.error('Error:', error);
-  //       alert('An error occurred while updating call status.');
-  //     });
-  // }
-
   function s2w1CallPrioBtn() {
     $.ajax({
       url: '<?= base_url('s2w1CallPrioRou') ?>',
@@ -420,38 +379,3 @@
     });
   }
 </script>
-
-
-<!-- <script>
-  function s2w1CallPrioBtn() {
-    const modal = new bootstrap.Modal(document.getElementById('recallBttnModal'));
-    modal.show();
-  }
-
-  document.getElementById('recallBtnCnfrmYes').addEventListener('click', function() {
-    // Close the modal
-    const modal = bootstrap.Modal.getInstance(document.getElementById('recallBttnModal'));
-    modal.hide();
-
-    // Perform the recall action here
-    fetch('<?= base_url("recallActionRoute") ?>', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({})
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          alert('Client recalled successfully!');
-        } else {
-          alert('Failed to recall client.');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred during recall.');
-      });
-  });
-</script> -->

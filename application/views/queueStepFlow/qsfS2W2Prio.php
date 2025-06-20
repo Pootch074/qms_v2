@@ -164,7 +164,7 @@
             </div>
 
             <div class="col">
-              <button class="btn btn-secondary btn-lg call3dBtn my-2 w-100" id="callBtnID">
+              <button class="btn btn-secondary btn-lg call3dBtn my-2 w-100" onclick="s2w2CallPrioBtn()" id="callBtnID">
                 <i class="bi bi-volume-up-fill" style="font-size: 2em;"></i>
               </button>
             </div>
@@ -359,6 +359,21 @@
           alert('Error while updating Next Regular');
         }
       });
+    });
+  }
+</script>
+
+<script>
+  function s2w2CallPrioBtn() {
+    $.ajax({
+      url: '<?= base_url('s2w2CallPrioRou') ?>',
+      type: 'POST',
+      success: function(response) {
+        var data = JSON.parse(response);
+      },
+      error: function() {
+        alert('Error while updating Next Regular');
+      }
     });
   }
 </script>

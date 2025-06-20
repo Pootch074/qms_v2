@@ -414,6 +414,13 @@ class QsfController extends CI_Controller
 		echo json_encode(array('status' => 'success'));
 	}
 
+	public function s2w2CallPrioCont()
+	{
+		$this->load->model('QsfModel');
+		$this->QsfModel->s2w2CallPrioMod();
+		echo json_encode(array('status' => 'success'));
+	}
+
 
 	// public function hiddednresetCallStatByQueueNum()
 	// {
