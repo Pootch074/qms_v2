@@ -345,7 +345,7 @@ class QsdModel extends CI_Model
 
 
 
-    // KANI
+    // FOR FETCHING VALUES FROM queue_num IN tbl_transactions
     public function hiddenS2w1PrioMod()
     {
         $this->db->where('status', 1);
@@ -372,16 +372,82 @@ class QsdModel extends CI_Model
         return $query->result();
     }
 
-
-    public function resetCallStatForPriority()
+    public function hiddenS3w1Mod()
     {
         $this->db->where('status', 1);
-        $this->db->where('step_id', 2);
+        $this->db->where('step_id', 3);
         $this->db->where('window_id', 1);
         $this->db->where('call_stat', 1);
 
-        $this->db->set('call_stat', 0);
-        $this->db->update('tbl_transactions');
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+    public function hiddenS3w2Mod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 3);
+        $this->db->where('window_id', 2);
+        $this->db->where('call_stat', 1);
+
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+    public function hiddenS3w3Mod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 3);
+        $this->db->where('window_id', 3);
+        $this->db->where('call_stat', 1);
+
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+    public function hiddenS3w4Mod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 3);
+        $this->db->where('window_id', 4);
+        $this->db->where('call_stat', 1);
+
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+    public function hiddenS4w1Mod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 4);
+        $this->db->where('window_id', 1);
+        $this->db->where('call_stat', 1);
+
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+    public function hiddenS4w2Mod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 4);
+        $this->db->where('window_id', 2);
+        $this->db->where('call_stat', 1);
+
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+    public function hiddenS4w3Mod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 4);
+        $this->db->where('window_id', 3);
+        $this->db->where('call_stat', 1);
+
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
     }
 
 
@@ -394,7 +460,10 @@ class QsdModel extends CI_Model
 
 
 
-    // FOR FETCHING call_num VALUE 
+
+
+
+    // FOR FETCHING call_num VALUE
     public function calls2w1Mod()
     {
         $this->db->where('step_id', 2);
@@ -412,4 +481,73 @@ class QsdModel extends CI_Model
         $query = $this->db->get('recall');
         return $query->result();
     }
+
+    public function calls3w1Mod()
+    {
+        $this->db->where('step_id', 3);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'BOTH');
+        $query = $this->db->get('recall');
+        return $query->result();
+    }
+    public function calls3w2Mod()
+    {
+        $this->db->where('step_id', 3);
+        $this->db->where('window_id', 2);
+        $this->db->where('category', 'BOTH');
+        $query = $this->db->get('recall');
+        return $query->result();
+    }
+    public function calls3w3Mod()
+    {
+        $this->db->where('step_id', 3);
+        $this->db->where('window_id', 3);
+        $this->db->where('category', 'BOTH');
+        $query = $this->db->get('recall');
+        return $query->result();
+    }
+    public function calls3w4Mod()
+    {
+        $this->db->where('step_id', 3);
+        $this->db->where('window_id', 4);
+        $this->db->where('category', 'BOTH');
+        $query = $this->db->get('recall');
+        return $query->result();
+    }
+    public function calls4w1Mod()
+    {
+        $this->db->where('step_id', 4);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'BOTH');
+        $query = $this->db->get('recall');
+        return $query->result();
+    }
+    public function calls4w2Mod()
+    {
+        $this->db->where('step_id', 4);
+        $this->db->where('window_id', 2);
+        $this->db->where('category', 'BOTH');
+        $query = $this->db->get('recall');
+        return $query->result();
+    }
+    public function calls4w3Mod()
+    {
+        $this->db->where('step_id', 4);
+        $this->db->where('window_id', 3);
+        $this->db->where('category', 'BOTH');
+        $query = $this->db->get('recall');
+        return $query->result();
+    }
+
+
+    // public function resetCallStatForPriority()
+    // {
+    //     $this->db->where('status', 1);
+    //     $this->db->where('step_id', 2);
+    //     $this->db->where('window_id', 1);
+    //     $this->db->where('call_stat', 1);
+
+    //     $this->db->set('call_stat', 0);
+    //     $this->db->update('tbl_transactions');
+    // }
 }

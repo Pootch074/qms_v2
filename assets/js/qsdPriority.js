@@ -1,5 +1,5 @@
-// const el10 = document.getElementById("mnbghjk");
-// if (el10) el10.classList.add("hidden");
+const el10 = document.getElementById("mnbghjk");
+if (el10) el10.classList.add("hidden");
 
 $(document).ready(function () {
 	let prevData = {};
@@ -128,56 +128,36 @@ $(document).ready(function () {
 			2
 		);
 
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS3W1PrioRou",
-		// 	"#hiddenQsdS3W1Prio",
-		// 	3,
-		// 	1
-		// );
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS3W2PrioRou",
-		// 	"#hiddenQsdS3W2Prio",
-		// 	3,
-		// 	2
-		// );
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS3W3PrioRou",
-		// 	"#hiddenQsdS3W3Prio",
-		// 	3,
-		// 	3
-		// );
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS3W4PrioRou",
-		// 	"#hiddenQsdS3W4Prio",
-		// 	3,
-		// 	4
-		// );
+		handleQueueData(BASE_URL + "hiddenQsdS3W1Rou", "#hiddenQsdS3W1", 3, 1);
+		handleQueueData(BASE_URL + "hiddenQsdS3W2Rou", "#hiddenQsdS3W2", 3, 2);
+		handleQueueData(BASE_URL + "hiddenQsdS3W3Rou", "#hiddenQsdS3W3", 3, 3);
+		handleQueueData(BASE_URL + "hiddenQsdS3W4Rou", "#hiddenQsdS3W4", 3, 4);
 
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS4W1PrioRou",
-		// 	"#hiddenQsdS4W1Prio",
-		// 	4,
-		// 	1
-		// );
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS4W2PrioRou",
-		// 	"#hiddenQsdS4W2Prio",
-		// 	4,
-		// 	2
-		// );
-		// handleQueueData(
-		// 	BASE_URL + "hiddenQsdS4W3PrioRou",
-		// 	"#hiddenQsdS4W3Prio",
-		// 	4,
-		// 	3
-		// );
+		handleQueueData(BASE_URL + "hiddenQsdS4W1Rou", "#hiddenQsdS4W1", 4, 1);
+		handleQueueData(BASE_URL + "hiddenQsdS4W2Rou", "#hiddenQsdS4W2", 4, 2);
+		handleQueueData(BASE_URL + "hiddenQsdS4W3Rou", "#hiddenQsdS4W3", 4, 3);
 	}
 	let previousCalls2w1 = $("#calls2w1 h2").text();
 	let previousCalls2w2 = $("#calls2w2 h2").text();
+	let previousCalls3w1 = $("#calls3w1 h2").text();
+	let previousCalls3w2 = $("#calls3w2 h2").text();
+	let previousCalls3w3 = $("#calls3w3 h2").text();
+	let previousCalls3w4 = $("#calls3w4 h2").text();
+	let previousCalls4w1 = $("#calls4w1 h2").text();
+	let previousCalls4w2 = $("#calls4w2 h2").text();
+	let previousCalls4w3 = $("#calls4w3 h2").text();
 
 	setInterval(function () {
 		let currentCalls2w1 = $("#calls2w1 h2").text();
 		let currentCalls2w2 = $("#calls2w2 h2").text();
+		let currentCalls3w1 = $("#calls3w1 h2").text();
+		let currentCalls3w2 = $("#calls3w2 h2").text();
+		let currentCalls3w3 = $("#calls3w3 h2").text();
+		let currentCalls3w4 = $("#calls3w4 h2").text();
+		let currentCalls4w1 = $("#calls4w1 h2").text();
+		let currentCalls4w2 = $("#calls4w2 h2").text();
+		let currentCalls4w3 = $("#calls4w3 h2").text();
+
 		if (currentCalls2w1 !== previousCalls2w1) {
 			previousCalls2w1 = currentCalls2w1;
 
@@ -198,6 +178,104 @@ $(document).ready(function () {
 			if (!queueText) return;
 
 			const message = `Client number, ${queueText}. Please proceed to step 2 window 2. ${queueText}, to step 2 window 2.`;
+			queue.push({
+				message,
+				callback: processQueue,
+			});
+			processQueue();
+		} else if (currentCalls3w1 !== previousCalls3w1) {
+			previousCalls3w1 = currentCalls3w1;
+
+			const queueText =
+				$("#hiddenQsdS3W1 h1").text().trim() ||
+				$("#hiddenQsdS3W1").text().trim();
+			if (!queueText) return;
+
+			const message = `Client number, ${queueText}. Please proceed to step 3 window 1. ${queueText}, to step 3 window 1.`;
+			queue.push({
+				message,
+				callback: processQueue,
+			});
+			processQueue();
+		} else if (currentCalls3w2 !== previousCalls3w2) {
+			previousCalls3w2 = currentCalls3w2;
+
+			const queueText =
+				$("#hiddenQsdS3W2 h1").text().trim() ||
+				$("#hiddenQsdS3W2").text().trim();
+			if (!queueText) return;
+
+			const message = `Client number, ${queueText}. Please proceed to step 3 window 2. ${queueText}, to step 3 window 2.`;
+			queue.push({
+				message,
+				callback: processQueue,
+			});
+			processQueue();
+		} else if (currentCalls3w3 !== previousCalls3w3) {
+			previousCalls3w3 = currentCalls3w3;
+
+			const queueText =
+				$("#hiddenQsdS3W3 h1").text().trim() ||
+				$("#hiddenQsdS3W3").text().trim();
+			if (!queueText) return;
+
+			const message = `Client number, ${queueText}. Please proceed to step 3 window 3. ${queueText}, to step 3 window 3.`;
+			queue.push({
+				message,
+				callback: processQueue,
+			});
+			processQueue();
+		} else if (currentCalls3w4 !== previousCalls3w4) {
+			previousCalls3w4 = currentCalls3w4;
+
+			const queueText =
+				$("#hiddenQsdS3W4 h1").text().trim() ||
+				$("#hiddenQsdS3W4").text().trim();
+			if (!queueText) return;
+
+			const message = `Client number, ${queueText}. Please proceed to step 3 window 4. ${queueText}, to step 3 window 4.`;
+			queue.push({
+				message,
+				callback: processQueue,
+			});
+			processQueue();
+		} else if (currentCalls4w1 !== previousCalls4w1) {
+			previousCalls4w1 = currentCalls4w1;
+
+			const queueText =
+				$("#hiddenQsdS4W1 h1").text().trim() ||
+				$("#hiddenQsdS4W1").text().trim();
+			if (!queueText) return;
+
+			const message = `Client number, ${queueText}. Please proceed to step 4 window 1. ${queueText}, to step 4 window 1.`;
+			queue.push({
+				message,
+				callback: processQueue,
+			});
+			processQueue();
+		} else if (currentCalls4w2 !== previousCalls4w2) {
+			previousCalls4w2 = currentCalls4w2;
+
+			const queueText =
+				$("#hiddenQsdS4W2 h1").text().trim() ||
+				$("#hiddenQsdS4W2").text().trim();
+			if (!queueText) return;
+
+			const message = `Client number, ${queueText}. Please proceed to step 4 window 2. ${queueText}, to step 4 window 2.`;
+			queue.push({
+				message,
+				callback: processQueue,
+			});
+			processQueue();
+		} else if (currentCalls4w3 !== previousCalls4w3) {
+			previousCalls4w3 = currentCalls4w3;
+
+			const queueText =
+				$("#hiddenQsdS4W3 h1").text().trim() ||
+				$("#hiddenQsdS4W3").text().trim();
+			if (!queueText) return;
+
+			const message = `Client number, ${queueText}. Please proceed to step 4 window 3. ${queueText}, to step 4 window 3.`;
 			queue.push({
 				message,
 				callback: processQueue,

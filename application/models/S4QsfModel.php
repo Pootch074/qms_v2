@@ -335,4 +335,64 @@ class S4QsfModel extends CI_Model
             $this->db->update('tbl_transactions', array('step_id' => null, 'window_id' => null,  'status' => 'SERVED'));
         }
     }
+
+
+
+
+
+
+
+
+
+    public function s4w1CallBtnMod()
+    {
+        $this->db->where('step_id', 4);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'BOTH');
+        $this->db->limit(1);
+
+        $query = $this->db->get('recall');
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+
+            $this->db->where('id', $row->id);
+            $this->db->set('call_num', 'call_num + 1', false); // `false` disables escaping
+            $this->db->update('recall');
+        }
+    }
+    public function s4w2CallBtnMod()
+    {
+        $this->db->where('step_id', 4);
+        $this->db->where('window_id', 2);
+        $this->db->where('category', 'BOTH');
+        $this->db->limit(1);
+
+        $query = $this->db->get('recall');
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+
+            $this->db->where('id', $row->id);
+            $this->db->set('call_num', 'call_num + 1', false); // `false` disables escaping
+            $this->db->update('recall');
+        }
+    }
+    public function s4w3CallBtnMod()
+    {
+        $this->db->where('step_id', 4);
+        $this->db->where('window_id', 3);
+        $this->db->where('category', 'BOTH');
+        $this->db->limit(1);
+
+        $query = $this->db->get('recall');
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+
+            $this->db->where('id', $row->id);
+            $this->db->set('call_num', 'call_num + 1', false); // `false` disables escaping
+            $this->db->update('recall');
+        }
+    }
 }

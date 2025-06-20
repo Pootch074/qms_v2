@@ -212,7 +212,7 @@ class QsdController extends CI_Controller
 
 
 
-
+	// FOR FETCHING VALUES FROM queue_num IN tbl_transactions
 	private function mnjkli($modelMethod)
 	{
 		$serving = $this->QsdModel->$modelMethod();
@@ -236,16 +236,38 @@ class QsdController extends CI_Controller
 		$this->mnjkli('hiddenS2w2PrioMod');
 	}
 
-
-	public function updateQsdCallStat()
+	public function hiddenS3w1Cont()
 	{
-		$this->load->model('QsdModel');
-		$this->QsdModel->resetCallStatForPriority();
-		echo json_encode(['status' => 'success']);
+		$this->mnjkli('hiddenS3w1Mod');
+	}
+	public function hiddenS3w2Cont()
+	{
+		$this->mnjkli('hiddenS3w2Mod');
+	}
+	public function hiddenS3w3Cont()
+	{
+		$this->mnjkli('hiddenS3w3Mod');
+	}
+	public function hiddenS3w4Cont()
+	{
+		$this->mnjkli('hiddenS3w4Mod');
+	}
+	public function hiddenS4w1Cont()
+	{
+		$this->mnjkli('hiddenS4w1Mod');
+	}
+	public function hiddenS4w2Cont()
+	{
+		$this->mnjkli('hiddenS4w2Mod');
+	}
+	public function hiddenS4w3Cont()
+	{
+		$this->mnjkli('hiddenS4w3Mod');
 	}
 
 
 
+	// FOR FETCHING call_num VALUE
 	public function calls2w1Cont()
 	{
 		$abcdcall = $this->QsdModel->calls2w1Mod();
@@ -267,4 +289,82 @@ class QsdController extends CI_Controller
 		} else {
 		}
 	}
+
+	public function calls3w1Cont()
+	{
+		$abcdcall = $this->QsdModel->calls3w1Mod();
+		if (!empty($abcdcall)) {
+			foreach ($abcdcall as $row) {
+				echo '<h2 class="qsdStepFont">' . ($row->call_num) . '</h2>';
+			}
+		} else {
+		}
+	}
+	public function calls3w2Cont()
+	{
+		$abcdcall = $this->QsdModel->calls3w2Mod();
+		if (!empty($abcdcall)) {
+			foreach ($abcdcall as $row) {
+				echo '<h2 class="qsdStepFont">' . ($row->call_num) . '</h2>';
+			}
+		} else {
+		}
+	}
+	public function calls3w3Cont()
+	{
+		$abcdcall = $this->QsdModel->calls3w3Mod();
+		if (!empty($abcdcall)) {
+			foreach ($abcdcall as $row) {
+				echo '<h2 class="qsdStepFont">' . ($row->call_num) . '</h2>';
+			}
+		} else {
+		}
+	}
+	public function calls3w4Cont()
+	{
+		$abcdcall = $this->QsdModel->calls3w4Mod();
+		if (!empty($abcdcall)) {
+			foreach ($abcdcall as $row) {
+				echo '<h2 class="qsdStepFont">' . ($row->call_num) . '</h2>';
+			}
+		} else {
+		}
+	}
+	public function calls4w1Cont()
+	{
+		$abcdcall = $this->QsdModel->calls4w1Mod();
+		if (!empty($abcdcall)) {
+			foreach ($abcdcall as $row) {
+				echo '<h2 class="qsdStepFont">' . ($row->call_num) . '</h2>';
+			}
+		} else {
+		}
+	}
+	public function calls4w2Cont()
+	{
+		$abcdcall = $this->QsdModel->calls4w2Mod();
+		if (!empty($abcdcall)) {
+			foreach ($abcdcall as $row) {
+				echo '<h2 class="qsdStepFont">' . ($row->call_num) . '</h2>';
+			}
+		} else {
+		}
+	}
+	public function calls4w3Cont()
+	{
+		$abcdcall = $this->QsdModel->calls4w3Mod();
+		if (!empty($abcdcall)) {
+			foreach ($abcdcall as $row) {
+				echo '<h2 class="qsdStepFont">' . ($row->call_num) . '</h2>';
+			}
+		} else {
+		}
+	}
+
+	// public function updateQsdCallStat()
+	// {
+	// 	$this->load->model('QsdModel');
+	// 	$this->QsdModel->resetCallStatForPriority();
+	// 	echo json_encode(['status' => 'success']);
+	// }
 }

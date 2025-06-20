@@ -325,4 +325,30 @@ class S4QsfController extends CI_Controller
 		$this->S4QsfModel->s4w3ProceedMod($ass_step);
 		echo json_encode(array('status' => 'success'));
 	}
+
+
+
+
+
+
+
+
+	public function s4w1CallBtnCont()
+	{
+		$this->load->model('S4QsfModel');
+		$this->S4QsfModel->s4w1CallBtnMod();
+		echo json_encode(array('status' => 'success'));
+	}
+	public function s4w2CallBtnCont()
+	{
+		$this->load->model('S4QsfModel');
+		$this->S4QsfModel->s4w2CallBtnMod();
+		echo json_encode(array('status' => 'success'));
+	}
+	public function s4w3CallBtnCont()
+	{
+		$this->load->model('S4QsfModel');
+		$this->S4QsfModel->s4w3CallBtnMod();
+		echo json_encode(array('status' => 'success'));
+	}
 }

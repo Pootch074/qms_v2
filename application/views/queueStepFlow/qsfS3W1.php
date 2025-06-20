@@ -204,7 +204,7 @@
             </div>
 
             <div class="col">
-              <button class="btn btn-secondary btn-lg call3dBtn my-2 w-100" onclick="callButton()" id="callBtnID">
+              <button class="btn btn-secondary btn-lg call3dBtn my-2 w-100" onclick="s3w1CallBtn()" id="callBtnID">
                 <i class="bi bi-volume-up-fill" style="font-size: 2em;"></i>
               </button>
             </div>
@@ -449,5 +449,19 @@
 
     });
 
+  }
+
+
+  function s3w1CallBtn() {
+    $.ajax({
+      url: '<?= base_url('s3w1CallBtnRou') ?>',
+      type: 'POST',
+      success: function(response) {
+        var data = JSON.parse(response);
+      },
+      error: function() {
+        alert('Error while updating Next Regular');
+      }
+    });
   }
 </script>

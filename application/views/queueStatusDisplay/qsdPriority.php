@@ -173,49 +173,49 @@
                 </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS3W1Prio" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS3W1" style="width:60%;">
                     </div>
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="abcdcallCount" style="width:20%;">
-                    </div>
-                </div>
-
-                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS3W2Prio" style="width:60%;">
-                    </div>
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="abcdcallCount" style="width:20%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls3w1" style="width:20%;">
                     </div>
                 </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS3W3Prio" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS3W2" style="width:60%;">
                     </div>
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="abcdcallCount" style="width:20%;">
-                    </div>
-                </div>
-                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS3W4Prio" style="width:60%;">
-                    </div>
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="abcdcallCount" style="width:20%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls3w2" style="width:20%;">
                     </div>
                 </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS4W1Prio" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS3W3" style="width:60%;">
                     </div>
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="abcdcallCount" style="width:20%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls3w3" style="width:20%;">
+                    </div>
+                </div>
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS3W4" style="width:60%;">
+                    </div>
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls3w4" style="width:20%;">
                     </div>
                 </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS4W2Prio" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS4W1" style="width:60%;">
                     </div>
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="abcdcallCount" style="width:20%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls4w1" style="width:20%;">
+                    </div>
+                </div>
+
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS4W2" style="width:60%;">
+                    </div>
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls4w2" style="width:20%;">
                     </div>
                 </div>
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS4W3Prio" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS4W3" style="width:60%;">
                     </div>
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="abcdcallCount" style="width:20%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls4w3" style="width:20%;">
                     </div>
                 </div>
             </div>
@@ -441,6 +441,34 @@
             {
                 url: '<?= base_url('calls2w2Rou') ?>',
                 target: '#calls2w2'
+            },
+            {
+                url: '<?= base_url('calls3w1Rou') ?>',
+                target: '#calls3w1'
+            },
+            {
+                url: '<?= base_url('calls3w2Rou') ?>',
+                target: '#calls3w2'
+            },
+            {
+                url: '<?= base_url('calls3w3Rou') ?>',
+                target: '#calls3w3'
+            },
+            {
+                url: '<?= base_url('calls3w4Rou') ?>',
+                target: '#calls3w4'
+            },
+            {
+                url: '<?= base_url('calls4w1Rou') ?>',
+                target: '#calls4w1'
+            },
+            {
+                url: '<?= base_url('calls4w2Rou') ?>',
+                target: '#calls4w2'
+            },
+            {
+                url: '<?= base_url('calls4w3Rou') ?>',
+                target: '#calls4w3'
             },
         ];
 
