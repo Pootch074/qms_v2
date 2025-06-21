@@ -25,6 +25,52 @@ class QsdController extends CI_Controller
 		$this->load->view('queueStatusDisplay/qsdPriority', $data);
 		$this->load->view('queueStatusDisplay/footer');
 	}
+	public function qsdPrioNewCont()
+	{
+		// $this->load->view('queueStatusDisplay/headerNew');
+		// $queStep = $this->QsdModel->getQsdStepPrioNew();
+		// $queueNum = $this->QsdModel->getQsdQueuePrioNew();
+
+		// $data = [
+		// 	'queStep' => $queStep,
+		// 	'queueNum' => $queueNum
+		// ];
+		// $this->load->view('queueStatusDisplay/qsdPriorityNew', $data);
+		$this->load->view('queueStatusDisplay/qsdPriorityNew');
+		// $this->load->view('queueStatusDisplay/footer');
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	private function displayPrioTicket($modelMethod)
 	{

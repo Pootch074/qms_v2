@@ -24,6 +24,61 @@ class QsdModel extends CI_Model
         return $query->result();
     }
 
+
+    public function getQsdStepPrioNew()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('category', 'PRIORITY');
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
+    public function getQsdQueuePrioNew()
+    {
+        $this->db->where('status', 1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function getQsdStepRegu()
     {
         $this->db->where('status', 1);

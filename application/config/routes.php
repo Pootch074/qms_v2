@@ -174,6 +174,10 @@ $route['s2w2UpdPendReguRou/(:num)'] = 'QueueStepFlow/QsfController/s2w2UpdPendRe
 
 /*-------------------- PRIORITY DISPLAY ROUTES --------------------*/
 $route['qsdPrio'] = 'QueueStatusDisplay/QsdController/qsdPrioCont';
+
+$route['qsdPrioNew'] = 'QueueStatusDisplay/QsdController/qsdPrioNewCont';
+
+
 $route['qsdS2W1PrioRou'] = 'QueueStatusDisplay/QsdController/s2w1PrioCont';
 $route['qsdS2W2PrioRou'] = 'QueueStatusDisplay/QsdController/s2w2PrioCont';
 $route['qsdS3W1PrioRou'] = 'QueueStatusDisplay/QsdController/s3w1PrioCont';
