@@ -1,5 +1,5 @@
-const el10 = document.getElementById("mnbghjk");
-if (el10) el10.classList.add("hidden");
+// const el10 = document.getElementById("mnbghjk");
+// if (el10) el10.classList.add("hidden");
 
 $(document).ready(function () {
 	let prevData = {};

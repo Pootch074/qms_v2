@@ -17,7 +17,7 @@ rgb(27, 75, 176, 90%) blue
 
 
 
-php -S localhost:8080
+php -S 192.168.158.127:8080
 
 adding dswd division query
 INSERT INTO `tbl_divisions` (`id`, `division_name`) VALUES ('1', 'DISASTER RESPONSE MANAGEMENT DIVISION');
