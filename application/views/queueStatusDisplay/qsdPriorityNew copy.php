@@ -9,38 +9,20 @@
     <style>
         html,
         body {
+            background: #f0f4f8;
+            color: #000;
             height: 100vh;
             margin: 0;
-            overflow: hidden;
-            position: relative;
+
         }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('./assets/resources/dswd.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: brightness(0.5);
-            /* optional darken/lighten */
-            background-color: rgba(173, 216, 230, 0.4);
-            /* lightblue overlay */
-            z-index: -1;
-        }
-
-
-
 
         .container {
             height: 100%;
             display: flex;
             flex-direction: column;
+            /* margin: auto; */
             max-width: 100%;
+            background: #e6f0ff;
             border: 1px solid black;
 
         }
@@ -49,10 +31,10 @@
             flex: 1;
             display: flex;
             flex-wrap: wrap;
-            height: 100%;
             /* gap: 10px; */
             /* padding: 10px; */
             box-sizing: border-box;
+            height: 100%;
         }
 
         .leftCol,
@@ -64,16 +46,15 @@
         .leftCol {
             display: flex;
             flex-direction: column;
-            height: 100%
-                /* gap: 20px; */
-                /* background: #eef; */
+            /* gap: 20px; */
+            background: #eef;
+            /* height: 90%; */
 
         }
 
         .queue-item {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+            width: 100%;
+            height: 100%;
         }
 
         .queue-header {
@@ -81,16 +62,13 @@
             color: white;
             font-weight: bold;
             text-align: center;
-            padding: 20px;
+            /* padding: 20px; */
             font-size: 1.5rem;
         }
 
         .queue-body {
             display: flex;
             flex-direction: row;
-            /* border: 1px solid black; */
-            margin: 5px;
-            border-radius: 500px;
             /* height: 100%; */
         }
 
@@ -103,11 +81,10 @@
             justify-content: center;
             align-items: center;
             font-weight: bold;
-            padding: 5px;
         }
 
         .counter-label {
-            font-size: 1.5rem;
+            font-size: 0.8rem;
         }
 
         .counter-number {
@@ -121,11 +98,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 5px;
         }
 
         .queue-number {
-            font-size: 3rem;
+            font-size: 1.8rem;
             font-weight: bold;
         }
 
@@ -133,7 +109,7 @@
             display: flex;
             flex-direction: column;
             min-height: 200px;
-            /* background: #ccc; */
+            background: #ccc;
         }
 
 
@@ -195,82 +171,16 @@
                             <span class="counter-number">1</span>
                         </div>
                         <div class="queue-number-box">
-                            <span class="queue-number">P002</span>
-                        </div>
-                    </div>
-                    <div class="queue-body">
-                        <div class="counter-box">
-                            <!-- <span class="counter-label">Window</span> -->
-                            <span class="counter-number">2</span>
-                        </div>
-                        <div class="queue-number-box">
                             <span class="queue-number">P001</span>
                         </div>
                     </div>
                 </div>
                 <div class="queue-item">
-                    <div class="queue-header">STEP 3 ASSESMENT</div>
+                    <div class="queue-header">STEP 2 ENCODING</div>
                     <div class="queue-body">
                         <div class="counter-box">
                             <span class="counter-label">Window</span>
-                            <span class="counter-number">1</span>
-                        </div>
-                        <div class="queue-number-box">
-                            <span class="queue-number">P001</span>
-                        </div>
-                    </div>
-                    <div class="queue-body">
-                        <div class="counter-box">
-                            <!-- <span class="counter-label">Window</span> -->
                             <span class="counter-number">2</span>
-                        </div>
-                        <div class="queue-number-box">
-                            <span class="queue-number">P001</span>
-                        </div>
-                    </div>
-                    <div class="queue-body">
-                        <div class="counter-box">
-                            <!-- <span class="counter-label">Window</span> -->
-                            <span class="counter-number">3</span>
-                        </div>
-                        <div class="queue-number-box">
-                            <span class="queue-number">P001</span>
-                        </div>
-                    </div>
-                    <div class="queue-body">
-                        <div class="counter-box">
-                            <!-- <span class="counter-label">Window</span> -->
-                            <span class="counter-number">4</span>
-                        </div>
-                        <div class="queue-number-box">
-                            <span class="queue-number">P001</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="queue-item">
-                    <div class="queue-header">STEP 4 REELEASE</div>
-                    <div class="queue-body">
-                        <div class="counter-box">
-                            <span class="counter-label">Window</span>
-                            <span class="counter-number">1</span>
-                        </div>
-                        <div class="queue-number-box">
-                            <span class="queue-number">P001</span>
-                        </div>
-                    </div>
-                    <div class="queue-body">
-                        <div class="counter-box">
-                            <!-- <span class="counter-label">Window</span> -->
-                            <span class="counter-number">2</span>
-                        </div>
-                        <div class="queue-number-box">
-                            <span class="queue-number">P001</span>
-                        </div>
-                    </div>
-                    <div class="queue-body">
-                        <div class="counter-box">
-                            <!-- <span class="counter-label">Window</span> -->
-                            <span class="counter-number">3</span>
                         </div>
                         <div class="queue-number-box">
                             <span class="queue-number">P001</span>
