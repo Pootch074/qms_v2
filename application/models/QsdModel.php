@@ -94,7 +94,7 @@ class QsdModel extends CI_Model
         return $query->result();
     }
 
-    public function s2Mod()
+    public function s2w1PrioMod()
     {
         $this->db->where('status', 1);
         $this->db->where('step_id', 2);
@@ -104,12 +104,33 @@ class QsdModel extends CI_Model
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
-    public function s2w2Mod()
+    public function s2w2PrioMod()
     {
         $this->db->where('status', 1);
         $this->db->where('step_id', 2);
         $this->db->where('window_id', 2);
         $this->db->where('category', 'PRIORITY');
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
+    public function s2w1ReguMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'REGULAR');
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+    public function s2w2ReguMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 2);
+        $this->db->where('category', 'REGULAR');
         $this->db->Limit(1);
         $query = $this->db->get('tbl_transactions');
         return $query->result();
@@ -244,78 +265,71 @@ class QsdModel extends CI_Model
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
-    public function s3w1PrioMod()
+    public function s3w1Mod()
     {
         $this->db->where('status', 1);
         $this->db->where('step_id', 3);
         $this->db->where('window_id', 1);
-        $this->db->where('category', 'PRIORITY');
         $this->db->Limit(1);
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
 
 
-    public function s3w2PrioMod()
+    public function s3w2Mod()
     {
         $this->db->where('status', 1);
         $this->db->where('step_id', 3);
         $this->db->where('window_id', 2);
-        $this->db->where('category', 'PRIORITY');
         $this->db->Limit(1);
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
 
 
-    public function s3w3PrioMod()
+    public function s3w3Mod()
     {
         $this->db->where('status', 1);
         $this->db->where('step_id', 3);
         $this->db->where('window_id', 3);
-        $this->db->where('category', 'PRIORITY');
         $this->db->Limit(1);
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
-    public function s3w4PrioMod()
+    public function s3w4Mod()
     {
         $this->db->where('status', 1);
         $this->db->where('step_id', 3);
         $this->db->where('window_id', 4);
-        $this->db->where('category', 'PRIORITY');
         $this->db->Limit(1);
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
 
-    public function s4w1PrioMod()
+    public function s4w1Mod()
     {
         $this->db->where('status', 1);
         $this->db->where('step_id', 4);
         $this->db->where('window_id', 1);
-        $this->db->where('category', 'PRIORITY');
         $this->db->Limit(1);
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
 
-    public function s4w2PrioMod()
+    public function s4w2Mod()
     {
         $this->db->where('status', 1);
         $this->db->where('step_id', 4);
         $this->db->where('window_id', 2);
-        $this->db->where('category', 'PRIORITY');
         $this->db->Limit(1);
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
-    public function s4w3PrioMod()
+    public function s4w3Mod()
     {
         $this->db->where('status', 1);
         $this->db->where('step_id', 4);
         $this->db->where('window_id', 3);
-        $this->db->where('category', 'PRIORITY');
         $this->db->Limit(1);
         $query = $this->db->get('tbl_transactions');
         return $query->result();
@@ -427,6 +441,32 @@ class QsdModel extends CI_Model
         return $query->result();
     }
 
+    public function hiddenS2w1ReguMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'REGULAR');
+        $this->db->where('call_stat', 1);
+
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
+    public function hiddenS2w2ReguMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 2);
+        $this->db->where('category', 'REGULAR');
+        $this->db->where('call_stat', 1);
+
+        $this->db->Limit(1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
     public function hiddenS3w1Mod()
     {
         $this->db->where('status', 1);
@@ -519,7 +559,7 @@ class QsdModel extends CI_Model
 
 
     // FOR FETCHING call_num VALUE
-    public function calls2w1Mod()
+    public function calls2w1PrioMod()
     {
         $this->db->where('step_id', 2);
         $this->db->where('window_id', 1);
@@ -528,11 +568,28 @@ class QsdModel extends CI_Model
         return $query->result();
     }
 
-    public function calls2w2Mod()
+    public function calls2w2PrioMod()
     {
         $this->db->where('step_id', 2);
         $this->db->where('window_id', 2);
         $this->db->where('category', 'PRIORITY');
+        $query = $this->db->get('recall');
+        return $query->result();
+    }
+    public function calls2w1ReguMod()
+    {
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'REGULAR');
+        $query = $this->db->get('recall');
+        return $query->result();
+    }
+
+    public function calls2w2ReguMod()
+    {
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 2);
+        $this->db->where('category', 'REGULAR');
         $query = $this->db->get('recall');
         return $query->result();
     }

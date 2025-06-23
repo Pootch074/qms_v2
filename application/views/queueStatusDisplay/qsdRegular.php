@@ -1,60 +1,9 @@
-<style>
-    .main {
-        height: 84vh;
-    }
-
-    .sectionA {
-        height: 100%;
-    }
-
-    .elementID {
-        animation: highlight 2s ease-in-out infinite;
-    }
-
-    @keyframes highlight {
-        0% {
-            background: rgb(255, 0, 0);
-            background: radial-gradient(circle, rgba(255, 0, 0, 1) 7%, rgba(255, 228, 49, 1) 82%, rgba(232, 233, 0, 1) 100%);
-            transform: scale(0.75);
-            /* Start slightly smaller */
-            box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
-            /* Initial subtle shadow */
-        }
-
-        50% {
-            background: rgb(255, 247, 0);
-            background: radial-gradient(circle, rgba(255, 247, 0, 1) 0%, rgba(255, 251, 107, 1) 100%);
-            transform: scale(1.15);
-            /* Enlarge a bit more for a pulsing effect */
-            box-shadow: 0px 0px 30px rgba(255, 247, 0, 0.7);
-            /* Add stronger shadow */
-        }
-
-        80% {
-            background: rgb(255, 0, 134);
-            background: radial-gradient(circle, rgba(255, 0, 134, 1) 7%, rgba(49, 255, 118, 1) 82%, rgba(233, 199, 0, 1) 100%);
-            transform: scale(1.05);
-            /* Slightly shrink before final size */
-            box-shadow: 0px 0px 20px rgba(255, 0, 134, 0.5);
-            /* Adjust shadow */
-        }
-
-        100% {
-            background: rgb(255, 0, 134);
-            background: radial-gradient(circle, rgba(255, 0, 134, 1) 7%, rgba(49, 255, 118, 1) 82%, rgba(233, 199, 0, 1) 100%);
-            transform: scale(1);
-            /* Return to original size */
-            box-shadow: 0px 0px 10px rgba(49, 255, 118, 0.4);
-            /* Softer shadow */
-        }
-    }
-</style>
 <main id="main" class="main" style="margin-top: 8vh; overflow:hidden;">
     <div class="container-fluid h-100">
         <div class="row h-100 pt-1" style="background: rgb(12,48,128); background: linear-gradient(180deg, rgba(12,48,128,1) 0%, rgba(28,75,178,1) 82%, rgba(101,130,194,1) 100%);">
             <div class="col-6 text-center border d-flex flex-column">
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS2W1Reg" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS2W1Regu" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -67,7 +16,7 @@
                 </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS2W2Reg" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS2W2Regu" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -80,7 +29,7 @@
                 </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W1Reg" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W1" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -98,7 +47,7 @@
                 </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W2Reg" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W2" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -116,7 +65,7 @@
                 </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W3Reg" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W3" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -133,7 +82,7 @@
                     </div>
                 </div>
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W4Reg" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W4" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -152,7 +101,7 @@
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
 
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS4W1Reg" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS4W1" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -171,7 +120,7 @@
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
 
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS4W2Reg" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS4W2" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -188,7 +137,7 @@
                 </div>
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
 
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS4W3Reg" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS4W3" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -203,8 +152,73 @@
                         </h2>
                     </div>
                 </div>
-
             </div>
+
+            <!-- TO BE HIDDEN -->
+            <div id="reguHiddenTbl" class="col-6 text-center border d-flex flex-column">
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS2W1Regu" style="width:60%;">
+                    </div>
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls2w1Regu" style="width:20%;">
+                    </div>
+                </div>
+
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS2W2Regu" style="width:60%;">
+                    </div>
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls2w2Regu" style="width:20%;">
+                    </div>
+                </div>
+
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS3W1" style="width:60%;">
+                    </div>
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls3w1" style="width:20%;">
+                    </div>
+                </div>
+
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS3W2" style="width:60%;">
+                    </div>
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls3w2" style="width:20%;">
+                    </div>
+                </div>
+
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS3W3" style="width:60%;">
+                    </div>
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls3w3" style="width:20%;">
+                    </div>
+                </div>
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS3W4" style="width:60%;">
+                    </div>
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls3w4" style="width:20%;">
+                    </div>
+                </div>
+
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS4W1" style="width:60%;">
+                    </div>
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls4w1" style="width:20%;">
+                    </div>
+                </div>
+
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS4W2" style="width:60%;">
+                    </div>
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls4w2" style="width:20%;">
+                    </div>
+                </div>
+                <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS4W3" style="width:60%;">
+                    </div>
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls4w3" style="width:20%;">
+                    </div>
+                </div>
+            </div>
+            <!-- TO BE HIDDEN -->
+
             <div class="col-6 text-center border" style="background: rgb(12,48,128); background: linear-gradient(180deg, rgba(12,48,128,1) 0%, rgba(28,75,178,1) 82%, rgba(101,130,194,1) 100%);">
                 <div class="cardCstm flex-grow-1 mb-1 d-flex">
                     <video width="100%" height="auto%" autoplay loop muted>
@@ -258,202 +272,213 @@
         </div>
     </div>
 </main>
-<script src="./assets/plugins/jquery/jquery.minQSD.js"></script>
-<script async src="https://app3.weatherwidget.org/js/?id=ww_bfc7f2428757d"></script>
+<audio id="audioPlayer" src="assets/resources/ascend.mp3"></audio>
 
-<audio id="audioPlayer" src="assets\resources\ascend.mp3"></audio>
+<script src="<?= base_url('assets/') ?>plugins/jquery/jquery.minQSD.js"></script>
+<script async src="https://app3.weatherwidget.org/js/?id=ww_bfc7f2428757d"></script>
+<script>
+    const BASE_URL = "<?= base_url() ?>";
+</script>
+<script defer src="<?= base_url('assets/js/qsdRegular.js') ?>"></script>
 
 <script>
     $(document).ready(function() {
         let prevData = {};
-        let queue = []; // Queue to handle speech synthesis and audio
-        let isSpeaking = false; // Flag to track if audio/speech synthesis is ongoing
+        let queue = [];
+        let isSpeaking = false;
 
         function processQueue() {
             if (queue.length > 0 && !isSpeaking) {
                 isSpeaking = true;
-                let nextMessage = queue.shift(); // Get the next message in the queue
-                playAudioAndSpeak(nextMessage.message, nextMessage.callback);
+                let {
+                    message,
+                    callback
+                } = queue.shift();
+                playAudioAndSpeak(message, callback);
             }
         }
 
         function playAudioAndSpeak(message, callback) {
-            var audioPlayer = document.getElementById('audioPlayer');
-            audioPlayer.play();
+            const audioPlayer = document.getElementById('audioPlayer');
 
-            // Ensure the message is spoken only after the audio finishes
-            function onAudioEnded() {
-                audioPlayer.removeEventListener('ended', onAudioEnded);
-                if ('speechSynthesis' in window) {
-                    let utterance = new SpeechSynthesisUtterance(message);
-                    utterance.lang = 'en-US';
-                    utterance.pitch = 1;
-                    utterance.rate = 1;
-                    utterance.volume = 1;
-                    let voices = speechSynthesis.getVoices();
-                    if (voices.length === 0) {
-                        speechSynthesis.onvoiceschanged = () => {
-                            voices = speechSynthesis.getVoices();
-                            if (voices.length > 2) {
-                                utterance.voice = voices[2];
-                            }
-                            window.speechSynthesis.speak(utterance);
-                        };
-                    } else {
-                        if (voices.length > 2) {
-                            utterance.voice = voices[2];
-                        }
-                        window.speechSynthesis.speak(utterance);
-                    }
+            audioPlayer.addEventListener('ended', function onEnded() {
+                audioPlayer.removeEventListener('ended', onEnded);
 
-                    utterance.onstart = () => {
-                        console.log('Speech synthesis started.');
-                    };
-
-                    utterance.onend = () => {
-                        console.log('Speech synthesis ended.');
-                        isSpeaking = false; // Reset the speaking flag
-                        callback(); // Call the callback to process the next message in the queue
-                    };
-
-                    utterance.onerror = (e) => {
-                        console.error('Speech synthesis error:', e);
-                        isSpeaking = false;
-                        callback(); // Proceed even if there is an error
-                    };
-                } else {
-                    console.warn('Speech Synthesis not supported in this browser.');
+                if (!('speechSynthesis' in window)) {
+                    console.warn('Speech Synthesis not supported');
                     isSpeaking = false;
-                    callback(); // Proceed if speech synthesis is not supported
+                    callback();
+                    return;
                 }
-            }
-            audioPlayer.addEventListener('ended', onAudioEnded);
-        }
 
-        function handleQueueData(url, elementID, step, window) {
-            $.ajax({
-                url: url,
-                type: 'GET',
-                success: function(data) {
-                    $(elementID).html(data);
-                    let h1 = $(elementID + ' h1');
-                    if (h1.length > 0) {
-                        let text = h1.text().trim();
-                        let parts = text.split('-');
-                        if (parts.length === 2) {
-                            let currentQueueNum = parts[0];
-                            let currentCategory = parts[1];
-                            if (!prevData[url]) {
-                                prevData[url] = {
-                                    queueNum: null,
-                                    category: null
-                                };
-                            }
-                            // Check if the current data is different from previous
-                            if (currentQueueNum !== prevData[url].queueNum || currentCategory !== prevData[url].category) {
-                                prevData[url].queueNum = currentQueueNum;
-                                prevData[url].category = currentCategory;
+                const utterance = new SpeechSynthesisUtterance(message);
+                utterance.lang = 'en-US';
+                utterance.pitch = 1;
+                utterance.rate = 1;
+                utterance.volume = 1;
 
-                                // Apply the animation class when new data arrives
-                                $(elementID).addClass('elementID');
+                const setVoiceAndSpeak = () => {
+                    const voices = speechSynthesis.getVoices();
+                    if (voices.length > 2) utterance.voice = voices[2];
+                    speechSynthesis.speak(utterance);
+                };
 
-                                let message = `Client number, ${currentQueueNum} ${currentCategory}. Please proceed to step ${step} window ${window}. ${currentQueueNum} ${currentCategory}, to step ${step} window ${window}.`;
-                                console.log(`New message: ${message}`);
-
-                                // Add the message to the queue
-                                queue.push({
-                                    message: message,
-                                    callback: processQueue // Add a callback to continue processing the queue
-                                });
-
-                                // Start processing the queue if not already speaking
-                                processQueue();
-                            } else {
-                                // Remove the class if there's no change (optional)
-                                $(elementID).removeClass('elementID');
-                            }
-                        }
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching queue data:", error);
+                if (speechSynthesis.getVoices().length === 0) {
+                    speechSynthesis.onvoiceschanged = setVoiceAndSpeak;
+                } else {
+                    setVoiceAndSpeak();
                 }
+
+                utterance.onend = () => {
+                    console.log('Speech synthesis ended.');
+                    isSpeaking = false;
+                    callback();
+                };
+
+                utterance.onerror = (e) => {
+                    console.error('Speech synthesis error:', e);
+                    isSpeaking = false;
+                    callback();
+                };
             });
+
+            audioPlayer.play();
         }
 
-        function handleQueueDatas2(url, elementID, step) {
-            $.ajax({
-                url: url,
-                type: 'GET',
-                success: function(data) {
-                    $(elementID).html(data);
-                    let h1 = $(elementID + ' h1');
-                    if (h1.length > 0) {
-                        let text = h1.text().trim();
-                        let parts = text.split('-');
-                        if (parts.length === 2) {
-                            let currentQueueNum = parts[0];
-                            let currentCategory = parts[1];
-                            if (!prevData[url]) {
-                                prevData[url] = {
-                                    queueNum: null,
-                                    category: null
-                                };
-                            }
-                            // Check if the current data is different from previous
-                            if (currentQueueNum !== prevData[url].queueNum || currentCategory !== prevData[url].category) {
-                                prevData[url].queueNum = currentQueueNum;
-                                prevData[url].category = currentCategory;
+        function handleQueueData(url, elementID, step, windowNum = null) {
+            $.get(url, function(data) {
+                $(elementID).html(data);
 
-                                // Apply the animation class when new data arrives
-                                $(elementID).addClass('elementID');
+                const h1 = $(elementID + ' h1');
+                if (!h1.length) return;
 
-                                let message = `Client number, ${currentQueueNum} ${currentCategory}. Please proceed to step ${step}. ${currentQueueNum} ${currentCategory}, to step ${step}.`;
-                                console.log(`New message: ${message}`);
+                const rawText = h1.text().trim();
+                if (!rawText) return;
 
-                                // Add the message to the queue
-                                queue.push({
-                                    message: message,
-                                    callback: processQueue // Add a callback to continue processing the queue
-                                });
+                // Extract queue number like "P 000", "A 005", etc.
+                const queueNum = rawText;
 
-                                // Start processing the queue if not already speaking
-                                processQueue();
-                            } else {
-                                // Remove the class if there's no change (optional)
-                                $(elementID).removeClass('elementID');
-                            }
-                        }
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching queue data:", error);
+                // Normalize queue number by removing all non-digits (e.g. "P 000" → "000")
+                const normalizedQueueNum = queueNum.replace(/[^\d]/g, '');
+
+                if (parseInt(normalizedQueueNum, 10) === 0) {
+                    console.log(`Skipped audio/speech for queue number ${queueNum}`);
+                    return;
                 }
+
+                if (!prevData[url]) prevData[url] = {
+                    queueNum: null
+                };
+
+                const changed = queueNum !== prevData[url].queueNum;
+                if (!changed) {
+                    $(elementID).removeClass('elementID');
+                    return;
+                }
+
+                prevData[url] = {
+                    queueNum
+                };
+                $(elementID).addClass('elementID');
+
+                const baseMsg = `Client number, ${queueNum}. Please proceed to step ${step}`;
+                const fullMessage = windowNum ?
+                    `${baseMsg} window ${windowNum}. ${queueNum}, to step ${step} window ${windowNum}.` :
+                    `${baseMsg}. ${queueNum}, to step ${step}.`;
+
+                console.log(`New message: ${fullMessage}`);
+                queue.push({
+                    message: fullMessage,
+                    callback: processQueue
+                });
+                processQueue();
+            }).fail(function(xhr, status, error) {
+                console.error("Error fetching queue data:", error);
             });
         }
 
 
 
         function qsdLoadStepFlow() {
-            handleQueueData('<?= base_url('qsdS2W1RegRou') ?>', '#qsdS2W1Reg', 2, 1);
-            handleQueueData('<?= base_url('qsdS2W2RegRou') ?>', '#qsdS2W2Reg', 2, 2);
+            handleQueueData('<?= base_url('qsdS2W1ReguRou') ?>', '#qsdS2W1Regu', 2, 1);
+            handleQueueData('<?= base_url('qsdS2W2ReguRou') ?>', '#qsdS2W2Regu', 2, 2);
 
-            handleQueueData('<?= base_url('qsdS3W1RegRou') ?>', '#qsdS3W1Reg', 3, 1);
-            handleQueueData('<?= base_url('qsdS3W2RegRou') ?>', '#qsdS3W2Reg', 3, 2);
-            handleQueueData('<?= base_url('qsdS3W3RegRou') ?>', '#qsdS3W3Reg', 3, 3);
-            handleQueueData('<?= base_url('qsdS3W4RegRou') ?>', '#qsdS3W4Reg', 3, 4);
+            handleQueueData('<?= base_url('qsdS3W1Rou') ?>', '#qsdS3W1', 3, 1);
+            handleQueueData('<?= base_url('qsdS3W2Rou') ?>', '#qsdS3W2', 3, 2);
+            handleQueueData('<?= base_url('qsdS3W3Rou') ?>', '#qsdS3W3', 3, 3);
+            handleQueueData('<?= base_url('qsdS3W4Rou') ?>', '#qsdS3W4', 3, 4);
 
-            handleQueueData('<?= base_url('qsdS4W1RegRou') ?>', '#qsdS4W1Reg', 4, 1);
-            handleQueueData('<?= base_url('qsdS4W2RegRou') ?>', '#qsdS4W2Reg', 4, 2);
-            handleQueueData('<?= base_url('qsdS4W3RegRou') ?>', '#qsdS4W3Reg', 4, 3);
+            handleQueueData('<?= base_url('qsdS4W1Rou') ?>', '#qsdS4W1', 4, 1);
+            handleQueueData('<?= base_url('qsdS4W2Rou') ?>', '#qsdS4W2', 4, 2);
+            handleQueueData('<?= base_url('qsdS4W3Rou') ?>', '#qsdS4W3', 4, 3);
         }
 
-        // Remove setInterval and instead chain the calls with a delay only after each message is processed
         function qsdLoadStepFlowWithDelay() {
             qsdLoadStepFlow();
-            setTimeout(qsdLoadStepFlowWithDelay, 100); // Adjust time based on expected message length
+            setTimeout(qsdLoadStepFlowWithDelay, 1000); // Adjust as needed
         }
 
-        qsdLoadStepFlowWithDelay(); // Initial call to start the sequence
+        qsdLoadStepFlowWithDelay();
     });
+</script>
+
+<script>
+    // FOR FETCHING VALUE OF call_num FROM recall TABLE
+    $(document).ready(function() {
+        callCount();
+        setInterval(callCount, 1000);
+    });
+
+    function callCount() {
+        const endpoints = [{
+                url: '<?= base_url('calls2w1ReguRou') ?>',
+                target: '#calls2w1Regu'
+            },
+            {
+                url: '<?= base_url('calls2w2ReguRou') ?>',
+                target: '#calls2w2Regu'
+            },
+            {
+                url: '<?= base_url('calls3w1Rou') ?>',
+                target: '#calls3w1'
+            },
+            {
+                url: '<?= base_url('calls3w2Rou') ?>',
+                target: '#calls3w2'
+            },
+            {
+                url: '<?= base_url('calls3w3Rou') ?>',
+                target: '#calls3w3'
+            },
+            {
+                url: '<?= base_url('calls3w4Rou') ?>',
+                target: '#calls3w4'
+            },
+            {
+                url: '<?= base_url('calls4w1Rou') ?>',
+                target: '#calls4w1'
+            },
+            {
+                url: '<?= base_url('calls4w2Rou') ?>',
+                target: '#calls4w2'
+            },
+            {
+                url: '<?= base_url('calls4w3Rou') ?>',
+                target: '#calls4w3'
+            },
+        ];
+
+        endpoints.forEach(({
+            url,
+            target
+        }) => {
+            $.get(url)
+                .done(function(data) {
+                    $(target).html(data);
+                })
+                .fail(function(xhr, status, error) {
+                    console.error(`Error loading ${url}:`, error);
+                });
+        });
+    }
 </script>

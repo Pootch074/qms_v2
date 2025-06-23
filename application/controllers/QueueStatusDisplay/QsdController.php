@@ -72,61 +72,78 @@ class QsdController extends CI_Controller
 
 
 
-	private function displayPrioTicket($modelMethod)
+	private function displayTicket($modelMethod)
 	{
 		$serving = $this->QsdModel->$modelMethod();
 
 		if (!empty($serving)) {
 			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketPrio">
-                  P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-                  </h1>';
+				if ($row->category === 'PRIORITY') {
+					echo '<h1 class="serveTicketPrio">
+                    P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
+                    </h1>';
+				} else {
+					echo '<h1 class="serveTicketRegu">
+                    R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
+                    </h1>';
+				}
 			}
 		}
 	}
+
 	public function s2w1PrioCont()
 	{
-		$this->displayPrioTicket('s2Mod');
+		$this->displayTicket('s2w1PrioMod');
 	}
 
 	public function s2w2PrioCont()
 	{
-		$this->displayPrioTicket('s2w2Mod');
+		$this->displayTicket('s2w2PrioMod');
 	}
 
-	public function s3w1PrioCont()
+	public function s2w1ReguCont()
 	{
-		$this->displayPrioTicket('s3w1PrioMod');
+		$this->displayTicket('s2w1ReguMod');
 	}
 
-	public function s3w2PrioCont()
+	public function s2w2ReguCont()
 	{
-		$this->displayPrioTicket('s3w2PrioMod');
+		$this->displayTicket('s2w2ReguMod');
 	}
 
-	public function s3w3PrioCont()
+	public function s3w1Cont()
 	{
-		$this->displayPrioTicket('s3w3PrioMod');
+		$this->displayTicket('s3w1Mod');
 	}
 
-	public function s3w4PrioCont()
+	public function s3w2Cont()
 	{
-		$this->displayPrioTicket('s3w4PrioMod');
+		$this->displayTicket('s3w2Mod');
 	}
 
-	public function s4w1PrioCont()
+	public function s3w3Cont()
 	{
-		$this->displayPrioTicket('s4w1PrioMod');
+		$this->displayTicket('s3w3Mod');
 	}
 
-	public function s4w2PrioCont()
+	public function s3w4Cont()
 	{
-		$this->displayPrioTicket('s4w2PrioMod');
+		$this->displayTicket('s3w4Mod');
 	}
 
-	public function s4w3PrioCont()
+	public function s4w1Cont()
 	{
-		$this->displayPrioTicket('s4w3PrioMod');
+		$this->displayTicket('s4w1Mod');
+	}
+
+	public function s4w2Cont()
+	{
+		$this->displayTicket('s4w2Mod');
+	}
+
+	public function s4w3Cont()
+	{
+		$this->displayTicket('s4w3Mod');
 	}
 
 
@@ -153,62 +170,62 @@ class QsdController extends CI_Controller
 		$this->load->view('queueStatusDisplay/qsdRegular', $data);
 		$this->load->view('queueStatusDisplay/footer');
 	}
-	private function displayRegTicket($modelMethod)
-	{
-		$serving = $this->QsdModel->$modelMethod();
+	// private function displayRegTicket($modelMethod)
+	// {
+	// 	$serving = $this->QsdModel->$modelMethod();
 
-		if (!empty($serving)) {
-			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketRegu">
-                  R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-                  </h1>';
-			}
-		}
-	}
-	public function s2w1RegCont()
-	{
-		$this->displayRegTicket('s2w1RegMod');
-	}
+	// 	if (!empty($serving)) {
+	// 		foreach ($serving as $row) {
+	// 			echo '<h1 class="serveTicketRegu">
+	//               R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
+	//               </h1>';
+	// 		}
+	// 	}
+	// }
+	// public function s2w1ReguCont()
+	// {
+	// 	$this->displayRegTicket('s2w1RegMod');
+	// }
 
-	public function s2w2RegCont()
-	{
-		$this->displayRegTicket('s2w2RegMod');
-	}
+	// public function s2w2ReguCont()
+	// {
+	// 	$this->displayRegTicket('s2w2RegMod');
+	// }
 
-	public function s3w1RegCont()
-	{
-		$this->displayRegTicket('s3w1RegMod');
-	}
+	// public function s3w1ReguCont()
+	// {
+	// 	$this->displayRegTicket('s3w1RegMod');
+	// }
 
-	public function s3w2RegCont()
-	{
-		$this->displayRegTicket('s3w2RegMod');
-	}
+	// public function s3w2ReguCont()
+	// {
+	// 	$this->displayRegTicket('s3w2RegMod');
+	// }
 
-	public function s3w3RegCont()
-	{
-		$this->displayRegTicket('s3w3RegMod');
-	}
+	// public function s3w3ReguCont()
+	// {
+	// 	$this->displayRegTicket('s3w3RegMod');
+	// }
 
-	public function s3w4RegCont()
-	{
-		$this->displayRegTicket('s3w4RegMod');
-	}
+	// public function s3w4ReguCont()
+	// {
+	// 	$this->displayRegTicket('s3w4RegMod');
+	// }
 
-	public function s4w1RegCont()
-	{
-		$this->displayRegTicket('s4w1RegMod');
-	}
+	// public function s4w1ReguCont()
+	// {
+	// 	$this->displayRegTicket('s4w1RegMod');
+	// }
 
-	public function s4w2RegCont()
-	{
-		$this->displayRegTicket('s4w2RegMod');
-	}
+	// public function s4w2ReguCont()
+	// {
+	// 	$this->displayRegTicket('s4w2RegMod');
+	// }
 
-	public function s4w3RegCont()
-	{
-		$this->displayRegTicket('s4w3RegMod');
-	}
+	// public function s4w3ReguCont()
+	// {
+	// 	$this->displayRegTicket('s4w3RegMod');
+	// }
 
 	public function qsdFM()
 	{
@@ -265,9 +282,15 @@ class QsdController extends CI_Controller
 
 		if (!empty($serving)) {
 			foreach ($serving as $row) {
-				echo '<h1 class="serveTicketPrio">
-                  P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-                  </h1>';
+				if ($row->category === 'PRIORITY') {
+					echo '<h1 class="serveTicketPrio">
+                    P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
+                    </h1>';
+				} else {
+					echo '<h1 class="serveTicketRegu">
+                    R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
+                    </h1>';
+				}
 			}
 		}
 	}
@@ -280,6 +303,16 @@ class QsdController extends CI_Controller
 	public function hiddenS2w2PrioCont()
 	{
 		$this->mnjkli('hiddenS2w2PrioMod');
+	}
+
+	public function hiddenS2w1ReguCont()
+	{
+		$this->mnjkli('hiddenS2w1ReguMod');
+	}
+
+	public function hiddenS2w2ReguCont()
+	{
+		$this->mnjkli('hiddenS2w2ReguMod');
 	}
 
 	public function hiddenS3w1Cont()
@@ -314,9 +347,9 @@ class QsdController extends CI_Controller
 
 
 	// FOR FETCHING call_num VALUE
-	public function calls2w1Cont()
+	public function calls2w1PrioCont()
 	{
-		$abcdcall = $this->QsdModel->calls2w1Mod();
+		$abcdcall = $this->QsdModel->calls2w1PrioMod();
 		if (!empty($abcdcall)) {
 			foreach ($abcdcall as $row) {
 				echo '<h2 class="qsdStepFont">' . ($row->call_num) . '</h2>';
@@ -325,9 +358,31 @@ class QsdController extends CI_Controller
 		}
 	}
 
-	public function calls2w2Cont()
+	public function calls2w2PrioCont()
 	{
-		$abcdcall = $this->QsdModel->calls2w2Mod();
+		$abcdcall = $this->QsdModel->calls2w2PrioMod();
+		if (!empty($abcdcall)) {
+			foreach ($abcdcall as $row) {
+				echo '<h2 class="qsdStepFont">' . ($row->call_num) . '</h2>';
+			}
+		} else {
+		}
+	}
+
+	public function calls2w1ReguCont()
+	{
+		$abcdcall = $this->QsdModel->calls2w1ReguMod();
+		if (!empty($abcdcall)) {
+			foreach ($abcdcall as $row) {
+				echo '<h2 class="qsdStepFont">' . ($row->call_num) . '</h2>';
+			}
+		} else {
+		}
+	}
+
+	public function calls2w2ReguCont()
+	{
+		$abcdcall = $this->QsdModel->calls2w2ReguMod();
 		if (!empty($abcdcall)) {
 			foreach ($abcdcall as $row) {
 				echo '<h2 class="qsdStepFont">' . ($row->call_num) . '</h2>';

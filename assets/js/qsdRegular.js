@@ -1,4 +1,4 @@
-const el10 = document.getElementById("mnbghjk");
+const el10 = document.getElementById("reguHiddenTbl");
 if (el10) el10.classList.add("hidden");
 
 $(document).ready(function () {
@@ -116,14 +116,14 @@ $(document).ready(function () {
 
 	function qsdLoadStepFlow() {
 		handleQueueData(
-			BASE_URL + "hiddenQsdS2W1PrioRou",
-			"#hiddenQsdS2W1Prio",
+			BASE_URL + "hiddenQsdS2W1ReguRou",
+			"#hiddenQsdS2W1Regu",
 			2,
 			1
 		);
 		handleQueueData(
-			BASE_URL + "hiddenQsdS2W2PrioRou",
-			"#hiddenQsdS2W2Prio",
+			BASE_URL + "hiddenQsdS2W2ReguRou",
+			"#hiddenQsdS2W2Regu",
 			2,
 			2
 		);
@@ -137,8 +137,8 @@ $(document).ready(function () {
 		handleQueueData(BASE_URL + "hiddenQsdS4W2Rou", "#hiddenQsdS4W2", 4, 2);
 		handleQueueData(BASE_URL + "hiddenQsdS4W3Rou", "#hiddenQsdS4W3", 4, 3);
 	}
-	let previousCalls2w1 = $("#calls2w1Prio h2").text();
-	let previousCalls2w2 = $("#calls2w2Prio h2").text();
+	let previousCalls2w1 = $("#calls2w1Regu h2").text();
+	let previousCalls2w2 = $("#calls2w2Regu h2").text();
 	let previousCalls3w1 = $("#calls3w1 h2").text();
 	let previousCalls3w2 = $("#calls3w2 h2").text();
 	let previousCalls3w3 = $("#calls3w3 h2").text();
@@ -148,8 +148,8 @@ $(document).ready(function () {
 	let previousCalls4w3 = $("#calls4w3 h2").text();
 
 	setInterval(function () {
-		let currentCalls2w1 = $("#calls2w1Prio h2").text();
-		let currentCalls2w2 = $("#calls2w2Prio h2").text();
+		let currentCalls2w1 = $("#calls2w1Regu h2").text();
+		let currentCalls2w2 = $("#calls2w2Regu h2").text();
 		let currentCalls3w1 = $("#calls3w1 h2").text();
 		let currentCalls3w2 = $("#calls3w2 h2").text();
 		let currentCalls3w3 = $("#calls3w3 h2").text();
@@ -162,8 +162,8 @@ $(document).ready(function () {
 			previousCalls2w1 = currentCalls2w1;
 
 			const queueText =
-				$("#hiddenQsdS2W1Prio h1").text().trim() ||
-				$("#hiddenQsdS2W1Prio").text().trim();
+				$("#hiddenQsdS2W1Regu h1").text().trim() ||
+				$("#hiddenQsdS2W1Regu").text().trim();
 			if (!queueText) return;
 
 			const message = `Client number, ${queueText}. Please proceed to step 2 window 1. ${queueText}, to step 2 window 1.`;
@@ -173,8 +173,8 @@ $(document).ready(function () {
 			previousCalls2w2 = currentCalls2w2;
 
 			const queueText =
-				$("#hiddenQsdS2W2Prio h1").text().trim() ||
-				$("#hiddenQsdS2W2Prio").text().trim();
+				$("#hiddenQsdS2W2Regu h1").text().trim() ||
+				$("#hiddenQsdS2W2Regu").text().trim();
 			if (!queueText) return;
 
 			const message = `Client number, ${queueText}. Please proceed to step 2 window 2. ${queueText}, to step 2 window 2.`;

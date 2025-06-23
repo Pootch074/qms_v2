@@ -133,21 +133,21 @@ class S4QsfModel extends CI_Model
         $this->db->where('id', $id);
         $this->db->where('status', 2);
         $this->db->where('step_id', 4);
-        $this->db->update('tbl_transactions', array('step_id' => null, 'window_id' => null, 'status' => 'SERVED'));
+        $this->db->update('tbl_transactions', array('status' => 'SERVED', 'step_id' => null, 'window_id' => null));
     }
     public function qsfS4W2UpdPendMod($id)
     {
         $this->db->where('id', $id);
         $this->db->where('status', 2);
         $this->db->where('step_id', 4);
-        $this->db->update('tbl_transactions', array('step_id' => null, 'window_id' => null, 'status' => 'SERVED'));
+        $this->db->update('tbl_transactions', array('status' => 'SERVED', 'step_id' => null, 'window_id' => null));
     }
     public function qsfS4W3UpdPendMod($id)
     {
         $this->db->where('id', $id);
         $this->db->where('status', 2);
         $this->db->where('step_id', 4);
-        $this->db->update('tbl_transactions', array('step_id' => null, 'window_id' => null, 'status' => 'SERVED'));
+        $this->db->update('tbl_transactions', array('status' => 'SERVED', 'step_id' => null, 'window_id' => null));
     }
 
 

@@ -180,26 +180,30 @@ $route['qsdPrioNew'] = 'QueueStatusDisplay/QsdController/qsdPrioNewCont';
 
 $route['qsdS2W1PrioRou'] = 'QueueStatusDisplay/QsdController/s2w1PrioCont';
 $route['qsdS2W2PrioRou'] = 'QueueStatusDisplay/QsdController/s2w2PrioCont';
-$route['qsdS3W1PrioRou'] = 'QueueStatusDisplay/QsdController/s3w1PrioCont';
-$route['qsdS3W2PrioRou'] = 'QueueStatusDisplay/QsdController/s3w2PrioCont';
-$route['qsdS3W3PrioRou'] = 'QueueStatusDisplay/QsdController/s3w3PrioCont';
-$route['qsdS3W4PrioRou'] = 'QueueStatusDisplay/QsdController/s3w4PrioCont';
-$route['qsdS4W1PrioRou'] = 'QueueStatusDisplay/QsdController/s4w1PrioCont';
-$route['qsdS4W2PrioRou'] = 'QueueStatusDisplay/QsdController/s4w2PrioCont';
-$route['qsdS4W3PrioRou'] = 'QueueStatusDisplay/QsdController/s4w3PrioCont';
+
+$route['qsdS2W1ReguRou'] = 'QueueStatusDisplay/QsdController/s2w1ReguCont';
+$route['qsdS2W2ReguRou'] = 'QueueStatusDisplay/QsdController/s2w2ReguCont';
+
+$route['qsdS3W1Rou'] = 'QueueStatusDisplay/QsdController/s3w1Cont';
+$route['qsdS3W2Rou'] = 'QueueStatusDisplay/QsdController/s3w2Cont';
+$route['qsdS3W3Rou'] = 'QueueStatusDisplay/QsdController/s3w3Cont';
+$route['qsdS3W4Rou'] = 'QueueStatusDisplay/QsdController/s3w4Cont';
+$route['qsdS4W1Rou'] = 'QueueStatusDisplay/QsdController/s4w1Cont';
+$route['qsdS4W2Rou'] = 'QueueStatusDisplay/QsdController/s4w2Cont';
+$route['qsdS4W3Rou'] = 'QueueStatusDisplay/QsdController/s4w3Cont';
 
 
 /*-------------------- REGULAR DISPLAY ROUTES --------------------*/
 $route['qsdRegu'] = 'QueueStatusDisplay/QsdController/qsdRegCont';
-$route['qsdS2W1RegRou'] = 'QueueStatusDisplay/QsdController/s2w1RegCont';
-$route['qsdS2W2RegRou'] = 'QueueStatusDisplay/QsdController/s2w2RegCont';
-$route['qsdS3W1RegRou'] = 'QueueStatusDisplay/QsdController/s3w1RegCont';
-$route['qsdS3W2RegRou'] = 'QueueStatusDisplay/QsdController/s3w2RegCont';
-$route['qsdS3W3RegRou'] = 'QueueStatusDisplay/QsdController/s3w3RegCont';
-$route['qsdS3W4RegRou'] = 'QueueStatusDisplay/QsdController/s3w4RegCont';
-$route['qsdS4W1RegRou'] = 'QueueStatusDisplay/QsdController/s4w1RegCont';
-$route['qsdS4W2RegRou'] = 'QueueStatusDisplay/QsdController/s4w2RegCont';
-$route['qsdS4W3RegRou'] = 'QueueStatusDisplay/QsdController/s4w3RegCont';
+$route['qsdS2W1ReguRou'] = 'QueueStatusDisplay/QsdController/s2w1ReguCont';
+$route['qsdS2W2ReguRou'] = 'QueueStatusDisplay/QsdController/s2w2ReguCont';
+$route['qsdS3W1ReguRou'] = 'QueueStatusDisplay/QsdController/s3w1ReguCont';
+$route['qsdS3W2ReguRou'] = 'QueueStatusDisplay/QsdController/s3w2ReguCont';
+$route['qsdS3W3ReguRou'] = 'QueueStatusDisplay/QsdController/s3w3ReguCont';
+$route['qsdS3W4ReguRou'] = 'QueueStatusDisplay/QsdController/s3w4ReguCont';
+$route['qsdS4W1ReguRou'] = 'QueueStatusDisplay/QsdController/s4w1ReguCont';
+$route['qsdS4W2ReguRou'] = 'QueueStatusDisplay/QsdController/s4w2ReguCont';
+$route['qsdS4W3ReguRou'] = 'QueueStatusDisplay/QsdController/s4w3ReguCont';
 
 $route['qsdFooterMarquee'] = 'QueueStatusDisplay/QsdController/qsdFM';
 
@@ -237,6 +241,10 @@ $route['s4w3CallBtnRou'] = 'QueueStepFlow/S4QsfController/s4w3CallBtnCont';
 // FOR FETCHING VALUES FROM queue_num IN tbl_transactions
 $route['hiddenQsdS2W1PrioRou'] = 'QueueStatusDisplay/QsdController/hiddenS2w1PrioCont';
 $route['hiddenQsdS2W2PrioRou'] = 'QueueStatusDisplay/QsdController/hiddenS2w2PrioCont';
+
+$route['hiddenQsdS2W1ReguRou'] = 'QueueStatusDisplay/QsdController/hiddenS2w1ReguCont';
+$route['hiddenQsdS2W2ReguRou'] = 'QueueStatusDisplay/QsdController/hiddenS2w2ReguCont';
+
 $route['hiddenQsdS3W1Rou'] = 'QueueStatusDisplay/QsdController/hiddenS3w1Cont';
 $route['hiddenQsdS3W2Rou'] = 'QueueStatusDisplay/QsdController/hiddenS3w2Cont';
 $route['hiddenQsdS3W3Rou'] = 'QueueStatusDisplay/QsdController/hiddenS3w3Cont';
@@ -246,8 +254,12 @@ $route['hiddenQsdS4W2Rou'] = 'QueueStatusDisplay/QsdController/hiddenS4w2Cont';
 $route['hiddenQsdS4W3Rou'] = 'QueueStatusDisplay/QsdController/hiddenS4w3Cont';
 
 // FOR FETCHING call_num VALUE
-$route['calls2w1Rou'] = 'QueueStatusDisplay/QsdController/calls2w1Cont';
-$route['calls2w2Rou'] = 'QueueStatusDisplay/QsdController/calls2w2Cont';
+$route['calls2w1PrioRou'] = 'QueueStatusDisplay/QsdController/calls2w1PrioCont';
+$route['calls2w2PrioRou'] = 'QueueStatusDisplay/QsdController/calls2w2PrioCont';
+
+$route['calls2w1ReguRou'] = 'QueueStatusDisplay/QsdController/calls2w1ReguCont';
+$route['calls2w2ReguRou'] = 'QueueStatusDisplay/QsdController/calls2w2ReguCont';
+
 $route['calls3w1Rou'] = 'QueueStatusDisplay/QsdController/calls3w1Cont';
 $route['calls3w2Rou'] = 'QueueStatusDisplay/QsdController/calls3w2Cont';
 $route['calls3w3Rou'] = 'QueueStatusDisplay/QsdController/calls3w3Cont';
@@ -255,6 +267,29 @@ $route['calls3w4Rou'] = 'QueueStatusDisplay/QsdController/calls3w4Cont';
 $route['calls4w1Rou'] = 'QueueStatusDisplay/QsdController/calls4w1Cont';
 $route['calls4w2Rou'] = 'QueueStatusDisplay/QsdController/calls4w2Cont';
 $route['calls4w3Rou'] = 'QueueStatusDisplay/QsdController/calls4w3Cont';
+
+
+
+
+
+
+
+
+// ================================= REGULAR =================================
+// $route['resetCallStatByQueueNum'] = 'QueueStepFlow/QsfController/hiddednresetCallStatByQueueNum';
+$route['s2w1CallReguRou'] = 'QueueStepFlow/QsfController/s2w1CallReguCont';
+$route['s2w2CallReguRou'] = 'QueueStepFlow/QsfController/s2w2CallReguCont';
+$route['s3w1CallReguRou'] = 'QueueStepFlow/S3QsfController/s3w1CallReguCont';
+$route['s3w2CallReguRou'] = 'QueueStepFlow/S3QsfController/s3w2CallReguCont';
+$route['s3w3CallReguRou'] = 'QueueStepFlow/S3QsfController/s3w3CallReguCont';
+$route['s3w4CallReguRou'] = 'QueueStepFlow/S3QsfController/s3w4CallReguCont';
+$route['s4w1CallReguRou'] = 'QueueStepFlow/S4QsfController/s4w1CallReguCont';
+$route['s4w2CallReguRou'] = 'QueueStepFlow/S4QsfController/s4w2CallReguCont';
+$route['s4w3CallReguRou'] = 'QueueStepFlow/S4QsfController/s4w3CallReguCont';
+
+
+
+
 
 
 // $route['hiddenQsdS3W2PrioRou'] = 'QueueStatusDisplay/QsdController/hiddenS3w2PrioCont';

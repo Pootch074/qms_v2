@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W1Prio" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W1" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W2Prio" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W2" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W3Prio" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W3" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W4Prio" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS3W4" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -101,7 +101,7 @@
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
 
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS4W1Prio" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS4W1" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -120,7 +120,7 @@
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
 
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS4W2Prio" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS4W2" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -137,7 +137,7 @@
                 </div>
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
 
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS4W3Prio" style="width:60%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="qsdS4W3" style="width:60%;">
                     </div>
 
                     <div class="h-100 d-flex align-items-center justify-content-center" style="width:20%;">
@@ -152,7 +152,6 @@
                         </h2>
                     </div>
                 </div>
-
             </div>
 
 
@@ -161,14 +160,14 @@
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
                     <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS2W1Prio" style="width:60%;">
                     </div>
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls2w1" style="width:20%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls2w1Prio" style="width:20%;">
                     </div>
                 </div>
 
                 <div class="cardCstm flex-grow-1 mb-1 d-flex align-items-center justify-content-center" style="width:100%;">
                     <div class="h-100 d-flex align-items-center justify-content-center" id="hiddenQsdS2W2Prio" style="width:60%;">
                     </div>
-                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls2w2" style="width:20%;">
+                    <div class="h-100 d-flex align-items-center justify-content-center" id="calls2w2Prio" style="width:20%;">
                     </div>
                 </div>
 
@@ -407,19 +406,19 @@
             handleQueueData('<?= base_url('qsdS2W1PrioRou') ?>', '#qsdS2W1Prio', 2, 1);
             handleQueueData('<?= base_url('qsdS2W2PrioRou') ?>', '#qsdS2W2Prio', 2, 2);
 
-            handleQueueData('<?= base_url('qsdS3W1PrioRou') ?>', '#qsdS3W1Prio', 3, 1);
-            handleQueueData('<?= base_url('qsdS3W2PrioRou') ?>', '#qsdS3W2Prio', 3, 2);
-            handleQueueData('<?= base_url('qsdS3W3PrioRou') ?>', '#qsdS3W3Prio', 3, 3);
-            handleQueueData('<?= base_url('qsdS3W4PrioRou') ?>', '#qsdS3W4Prio', 3, 4);
+            handleQueueData('<?= base_url('qsdS3W1Rou') ?>', '#qsdS3W1', 3, 1);
+            handleQueueData('<?= base_url('qsdS3W2Rou') ?>', '#qsdS3W2', 3, 2);
+            handleQueueData('<?= base_url('qsdS3W3Rou') ?>', '#qsdS3W3', 3, 3);
+            handleQueueData('<?= base_url('qsdS3W4Rou') ?>', '#qsdS3W4', 3, 4);
 
-            handleQueueData('<?= base_url('qsdS4W1PrioRou') ?>', '#qsdS4W1Prio', 4, 1);
-            handleQueueData('<?= base_url('qsdS4W2PrioRou') ?>', '#qsdS4W2Prio', 4, 2);
-            handleQueueData('<?= base_url('qsdS4W3PrioRou') ?>', '#qsdS4W3Prio', 4, 3);
+            handleQueueData('<?= base_url('qsdS4W1Rou') ?>', '#qsdS4W1', 4, 1);
+            handleQueueData('<?= base_url('qsdS4W2Rou') ?>', '#qsdS4W2', 4, 2);
+            handleQueueData('<?= base_url('qsdS4W3Rou') ?>', '#qsdS4W3', 4, 3);
         }
 
         function qsdLoadStepFlowWithDelay() {
             qsdLoadStepFlow();
-            setTimeout(qsdLoadStepFlowWithDelay, 500); // Adjust as needed
+            setTimeout(qsdLoadStepFlowWithDelay, 1000); // Adjust as needed
         }
 
         qsdLoadStepFlowWithDelay();
@@ -430,17 +429,17 @@
     // FOR FETCHING VALUE OF call_num FROM recall TABLE
     $(document).ready(function() {
         callCount();
-        setInterval(callCount, 500);
+        setInterval(callCount, 1000);
     });
 
     function callCount() {
         const endpoints = [{
-                url: '<?= base_url('calls2w1Rou') ?>',
-                target: '#calls2w1'
+                url: '<?= base_url('calls2w1PrioRou') ?>',
+                target: '#calls2w1Prio'
             },
             {
-                url: '<?= base_url('calls2w2Rou') ?>',
-                target: '#calls2w2'
+                url: '<?= base_url('calls2w2PrioRou') ?>',
+                target: '#calls2w2Prio'
             },
             {
                 url: '<?= base_url('calls3w1Rou') ?>',
