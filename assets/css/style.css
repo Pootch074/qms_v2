@@ -23,6 +23,14 @@ body {
 /*.row > *{
   padding: 0 !important;
 }*/
+.poweredBy span {
+	/* color: white; */
+	color: #aab7cf;
+	font-family: "Courier New", Courier, monospace;
+}
+.poweredBy img {
+	width: 15%;
+}
 
 .qmsBlue {
 	background-color: #5c7bd9;

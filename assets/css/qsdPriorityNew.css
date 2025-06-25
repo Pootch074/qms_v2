@@ -8,15 +8,24 @@ body {
 }
 .header {
 	height: 8vh;
-	background-color: pink;
+	background-color: #1b0f9e;
+	background-image: url("../resources/header.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.header img {
+	width: 1005;
+	height: 100%;
+	object-fit: contain;
+	margin-left: 3.5%;
 }
 .main {
 	height: 92vh;
 	width: 100%;
-	background-color: aquamarine;
+	background-color: #1b0f9e;
 }
 .container {
-	background-color: aqua;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -27,7 +36,7 @@ body {
 	width: 100%;
 }
 .leftCol {
-	border: 1px solid black;
+	border: 1px solid #1b0f9e;
 	display: block;
 	flex-grow: 1;
 	flex-shrink: 3;
@@ -46,6 +55,25 @@ body {
 	align-content: stretch;
 	height: 100%;
 }
+.firstRow_queueHeader,
+.secondRow_queueHeader,
+.thirdRow_queueHeader {
+	display: block;
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	border: 1px solid #1b0f9e;
+	background-color: white;
+	text-align: center;
+	font-size: 2rem;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding: 0px;
+	border-radius: 5px;
+	padding: 10px;
+}
 .firstRow {
 	display: block;
 	flex-grow: 0;
@@ -53,8 +81,8 @@ body {
 	flex-basis: auto;
 	align-self: auto;
 	order: 0;
-	border: 1px solid black;
-	height: 20vh;
+	border: 1px solid #1b0f9e;
+	height: 22vh;
 }
 .firstRowCard {
 	display: flex;
@@ -65,24 +93,7 @@ body {
 	align-content: stretch;
 	height: 100%;
 }
-.firstRow_queueHeader,
-.secondRowCard_queueHeader,
-.thirdRowCard_queueHeader {
-	display: block;
-	flex-grow: 0;
-	flex-shrink: 1;
-	flex-basis: auto;
-	align-self: auto;
-	order: 0;
-	border: 1px solid black;
-	background-color: white;
-	text-align: center;
-	font-size: 1.5rem;
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: bold;
-	padding: 0px;
-	border-radius: 5px;
-}
+
 .firstRow_queueBody {
 	display: flex;
 	flex-direction: row;
@@ -96,9 +107,6 @@ body {
 	padding-left: 5px;
 	padding-right: 5px;
 	gap: 5px;
-	font-size: 3.5rem;
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: bold;
 }
 .queueCard1,
 .queueCard2 {
@@ -108,10 +116,11 @@ body {
 	flex-basis: auto;
 	align-self: stretch;
 	order: 0;
-	border: 1px solid black;
+	border: 1px solid #1b0f9e;
 	width: 50%;
 }
-.queueCard1Contents {
+.queueCard1Contents,
+.queueCard2Contents {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -127,10 +136,16 @@ body {
 	flex-basis: auto;
 	align-self: auto;
 	order: 0;
-	border: 1px solid black;
+	border: 1px solid #1b0f9e;
 	text-align: center;
-	/* align-self: center; */
 	align-content: center;
+	background-color: #150e60;
+	color: white;
+	border-radius: 5px;
+
+	font-size: 2.5rem;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
 }
 .queueNum-box {
 	display: block;
@@ -139,10 +154,16 @@ body {
 	flex-basis: auto;
 	align-self: auto;
 	order: 0;
-	border: 1px solid black;
+	border: 1px solid #1b0f9e;
 	text-align: center;
-	/* align-self: center; */
 	align-content: center;
+	background-color: white;
+	color: black;
+	border-radius: 5px;
+
+	font-size: 4rem;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
 }
 
 .secondRow {
@@ -152,9 +173,8 @@ body {
 	flex-basis: auto;
 	align-self: auto;
 	order: 0;
-	border: 1px solid black;
-	/* height: 25%; */
-	height: 35vh;
+	border: 1px solid #1b0f9e;
+	height: 34vh;
 }
 .secondRowCard {
 	display: flex;
@@ -163,13 +183,13 @@ body {
 	justify-content: flex-start;
 	align-items: stretch;
 	align-content: stretch;
-	/* height: 30vh; */
+	height: 100%;
 }
 
-.secondRowCard_queueBody {
+.secondRow_queueBody {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	justify-content: flex-start;
 	align-items: stretch;
 	align-content: stretch;
@@ -180,10 +200,31 @@ body {
 	padding-right: 5px;
 	gap: 5px;
 }
-.secondRowCard_queueBody2 {
+.queueCard3,
+.queueCard4 {
+	display: block;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: stretch;
+	order: 0;
+	border: 1px solid #1b0f9e;
+	width: 50%;
+}
+.queueCard3Contents,
+.queueCard4Contents {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
+	justify-content: normal;
+	align-items: normal;
+	align-content: normal;
+	height: 100%;
+}
+.secondRow_queueBody2 {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
 	justify-content: flex-start;
 	align-items: stretch;
 	align-content: stretch;
@@ -193,29 +234,52 @@ body {
 	padding-right: 5px;
 	gap: 5px;
 }
-.queueCard3,
-.queueCard4,
 .queueCard5,
-.queueCard6,
-.queueCard7,
-.queueCard8,
-.queueCard9 {
+.queueCard6 {
 	display: block;
 	flex-grow: 1;
 	flex-shrink: 1;
 	flex-basis: auto;
 	align-self: stretch;
 	order: 0;
-	border: 1px solid black;
+	border: 1px solid #1b0f9e;
+	width: 50%;
 }
-.queueCard10 {
+.queueCard5Contents,
+.queueCard6Contents {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: normal;
+	align-items: normal;
+	align-content: normal;
+	height: 100%;
+}
+
+.dummyCard {
 	display: block;
 	flex-grow: 1;
 	flex-shrink: 1;
 	flex-basis: auto;
 	align-self: stretch;
 	order: 0;
-	border: 1px solid black;
+	border: 1px solid #1b0f9e;
+	width: 50%;
+}
+.dummyCardContents {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: normal;
+	align-items: normal;
+	align-content: normal;
+	height: 100%;
+}
+.dummy-window-box {
+	color: #1b0f9e;
+}
+.dummy-queueNum-box {
+	color: #1b0f9e;
 }
 
 .thirdRow {
@@ -225,9 +289,8 @@ body {
 	flex-basis: auto;
 	align-self: auto;
 	order: 0;
-	border: 1px solid black;
-	/* height: 25%; */
-	height: 35vh;
+	border: 1px solid #1b0f9e;
+	height: 34vh;
 }
 .thirdRowCard {
 	display: flex;
@@ -237,10 +300,10 @@ body {
 	align-items: stretch;
 	align-content: stretch;
 }
-.thirdRowCard_queueBody {
+.thirdRow_queueBody {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	justify-content: flex-start;
 	align-items: stretch;
 	align-content: stretch;
@@ -251,10 +314,31 @@ body {
 	padding-right: 5px;
 	gap: 5px;
 }
-.thirdRowCard_queueBody2 {
+.queueCard7,
+.queueCard8 {
+	display: block;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: stretch;
+	order: 0;
+	border: 1px solid #1b0f9e;
+	width: 50%;
+}
+.queueCard7Contents,
+.queueCard8Contents {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
+	justify-content: normal;
+	align-items: normal;
+	align-content: normal;
+	height: 100%;
+}
+.thirdRow_queueBody2 {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
 	justify-content: flex-start;
 	align-items: stretch;
 	align-content: stretch;
@@ -264,8 +348,28 @@ body {
 	padding-right: 5px;
 	gap: 5px;
 }
+.queueCard9 {
+	display: block;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: stretch;
+	order: 0;
+	border: 1px solid #1b0f9e;
+	width: 50%;
+}
+.queueCard9Contents {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: normal;
+	align-items: normal;
+	align-content: normal;
+	height: 100%;
+}
+
 .rightCol {
-	border: 1px solid black;
+	border: 1px solid #1b0f9e;
 	display: block;
 	flex-grow: 1;
 	flex-shrink: 3;
@@ -274,4 +378,134 @@ body {
 	order: 0;
 	height: 100%;
 	width: 50%;
+}
+.rightColCard {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	height: 100%;
+}
+.rFirstRow {
+	display: block;
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	border: 1px solid #1b0f9e;
+	height: 10vh;
+	background-color: #150e60;
+}
+
+.rFirstRowCard {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	height: 100%;
+
+	color: white;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.5rem;
+	font-weight: bold;
+}
+.rSecondRow {
+	display: block;
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	border: 1px solid #1b0f9e;
+	height: 60vh;
+}
+
+.rSecondRowCard {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	height: 100%;
+}
+.videoCard {
+	width: 100%;
+	height: 100%;
+	/* object-fit: contain; */
+	/* object-fit: cover; */
+	object-fit: fill;
+}
+.poweredBy span {
+	position: absolute;
+	right: 4%;
+	bottom: 23%;
+	opacity: 50%;
+}
+.poweredBy img {
+	position: absolute;
+	right: 1%;
+	bottom: 21%;
+	width: 3%;
+	opacity: 50%;
+}
+.rThirdRow {
+	display: block;
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	border: 1px solid #1b0f9e;
+	height: 10vh;
+	background-color: #150e60;
+}
+
+.rThirdRowCard {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	height: 100%;
+
+	color: white;
+	align-items: center;
+	justify-content: center;
+	font-size: 2rem;
+	font-weight: bold;
+}
+.rFourthRow {
+	display: block;
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	border: 1px solid #1b0f9e;
+	height: 10vh;
+	background-color: #150e60;
+}
+
+.rFourthRowCard {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	height: 100%;
+
+	color: white;
+	align-items: center;
+	justify-content: center;
+	font-size: 2rem;
+	font-weight: bold;
 }

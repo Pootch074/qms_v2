@@ -239,6 +239,10 @@
       <div class="register">
         <p class="small mb-0">Don't have an account? <a href="<?php echo base_url('register'); ?>">Register</a></p>
       </div>
+      <!-- <div class="poweredBy">
+        <span>Powered by:</span>
+        <img src="assets\resources\dyme-logo.png" alt="">
+      </div> -->
     </form>
   </div>
   <script src="./assets/plugins/jquery/jquery.min.js"></script>
