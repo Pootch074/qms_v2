@@ -243,6 +243,8 @@
 </script>
 
 <script>
+  let isCallCooldown = false;
+
   $(document).ready(function() {
     loadStepFlow();
     setInterval(loadStepFlow, 1000);
@@ -256,10 +258,11 @@
       success: function(data) {
         $('#s2w2ServPrio').html(data);
         if ($('#s2w2ServPrio').html().trim() !== '') {
-          // Disabled buttons if naa sulod
           $('#prioBtnID').prop('disabled', true);
           $('#skipBtnID').prop('disabled', false);
-          $('#callBtnID').prop('disabled', false);
+          if (!isCallCooldown) {
+            $('#callBtnID').prop('disabled', false);
+          }
           $('#proceedBtnID').prop('disabled', false);
         } else {
           $('#prioBtnID').prop('disabled', false);
@@ -267,6 +270,7 @@
           $('#callBtnID').prop('disabled', true);
           $('#proceedBtnID').prop('disabled', true);
         }
+
       },
       error: function(xhr, status, error) {
         console.error("Error: " + error);
@@ -365,6 +369,15 @@
 
 <script>
   function s2w2CallPrioBtn() {
+    if ($('#s2w2ServPrio').html().trim() !== '' && !$('#callBtnID').prop('disabled')) {
+      isCallCooldown = true;
+      $('#callBtnID').prop('disabled', true);
+
+      setTimeout(function() {
+        isCallCooldown = false;
+      }, 15000);
+    }
+
     $.ajax({
       url: '<?= base_url('s2w2CallPrioRou') ?>',
       type: 'POST',

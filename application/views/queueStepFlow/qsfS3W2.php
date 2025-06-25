@@ -336,6 +336,7 @@
 
 
 <script>
+  let isCallCooldown = false;
   $(document).ready(function() {
     loadStepFlow(); // Initial load
     setInterval(loadStepFlow, 1000); // Refresh every second
@@ -348,17 +349,17 @@
       success: function(data) {
         $('#s3w2Serving').html(data);
         if ($('#s3w2Serving').html().trim() !== '') {
-          $('#s3w1nextReguID').prop('disabled', true);
-          $('#s3nextPrioID').prop('disabled', true);
-          $('#s3skipID').prop('disabled', false);
-          $('#callBtnID').prop('disabled', false);
-          $('#s3proceedID').prop('disabled', false);
+          $('#prioBtnID').prop('disabled', true);
+          $('#skipBtnID').prop('disabled', false);
+          if (!isCallCooldown) {
+            $('#callBtnID').prop('disabled', false);
+          }
+          $('#proceedBtnID').prop('disabled', false);
         } else {
-          $('#s3w1nextReguID').prop('disabled', false);
-          $('#s3nextPrioID').prop('disabled', false);
-          $('#s3skipID').prop('disabled', true);
+          $('#prioBtnID').prop('disabled', false);
+          $('#skipBtnID').prop('disabled', true);
           $('#callBtnID').prop('disabled', true);
-          $('#s3proceedID').prop('disabled', true);
+          $('#proceedBtnID').prop('disabled', true);
         }
       },
       error: function(xhr, status, error) {
@@ -452,6 +453,15 @@
   }
 
   function s3w2CallBtn() {
+    if ($('#s3w2Serving').html().trim() !== '' && !$('#callBtnID').prop('disabled')) {
+      isCallCooldown = true;
+      $('#callBtnID').prop('disabled', true);
+
+      setTimeout(function() {
+        isCallCooldown = false;
+      }, 15000);
+    }
+
     $.ajax({
       url: '<?= base_url('s3w2CallBtnRou') ?>',
       type: 'POST',

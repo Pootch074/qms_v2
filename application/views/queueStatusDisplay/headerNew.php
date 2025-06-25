@@ -25,88 +25,22 @@
   <link href="./assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="./assets/css/qsdStyle.css" rel="stylesheet">
+  <!-- <link href="./assets/css/qsdStyle.css" rel="stylesheet">
   <link href="./assets/css/qsfButtonStyle.css" rel="stylesheet">
   <link href="./assets/css/qsdDigitalClock.css" rel="stylesheet">
-  <link href="<?= base_url('assets/css/qsdPriority.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('assets/css/qsdPriority.css') ?>" rel="stylesheet"> -->
+  <style>
+    .main {
+      background-color: #1b0f9e;
+      overflow: hidden;
+    }
+  </style>
 
 </head>
 
 <body>
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top">
-    <div class="container-fluid h-100">
-      <div class="row h-100 align-items-center" style="height: 100vh;"> <!-- Ensure full viewport height -->
-        <?php
+  <!-- <?php
         $fname = $this->session->userdata('fname');
         $lname = $this->session->userdata('lname');
         echo $fname && $lname ? ' ' : ($fname ?: 'Guest');
-        ?>
-        <!-- <div class="col-6 border d-flex align-items-center justify-content-center" style="border-radius: 5px; height: 100%;">
-          <div class="d-flex w-100" style="background-color:#1b4bb0; height: 100%;">
-
-            <div class="qsdHeader d-flex align-items-center justify-content-center" style="width:60%; height: 100%;">
-              <p class="qsdHeaderFont">NUMBER</p>
-            </div>
-
-            <div class="qsdHeader d-flex align-items-center justify-content-center" style="width:20%; height: 100%;">
-              <p class="qsdHeaderFont">STEP</p>
-            </div>
-
-            <div class="qsdHeader d-flex align-items-center justify-content-center" style="margin-right:2vw; width:20%; height: 100%;">
-              <p class="qsdHeaderFont">WINDOW</p>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="col-6 border d-flex align-items-center justify-content-center" style="border-radius: 5px; height: 100%;">
-          <div class="d-flex w-100" style="background-color:#1b4bb0; height: 100%;">
-
-            <div class="qsdHeader d-flex align-items-center justify-content-center" style="width:100%; height: 100%;">
-              <p class="qsdHeaderFont">CRISIS INTERVENTION SECTION</p>
-            </div>
-
-
-            <nav class="header-nav ms-auto" style="position:absolute; top:3vh; right:2vh;">
-              <ul class="d-flex align-items-center">
-                <li class="nav-item dropdown pe-3">
-                  <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" style="color:#fff;">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">
-                      <?php
-                      $fname = $this->session->userdata('fname');
-                      $lname = $this->session->userdata('lname');
-                      echo $fname && $lname ? ' ' : ($fname ?: 'Guest');
-                      ?>
-                    </span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                    <li class="dropdown-header">
-                      <h6>
-                        <?php
-                        echo $fname && $lname ? htmlspecialchars($fname . ' ' . $lname) : 'Guest';
-                        ?>
-                      </h6>
-                    </li>
-                    <li>
-                      <hr class="dropdown-divider">
-                    </li>
-                    <li>
-                      <a class="dropdown-item d-flex align-items-center" href="<?php echo base_url('logout'); ?>">
-                        <i class="bi bi-box-arrow-right"></i>
-                        <span>Sign Out</span>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div> -->
-      </div>
-    </div>
-  </header>
-  <!-- <script>
-    const el11 = document.getElementById("header");
-    if (el11) el11.classList.add("hidden");
-  </script> -->
+        ?> -->

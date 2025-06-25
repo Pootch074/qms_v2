@@ -336,6 +336,7 @@
 
 
 <script>
+  let isCallCooldown = false;
   $(document).ready(function() {
     loadStepFlow(); // Initial load
     setInterval(loadStepFlow, 2000); // Refresh every second
@@ -348,17 +349,17 @@
       success: function(data) {
         $('#s4w3Serving').html(data);
         if ($('#s4w3Serving').html().trim() !== '') {
-          $('#s4w3nextReguID').prop('disabled', true);
-          $('#s4w3nextPrioID').prop('disabled', true);
-          $('#s4w3skipID').prop('disabled', false);
-          $('#callBtnID').prop('disabled', false);
-          $('#s4w3proceedID').prop('disabled', false);
+          $('#prioBtnID').prop('disabled', true);
+          $('#skipBtnID').prop('disabled', false);
+          if (!isCallCooldown) {
+            $('#callBtnID').prop('disabled', false);
+          }
+          $('#proceedBtnID').prop('disabled', false);
         } else {
-          $('#s4w3nextReguID').prop('disabled', false);
-          $('#s4w3nextPrioID').prop('disabled', false);
-          $('#s4w3skipID').prop('disabled', true);
+          $('#prioBtnID').prop('disabled', false);
+          $('#skipBtnID').prop('disabled', true);
           $('#callBtnID').prop('disabled', true);
-          $('#s4w3proceedID').prop('disabled', true);
+          $('#proceedBtnID').prop('disabled', true);
         }
       },
       error: function(xhr, status, error) {
@@ -452,6 +453,15 @@
   }
 
   function s4w3CallBtn() {
+    if ($('#s4w3Serving').html().trim() !== '' && !$('#callBtnID').prop('disabled')) {
+      isCallCooldown = true;
+      $('#callBtnID').prop('disabled', true);
+
+      setTimeout(function() {
+        isCallCooldown = false;
+      }, 15000);
+    }
+
     $.ajax({
       url: '<?= base_url('s4w3CallBtnRou') ?>',
       type: 'POST',
