@@ -70,11 +70,7 @@ $(document).ready(function () {
 
 			const rawText = h1.text().trim();
 			if (!rawText) return;
-
-			// Extract queue number like "P 000", "A 005", etc.
 			const queueNum = rawText;
-
-			// Normalize queue number by removing all non-digits (e.g. "P 000" → "000")
 			const normalizedQueueNum = queueNum.replace(/[^\d]/g, "");
 
 			if (parseInt(normalizedQueueNum, 10) === 0) {

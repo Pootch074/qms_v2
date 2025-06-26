@@ -177,6 +177,9 @@
 <script defer src="<?= base_url('../assets/js/qsdPriority.js') ?>"></script>
 <script src="../assets/js/digitalClock.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- <script>
+    const BASE_URL = "<?= base_url() ?>";
+</script> -->
 
 
 
@@ -297,10 +300,6 @@
 
 
                 const normalizedQueueNum = queueNum.replace(/[^\d]/g, '');
-                if (parseInt(normalizedQueueNum, 10) === 0) {
-                    console.log(`Skipped audio/speech for queue number ${queueNum}`);
-                    return;
-                }
 
                 if (parseInt(normalizedQueueNum, 10) === 0) {
                     console.log(`Skipped audio/speech for queue number ${queueNum}`);

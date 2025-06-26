@@ -30,9 +30,6 @@
   <link href="./assets/css/qsdDigitalClock.css" rel="stylesheet">
   <link href="<?= base_url('assets/css/qsdPriority.css') ?>" rel="stylesheet">
 
-
-
-
   <style>
     #header {
       background-size: cover;
