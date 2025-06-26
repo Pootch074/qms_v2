@@ -1,21 +1,29 @@
+.philippine-date {
+	font-size: 2rem;
+	font-weight: bold;
+	color: #ffffff;
+	text-align: center;
+	/* margin-bottom: 1rem; */
+}
+
 .clock {
-	height: 5vh; /* Fits within the 5vh header */
-	color: #1b4bb0;
-	font-size: 3rem; /* Adjusted font size */
+	/* height: 5vh; */
+	color: #ffffff;
+	font-size: 2rem; /* Adjusted font size */
 	font-family: sans-serif;
 	line-height: 5vh;
 	display: flex;
 	align-items: center;
 	position: relative;
 	overflow: hidden;
-	padding: 30px 90px;
+	/* padding: 30px 90px; */
 	font-weight: bold;
 }
 
 /* Separator (:) Styling */
 .tick {
 	margin: 0 0.5ch;
-	font-size: 3rem;
+	font-size: 2rem;
 	line-height: 5vh;
 }
 
@@ -23,7 +31,7 @@
 .am-pm {
 	/*position: absolute;*/
 	margin-left: 10px;
-	font-size: 3rem; /* Smaller font size for AM/PM */
+	font-size: 2rem; /* Smaller font size for AM/PM */
 	/* bottom: 50%; Vertically center the indicator */
 }
 

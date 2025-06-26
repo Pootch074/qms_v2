@@ -35,17 +35,11 @@
 
   <style>
     #header {
-      /*background-image: url('./assets/resources/header2.png');*/
       background-size: cover;
-      /* Makes the background cover the header */
       background-position: center;
-      /* Centers the image */
       background-repeat: no-repeat;
-      /* Prevents the image from repeating */
       height: 8vh;
-      /* Adjust as needed */
       color: white;
-      /* To make the text stand out */
       background-color: #f9fafc;
     }
   </style>

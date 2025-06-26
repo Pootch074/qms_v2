@@ -6,11 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="<?= base_url('assets/css/qsdPriorityNew.css') ?>" rel="stylesheet">
+    <style>
+        /* body {
+            margin: 0;
+            height: 100vh;
+            background: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } */
+
+        .app__logout {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #1b0f9e;
+            color: #fff;
+            font-size: 2rem;
+            border-radius: 50%;
+            cursor: pointer;
+            top: 1%;
+            right: 2%;
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+            transition: transform 0.2s 0.2s, opacity 0.1s 0.4s;
+        }
+
+        .app__logout.clicked {
+            transform: scale(70);
+            opacity: 0.9;
+        }
+
+        .app__logout-icon {
+            width: 25px;
+            height: 25px;
+            transition: opacity 0.1s;
+        }
+
+        .app__logout.clicked .app__logout-icon {
+            opacity: 0;
+        }
+
+        .app__logout-icon path {
+            stroke-width: 4px;
+            stroke: white;
+            fill: none;
+        }
+    </style>
 </head>
 
 <body>
     <div class="header">
-        <img src="assets\resources\dswd-color.png" alt="">
+        <img src="assets/resources/dswd-color.png" alt="">
+        <div class="app__logout" id="logoutBtn">
+            <svg class="app__logout-icon svg-icon" viewBox="0 0 20 20">
+                <path d="M6,3 a8,8 0 1,0 8,0 M10,0 10,12" />
+            </svg>
+        </div>
     </div>
     <div class="main">
         <div class="container">
@@ -116,15 +169,36 @@
                         <div class="rFirstRowCard">
                             CRISIS INTERVENTION SECTION
                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </div>
                     <div class="rSecondRow">
                         <div class="rSecondRowCard">
                             <video class="videoCard" autoplay muted loop>
-                                <source src="assets\resources\qsdVideos\vid1.mp4">
+                                <source src="assets/resources/qsdVideos/vid1.mp4">
                             </video>
                             <div class="poweredBy">
                                 <span>Powered by:</span>
-                                <img src="assets\resources\dyme-logo.png" alt="">
+                                <img src="assets/resources/dyme-logo.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -143,6 +217,17 @@
 
         </div>
     </div>
+    <script>
+        const logoutBtn = document.getElementById('logoutBtn');
+        logoutBtn.addEventListener('click', function() {
+            this.classList.add('clicked');
+
+            // Redirect after the animation (approx. 1 second)
+            setTimeout(function() {
+                window.location.href = "<?= base_url('logout') ?>";
+            }, 300);
+        });
+    </script>
 </body>
 
 </html>

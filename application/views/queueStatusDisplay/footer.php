@@ -1,17 +1,11 @@
 <style>
   .footer {
     height: 8vh;
-    /*background-image: url('./assets/resources/header2.png');*/
     background-size: cover;
-    /* Makes the background cover the header */
     background-position: center;
-    /* Centers the image */
     background-repeat: no-repeat;
-    /* Prevents the image from repeating */
     height: 8vh;
-    /* Adjust as needed */
     color: white;
-    /* To make the text stand out */
     background-color: #1b4bb0;
   }
 
@@ -19,7 +13,6 @@
     overflow: hidden;
     position: relative;
     height: 100%;
-    /* Adjust height if needed */
   }
 
   #marqueeSlide p {
@@ -41,7 +34,7 @@
 
 <footer id="footerMarquee" class="footer">
   <div></div>
-</footer><!-- End Footer -->
+</footer>
 
 <script src="./assets/js/digitalClock.js"></script>
 
@@ -60,6 +53,7 @@
 
 <!-- Template Main JS File -->
 <script src="./assets/js/main.js"></script>
+
 <script>
   $(document).ready(function() {
     loadFooterMarquee();

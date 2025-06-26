@@ -354,22 +354,31 @@
 
                 const h1 = $(elementID + ' h1');
                 if (!h1.length) return;
+
                 const rawText = h1.text().trim();
                 if (!rawText) return;
+
+                // Extract queue number like "P 000", "A 005", etc.
                 const queueNum = rawText;
+
+                // Normalize queue number by removing all non-digits (e.g. "P 000" → "000")
                 const normalizedQueueNum = queueNum.replace(/[^\d]/g, '');
+
                 if (parseInt(normalizedQueueNum, 10) === 0) {
                     console.log(`Skipped audio/speech for queue number ${queueNum}`);
                     return;
                 }
+
                 if (!prevData[url]) prevData[url] = {
                     queueNum: null
                 };
+
                 const changed = queueNum !== prevData[url].queueNum;
                 if (!changed) {
                     $(elementID).removeClass('elementID');
                     return;
                 }
+
                 prevData[url] = {
                     queueNum
                 };

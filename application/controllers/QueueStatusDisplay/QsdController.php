@@ -40,6 +40,19 @@ class QsdController extends CI_Controller
 		// $this->load->view('queueStatusDisplay/footer');
 	}
 
+	public function displayRegular()
+	{
+		$this->load->view('queueStatusDisplay/displayRegularheader');
+		$queStep = $this->QsdModel->getQsdStepPrioNew();
+		$queueNum = $this->QsdModel->getQsdQueuePrioNew();
+
+		$data = [
+			'queStep' => $queStep,
+			'queueNum' => $queueNum
+		];
+		$this->load->view('queueStatusDisplay/displayRegular', $data);
+	}
+
 
 
 
@@ -79,13 +92,9 @@ class QsdController extends CI_Controller
 		if (!empty($serving)) {
 			foreach ($serving as $row) {
 				if ($row->category === 'PRIORITY') {
-					echo '<h1 class="serveTicketPrio">
-                    P-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-                    </h1>';
+					echo 'A' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '';
 				} else {
-					echo '<h1 class="serveTicketRegu">
-                    R-' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '
-                    </h1>';
+					echo 'R' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '';
 				}
 			}
 		}
@@ -234,8 +243,7 @@ class QsdController extends CI_Controller
 		if (!empty($marquee)) {
 			foreach ($marquee as $row) {
 				echo '<div id="marqueeSlide" class="text-center h-100 d-flex" style="background-color:;">
-                    <p class="qsdFooterFont col-6">' . $row->marquee_text1 . '</p>
-                    <p class="qsdFooterFont col-6">' . $row->marquee_text2 . '</p>
+                    <p id="marquee1" class="qsdFooterFont col-6">' . $row->marquee_text1 . '</p>
                   </div>';
 			}
 		} else {

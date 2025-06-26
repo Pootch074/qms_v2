@@ -86,8 +86,13 @@ class LoginController extends CI_Controller
 			redirect(base_url('qsfS4W3Rou'));
 		} elseif ($result->role == 'Display' && $result->ass_category == 'PRIORITY' && $result->status == 'APPROVED') {
 			redirect(base_url('qsdPrio'));
-		} elseif ($result->role == 'Display' && $result->ass_category == 'REGULAR' && $result->status == 'APPROVED') {
-			redirect(base_url('qsdRegu'));
+		}
+
+		// elseif ($result->role == 'Display' && $result->ass_category == 'REGULAR' && $result->status == 'APPROVED') {
+		// 	redirect(base_url('qsdRegu'));
+		// } 
+		elseif ($result->role == 'Display' && $result->ass_category == 'REGULAR' && $result->status == 'APPROVED') {
+			redirect(base_url('display/regular'));
 		} elseif ($result->role == 'Admin' && $result->ass_category == 'BOTH' && $result->status == 'APPROVED') {
 			redirect(base_url('admin'));
 		} else {

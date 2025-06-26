@@ -176,6 +176,7 @@ $route['s2w2UpdPendReguRou/(:num)'] = 'QueueStepFlow/QsfController/s2w2UpdPendRe
 $route['qsdPrio'] = 'QueueStatusDisplay/QsdController/qsdPrioCont';
 
 $route['qsdPrioNew'] = 'QueueStatusDisplay/QsdController/qsdPrioNewCont';
+$route['display/regular'] = 'QueueStatusDisplay/QsdController/displayRegular';
 
 
 $route['qsdS2W1PrioRou'] = 'QueueStatusDisplay/QsdController/s2w1PrioCont';
