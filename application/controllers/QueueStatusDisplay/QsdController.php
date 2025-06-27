@@ -42,7 +42,20 @@ class QsdController extends CI_Controller
 
 	public function displayRegular()
 	{
-		$this->load->view('queueStatusDisplay/displayRegularheader');
+		$this->load->view('queueStatusDisplay/displayHeader');
+		$queStep = $this->QsdModel->getQsdStepRegu();
+		$queueNum = $this->QsdModel->getQsdQueueRegu();
+
+		$data = [
+			'queStep' => $queStep,
+			'queueNum' => $queueNum
+		];
+		$this->load->view('queueStatusDisplay/displayRegular', $data);
+	}
+
+	public function displayPriority()
+	{
+		$this->load->view('queueStatusDisplay/displayHeader');
 		$queStep = $this->QsdModel->getQsdStepPrioNew();
 		$queueNum = $this->QsdModel->getQsdQueuePrioNew();
 
@@ -50,7 +63,7 @@ class QsdController extends CI_Controller
 			'queStep' => $queStep,
 			'queueNum' => $queueNum
 		];
-		$this->load->view('queueStatusDisplay/displayRegular', $data);
+		$this->load->view('queueStatusDisplay/displayPriority', $data);
 	}
 
 
@@ -469,11 +482,4 @@ class QsdController extends CI_Controller
 		} else {
 		}
 	}
-
-	// public function updateQsdCallStat()
-	// {
-	// 	$this->load->model('QsdModel');
-	// 	$this->QsdModel->resetCallStatForPriority();
-	// 	echo json_encode(['status' => 'success']);
-	// }
 }

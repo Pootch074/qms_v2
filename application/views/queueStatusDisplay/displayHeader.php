@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Display Regular</title>
+    <title>Display</title>
     <link href="../assets/resources/dswdIcon.png" rel="icon">
-    <link href="<?= base_url('assets/css/displayRegular.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/display.css') ?>" rel="stylesheet">
     <link href="../assets/css/qsdDigitalClock.css" rel="stylesheet">
 </head>
 

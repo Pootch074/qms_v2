@@ -31,7 +31,7 @@
 <!-- Template Main JS File -->
 <script src="./assets/js/main.js"></script>
 <script src="./assets/js/dataTables.js"></script>
-<script src="./assets/js/digitalClock.js"></script>
+<script src="./assets/js/qsfdigitalClock.js"></script>
 
 
 

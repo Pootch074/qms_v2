@@ -6,29 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DSWD - QMS</title>
   <link href="./assets/resources/dswdIcon.png" rel="icon">
-
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Nunito:300,400,600,700|Poppins:300,400,500,600,700" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
   <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/vendor/bootstrap-icons/bootstrap-icons.css">
-
-  <!-- Main CSS -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: "Open Sans", sans-serif;
+    }
+
+    body {
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       padding: 0 10px;
-      background: url('./assets/resources/dswd.png') center/cover no-repeat;
+      background: url('./assets/resources/dswd.png') center 60% no-repeat;
     }
 
     .wrapper {
@@ -38,18 +36,11 @@
       text-align: center;
       border: 1px solid rgba(255, 255, 255, 0.5);
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
-    /*
-    form {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    */
 
     .col-left,
     .col-right {
@@ -145,9 +136,9 @@
     <?= validation_errors('<div class="alert alert-danger">', '</div>'); ?>
 
     <form class="row g-3 needs-validation" action="<?= base_url('register') ?>" method="post" autocomplete="off">
-      <a href="#" class="logo w-100 d-flex justify-content-center">
-        <img src="./assets/resources/dswdLogo.png" alt="DSWD Logo" style="width: 100%;">
-      </a>
+      <!-- <a href="#" class="logo d-flex justify-content-center">
+        <img src="./assets/resources/dswdLogo.png" alt="DSWD Logo" class="dswd-logo">
+      </a> -->
       <div class="col-md-6">
         <div class="input-field">
           <input type="text" name="f_name" id="fname" value="<?= set_value('f_name'); ?>" required>

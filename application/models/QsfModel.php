@@ -511,6 +511,44 @@ class QsfModel extends CI_Model
         }
     }
 
+
+
+    public function s2w1CallReguMod()
+    {
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'REGULAR');
+        $this->db->limit(1);
+
+        $query = $this->db->get('recall');
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+
+            $this->db->where('id', $row->id);
+            $this->db->set('call_num', 'call_num + 1', false); // `false` disables escaping
+            $this->db->update('recall');
+        }
+    }
+
+    public function s2w2CallReguMod()
+    {
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 2);
+        $this->db->where('category', 'REGULAR');
+        $this->db->limit(1);
+
+        $query = $this->db->get('recall');
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+
+            $this->db->where('id', $row->id);
+            $this->db->set('call_num', 'call_num + 1', false); // `false` disables escaping
+            $this->db->update('recall');
+        }
+    }
+
     public function nextCall($ass_step, $ass_category)
     {
         // Find the transaction where status is 1, ass_step matches, and ass_category matches

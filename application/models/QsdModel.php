@@ -24,6 +24,21 @@ class QsdModel extends CI_Model
         return $query->result();
     }
 
+    public function getQsdStepRegu()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('category', 'REGULAR');
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
+    public function getQsdQueueRegu()
+    {
+        $this->db->where('status', 1);
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
 
     public function getQsdStepPrioNew()
     {
@@ -79,20 +94,7 @@ class QsdModel extends CI_Model
 
 
 
-    public function getQsdStepRegu()
-    {
-        $this->db->where('status', 1);
-        $this->db->where('category', 'REGULAR');
-        $query = $this->db->get('tbl_transactions');
-        return $query->result();
-    }
 
-    public function getQsdQueueRegu()
-    {
-        $this->db->where('status', 1);
-        $query = $this->db->get('tbl_transactions');
-        return $query->result();
-    }
 
     public function s2w1PrioMod()
     {
@@ -650,16 +652,4 @@ class QsdModel extends CI_Model
         $query = $this->db->get('recall');
         return $query->result();
     }
-
-
-    // public function resetCallStatForPriority()
-    // {
-    //     $this->db->where('status', 1);
-    //     $this->db->where('step_id', 2);
-    //     $this->db->where('window_id', 1);
-    //     $this->db->where('call_stat', 1);
-
-    //     $this->db->set('call_stat', 0);
-    //     $this->db->update('tbl_transactions');
-    // }
 }

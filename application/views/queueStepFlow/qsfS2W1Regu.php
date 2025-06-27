@@ -165,7 +165,7 @@
             </div>
 
             <div class="col">
-              <button class="btn btn-secondary btn-lg call3dBtn my-2 w-100" id="callBtnID">
+              <button class="btn btn-secondary btn-lg call3dBtn my-2 w-100" onclick="s2w1CallReguBtn()" id="callBtnID">
                 <i class="bi bi-volume-up-fill" style="font-size: 2em;"></i>
               </button>
             </div>
@@ -260,10 +260,11 @@
       success: function(data) {
         $('#s2w1ServRegu').html(data);
         if ($('#s2w1ServRegu').html().trim() !== '') {
-          // Disabled buttons if naa sulod
           $('#reguBtnID').prop('disabled', true);
           $('#skipBtnID').prop('disabled', false);
-          $('#callBtnID').prop('disabled', false);
+          if (!isCallCooldown) {
+            $('#callBtnID').prop('disabled', false);
+          }
           $('#proceedBtnID').prop('disabled', false);
         } else {
           $('#reguBtnID').prop('disabled', false);
@@ -365,6 +366,31 @@
           alert('Error while updating Next Regular');
         }
       });
+    });
+  }
+</script>
+
+
+<script>
+  function s2w1CallReguBtn() {
+    if ($('#s2w1ServRegu').html().trim() !== '' && !$('#callBtnID').prop('disabled')) {
+      isCallCooldown = true;
+      $('#callBtnID').prop('disabled', true);
+
+      setTimeout(function() {
+        isCallCooldown = false;
+      }, 15000);
+    }
+
+    $.ajax({
+      url: '<?= base_url('s2w1CallReguRou') ?>',
+      type: 'POST',
+      success: function(response) {
+        var data = JSON.parse(response);
+      },
+      error: function() {
+        alert('Error while updating Next Regular');
+      }
     });
   }
 </script>

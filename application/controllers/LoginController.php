@@ -84,14 +84,18 @@ class LoginController extends CI_Controller
 			redirect(base_url('qsfS4W2Rou'));
 		} elseif ($result->role == 'Release' && $result->ass_step == 4 && $result->ass_window == 3 && $result->status == 'APPROVED') {
 			redirect(base_url('qsfS4W3Rou'));
-		} elseif ($result->role == 'Display' && $result->ass_category == 'PRIORITY' && $result->status == 'APPROVED') {
-			redirect(base_url('qsdPrio'));
 		}
 
+		// elseif ($result->role == 'Display' && $result->ass_category == 'PRIORITY' && $result->status == 'APPROVED') {
+		// 	redirect(base_url('qsdPrio'));
+		// }
 		// elseif ($result->role == 'Display' && $result->ass_category == 'REGULAR' && $result->status == 'APPROVED') {
 		// 	redirect(base_url('qsdRegu'));
 		// } 
-		elseif ($result->role == 'Display' && $result->ass_category == 'REGULAR' && $result->status == 'APPROVED') {
+
+		elseif ($result->role == 'Display' && $result->ass_category == 'PRIORITY' && $result->status == 'APPROVED') {
+			redirect(base_url('display/priority'));
+		} elseif ($result->role == 'Display' && $result->ass_category == 'REGULAR' && $result->status == 'APPROVED') {
 			redirect(base_url('display/regular'));
 		} elseif ($result->role == 'Admin' && $result->ass_category == 'BOTH' && $result->status == 'APPROVED') {
 			redirect(base_url('admin'));

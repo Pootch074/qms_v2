@@ -11,14 +11,14 @@
                             <div class="queueCard1">
                                 <div class="queueCard1Contents">
                                     <div class="window-box">1</div>
-                                    <div class="queueNum-box" id="qsdS2W1Regu">
+                                    <div class="queueNum-box" id="qsdS2W1Prio">
                                     </div>
                                 </div>
                             </div>
                             <div class="queueCard2">
                                 <div class="queueCard2Contents">
                                     <div class="window-box">2</div>
-                                    <div class="queueNum-box" id="qsdS2W2Regu"></div>
+                                    <div class="queueNum-box" id="qsdS2W2Prio"></div>
                                 </div>
                             </div>
                         </div>
@@ -95,102 +95,6 @@
                     </div>
                 </div>
             </div>
-            <!-- =============================== HIDDEN =============================== -->
-            <div class="leftColCard" id="reguHiddenTbl">
-                <div class="firstRow">
-                    <div class="firstRowCard">
-                        <div class="firstRow_queueHeader">
-                            STEP 2 ENCODE
-                        </div>
-                        <div class="firstRow_queueBody">
-                            <div class="queueCard1">
-                                <div class="queueCard1Contents">
-                                    <div class="" id="calls2w1Regu"></div>
-                                    <div class="" id="hiddenQsdS2W1Regu">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="queueCard2">
-                                <div class="queueCard2Contents">
-                                    <div class="" id="calls2w2Regu"></div>
-                                    <div class="" id="hiddenQsdS2W2Regu"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="secondRow">
-                    <div class="secondRowCard">
-                        <div class="secondRow_queueHeader">
-                            STEP 3 ASSESMENT
-                        </div>
-                        <div class="secondRow_queueBody">
-                            <div class="queueCard3">
-                                <div class="queueCard3Contents">
-                                    <div class="" id="calls3w1"></div>
-                                    <div class="" id="hiddenQsdS3W1"></div>
-                                </div>
-                            </div>
-                            <div class="queueCard4">
-                                <div class="queueCard4Contents">
-                                    <div class="" id="calls3w2"></div>
-                                    <div class="" id="hiddenQsdS3W2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="secondRow_queueBody2">
-                            <div class="queueCard5">
-                                <div class="queueCard5Contents">
-                                    <div class="" id="calls3w3"></div>
-                                    <div class="" id="hiddenQsdS3W3"></div>
-                                </div>
-                            </div>
-                            <div class="queueCard6">
-                                <div class="queueCard6Contents">
-                                    <div class="" id="calls3w4"></div>
-                                    <div class="" id="hiddenQsdS3W4"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="thirdRow">
-                    <div class="thirdRowCard">
-                        <div class="thirdRow_queueHeader">
-                            STEP 4 RELEASE
-                        </div>
-                        <div class="thirdRow_queueBody">
-                            <div class="queueCard7">
-                                <div class="queueCard7Contents">
-                                    <div class="" id="calls4w1"></div>
-                                    <div class="" id="hiddenQsdS4W1"></div>
-                                </div>
-                            </div>
-                            <div class="queueCard8">
-                                <div class="queueCard8Contents">
-                                    <div class="" id="calls4w2"></div>
-                                    <div class="" id="hiddenQsdS4W2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="thirdRow_queueBody2">
-                            <div class="queueCard9">
-                                <div class="queueCard9Contents">
-                                    <div class="" id="calls4w3"></div>
-                                    <div class="" id="hiddenQsdS4W3"></div>
-                                </div>
-                            </div>
-                            <div class="dummyCard">
-                                <div class="dummyCardContents">
-                                    <div class="dummy-window-box">4</div>
-                                    <div class="dummy-queueNum-box">A010</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- =============================== HIDDEN =============================== -->
         </div>
         <div class="rightCol">
             <div class="rightColCard">
@@ -269,7 +173,7 @@
 
 <audio id="audioPlayer" src="../assets/resources/ascend.mp3"></audio>
 <script src="<?= base_url('../assets/') ?>plugins/jquery/jquery.minQSD.js"></script>
-<script defer src="<?= base_url('../assets/js/qsdRegular.js') ?>"></script>
+<script defer src="<?= base_url('../assets/js/qsdPriority.js') ?>"></script>
 <script src="../assets/js/digitalClock.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- <script>
@@ -293,7 +197,7 @@
 <script>
     $(document).ready(function() {
         loadFooterMarquee();
-        setInterval(loadFooterMarquee, 500); // Check for updates every 10 seconds
+        setInterval(loadFooterMarquee, 1000); // Check for updates every 10 seconds
     });
 
     let previousContent = '';
@@ -431,8 +335,8 @@
         }
 
         function qsdLoadStepFlow() {
-            handleQueueData('<?= base_url('qsdS2W1ReguRou') ?>', '#qsdS2W1Regu', 2, 1);
-            handleQueueData('<?= base_url('qsdS2W2ReguRou') ?>', '#qsdS2W2Regu', 2, 2);
+            handleQueueData('<?= base_url('qsdS2W1PrioRou') ?>', '#qsdS2W1Prio', 2, 1);
+            handleQueueData('<?= base_url('qsdS2W2PrioRou') ?>', '#qsdS2W2Prio', 2, 2);
             handleQueueData('<?= base_url('qsdS3W1Rou') ?>', '#qsdS3W1', 3, 1);
             handleQueueData('<?= base_url('qsdS3W2Rou') ?>', '#qsdS3W2', 3, 2);
             handleQueueData('<?= base_url('qsdS3W3Rou') ?>', '#qsdS3W3', 3, 3);
@@ -444,72 +348,11 @@
 
         function qsdLoadStepFlowWithDelay() {
             qsdLoadStepFlow();
-            setTimeout(qsdLoadStepFlowWithDelay, 500);
+            setTimeout(qsdLoadStepFlowWithDelay, 1000);
         }
 
         qsdLoadStepFlowWithDelay();
     });
-</script>
-
-<script>
-    // FOR FETCHING VALUE OF call_num FROM recall TABLE
-    $(document).ready(function() {
-        callCount();
-        setInterval(callCount, 1000);
-    });
-
-    function callCount() {
-        const endpoints = [{
-                url: '<?= base_url('calls2w1ReguRou') ?>',
-                target: '#calls2w1Regu'
-            },
-            {
-                url: '<?= base_url('calls2w2ReguRou') ?>',
-                target: '#calls2w2Regu'
-            },
-            {
-                url: '<?= base_url('calls3w1Rou') ?>',
-                target: '#calls3w1'
-            },
-            {
-                url: '<?= base_url('calls3w2Rou') ?>',
-                target: '#calls3w2'
-            },
-            {
-                url: '<?= base_url('calls3w3Rou') ?>',
-                target: '#calls3w3'
-            },
-            {
-                url: '<?= base_url('calls3w4Rou') ?>',
-                target: '#calls3w4'
-            },
-            {
-                url: '<?= base_url('calls4w1Rou') ?>',
-                target: '#calls4w1'
-            },
-            {
-                url: '<?= base_url('calls4w2Rou') ?>',
-                target: '#calls4w2'
-            },
-            {
-                url: '<?= base_url('calls4w3Rou') ?>',
-                target: '#calls4w3'
-            },
-        ];
-
-        endpoints.forEach(({
-            url,
-            target
-        }) => {
-            $.get(url)
-                .done(function(data) {
-                    $(target).html(data);
-                })
-                .fail(function(xhr, status, error) {
-                    console.error(`Error loading ${url}:`, error);
-                });
-        });
-    }
 </script>
 </body>
 
