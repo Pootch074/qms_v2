@@ -568,4 +568,49 @@ class QsfModel extends CI_Model
             $this->db->update('tbl_transactions', array('call_status' => 5));
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function s2w1upcoming()
+    {
+        $this->db->where('status', 0);
+        $this->db->where('step_id', 2);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->order_by('queue_num', 'ASC');
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
+    public function s2w1pending()
+    {
+        $this->db->where('status', 2);
+        $this->db->where('step_id', 2);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->order_by('queue_num', 'ASC');
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
+
+    public function s2w1serve()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'PRIORITY');
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
 }

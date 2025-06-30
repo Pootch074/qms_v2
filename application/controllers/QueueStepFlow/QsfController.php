@@ -458,4 +458,88 @@ class QsfController extends CI_Controller
 		$this->QsfModel->nextCall($ass_step, $ass_category);
 		echo json_encode(array('status' => 'success'));
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public function s2w1prio()
+	{
+		// $fname = $this->session->userdata('fname');
+		// $lname = $this->session->userdata('lname');
+		// $position = $this->session->userdata('position');
+		// $ass_step = $this->session->userdata('ass_step');
+		// $ass_category = $this->session->userdata('ass_category');
+		// $section = $this->session->userdata('section');
+
+		// $data = [
+		// 	'fname' => $fname,
+		// 	'lname' => $lname,
+		// 	'position' => $position,
+		// 	'ass_step' => $ass_step,
+		// 	'ass_category' => $ass_category,
+		// 	'section' => $section
+		// ];
+
+		// $this->load->view('template/headerTest', $data);
+		// $this->load->view('queueStepFlow/prioTestView', $data);
+
+		$this->load->view('queueStepFlow/header');
+		$this->load->view('queueStepFlow/s2w1prio');
+		$this->load->view('queueStepFlow/footer');
+	}
+
+
+
+	public function s2w1upcoming()
+	{
+		$queues = $this->QsfModel->s2w1upcoming();
+		if (!empty($queues)) {
+			foreach ($queues as $row) {
+				echo '<div class="queues">A' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '</div>';
+			}
+		} else {
+			echo '<p>Empty</p>';
+		}
+	}
+	public function s2w1pending()
+	{
+		$pending = $this->QsfModel->s2w1pending();
+		if (!empty($pending)) {
+			foreach ($pending as $row) {
+				echo '<div class="pendingQueues">A' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '</div>';
+			}
+		} else {
+			echo '<p>Empty</p>';
+		}
+	}
+	public function s2w1serve()
+	{
+		$serving = $this->QsfModel->s2w1serve();
+		if (!empty($serving)) {
+			foreach ($serving as $row) {
+				echo '<span>A' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '</span>';
+			}
+		} else {
+		}
+	}
 }

@@ -3,17 +3,16 @@
         <div class="col1">
             <div class="col1Card">
                 <div class="col1Header">UPCOMING</div>
-                <div class="col1Body">
-                    <div class="queues">A003</div>
-                    <div class="queues">A004</div>
+                <div class="col1Body" id="s2w1upcoming">
+                    <!-- <div class="queues">A003</div> -->
                 </div>
             </div>
         </div>
         <div class="col2">
             <div class="col2Card">
                 <div class="col2Header">PENDING</div>
-                <div class="col2Body">
-                    <div class="pendingQueues">A001</div>
+                <div class="col2Body" id="s2w1pending">
+                    <!-- <div class="pendingQueues">A001</div> -->
                 </div>
             </div>
         </div>
@@ -28,8 +27,7 @@
                             <h3>PROTECTIVE SERVICE DIVISION</h3>
                             <h3>CRISIS INTERVENTION SECTION</h3>
                         </div>
-                        <div class="servingCard">
-                            <span>A002</span>
+                        <div class="servingCard" id="s2w1serving">
                         </div>
 
                     </div>
@@ -37,14 +35,20 @@
                     <div class="col3row4">
                         <div class="topButtons">
                             <button class="priorityBtn">
-                                <img src="<?= base_url('assets/resources/icons/volume-up-solid.svg') ?>" alt="Volume" style="width: 2em; height: 2em;">
+                                <i class="bi bi-people-fill" style="font-size: 3rem; color: white;"></i>
                             </button>
                             <button class="dummyBtn"></button>
                         </div>
                         <div class="botButtons">
-                            <button class="skipBtn"></button>
-                            <button class="callBtn"></button>
-                            <button class="proceedBtn"></button>
+                            <button class="skipBtn">
+                                <i class="bi bi-skip-backward-fill" style="font-size: 3rem; color: white;"></i>
+                            </button>
+                            <button class="callBtn">
+                                <i class="bi bi-volume-up-fill" style="font-size: 3rem; color: white;"></i>
+                            </button>
+                            <button class="proceedBtn">
+                                <i class="bi bi-check-circle-fill" style="font-size: 2.9rem; color: white;"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -52,11 +56,3 @@
         </div>
     </div>
 </div>
-
-<div class="footer">
-
-</div>
-
-</body>
-
-</html>

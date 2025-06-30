@@ -188,7 +188,7 @@
 
       <div class="input-field">
         <input type="text" name="employee_id" id="employeeID" oninput="formatID(this)" value="<?php echo set_value('employee_id'); ?>" required>
-        <label>Employee No.</label>
+        <label>ID No.</label>
       </div>
 
       <div class="input-field">

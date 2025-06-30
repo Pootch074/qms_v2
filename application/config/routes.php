@@ -176,8 +176,7 @@ $route['s2w2UpdPendReguRou/(:num)'] = 'QueueStepFlow/QsfController/s2w2UpdPendRe
 $route['qsdPrio'] = 'QueueStatusDisplay/QsdController/qsdPrioCont';
 
 $route['qsdPrioNew'] = 'QueueStatusDisplay/QsdController/qsdPrioNewCont';
-$route['display/priority'] = 'QueueStatusDisplay/QsdController/displayPriority';
-$route['display/regular'] = 'QueueStatusDisplay/QsdController/displayRegular';
+
 
 
 
@@ -298,4 +297,17 @@ $route['calls4w3Rou'] = 'QueueStatusDisplay/QsdController/calls4w3Cont';
 
 
 
-$route['qsfs2w1PrioTest'] = 'QueueStepFlow/QsfControllerTest/prioTestCont';
+// $route['qsfs2w1PrioTest'] = 'QueueStepFlow/QsfControllerTest/prioTestCont';
+$route['s2w1/prio'] = 'QueueStepFlow/QsfController/s2w1prio';
+$route['s2w2/prio'] = 'QueueStepFlow/QsfController/s2w2prio';
+
+$route['s2w1/upcoming'] = 'QueueStepFlow/QsfController/s2w1upcoming';
+$route['s2w1/pending'] = 'QueueStepFlow/QsfController/s2w1pending';
+$route['s2w1/serve'] = 'QueueStepFlow/QsfController/s2w1serve';
+
+
+
+
+
+$route['display/priority'] = 'QueueStatusDisplay/QsdController/displayPriority';
+$route['display/regular'] = 'QueueStatusDisplay/QsdController/displayRegular';

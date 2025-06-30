@@ -52,10 +52,9 @@ body {
 	align-content: stretch;
 	height: 98%;
 	/* border: 1px solid brown; */
-	/* padding: 5px; */
 	padding-top: 5px;
 	padding-bottom: 5px;
-	padding-left: 10px;
+	padding-left: 15px;
 	padding-right: none;
 }
 .col2Card {
@@ -66,12 +65,11 @@ body {
 	align-items: stretch;
 	align-content: stretch;
 	height: 98%;
-	/* border: 1px solid brown; */
-	padding: 5px;
-	/* padding-top: 5px;
+	/* border: 1px solid green; */
+	padding-top: 5px;
 	padding-bottom: 5px;
-	padding-left: 10px;
-	padding-right: 10px; */
+	padding-left: 7.5px;
+	padding-right: 7.5px;
 }
 .col3Card {
 	display: flex;
@@ -82,11 +80,10 @@ body {
 	align-content: stretch;
 	height: 98%;
 	/* border: 1px solid brown; */
-	/* padding: 5px; */
 	padding-top: 5px;
 	padding-bottom: 5px;
+	padding-right: 15px;
 	padding-left: none;
-	padding-right: 10px;
 }
 
 .col1Header,
@@ -246,15 +243,10 @@ body {
 	margin: 5px;
 }
 .dummyBtn {
-	display: block;
+	visibility: hidden;
 	flex-grow: 1;
 	flex-shrink: 0;
 	flex-basis: auto;
-	align-self: auto;
-	order: 0;
-	background-color: #d92d27;
-	cursor: pointer;
-	border-radius: 15px;
 	margin: 5px;
 }
 .botButtons {
@@ -290,5 +282,12 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	/* border: 1px solid red; */
+
+	display: flex;
+	align-items: center;
+	padding-left: 5%;
+}
+.footer span {
+	color: white;
+	font-size: 1.5rem;
 }

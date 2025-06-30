@@ -5,8 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>DSWD - QMS</title>
-  <link href="./assets/resources/dswdIcon.png" rel="icon">
-  <link href="./assets/css/qsfStyle.css" rel="stylesheet">
+  <link href="../assets/resources/dswdIcon.png" rel="icon">
+  <link href="../assets/css/qsfStyle.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <style>
 
   </style>
