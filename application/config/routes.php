@@ -274,3 +274,28 @@ $route['calls3w4Rou'] = 'QueueStatusDisplay/QsdController/calls3w4Cont';
 $route['calls4w1Rou'] = 'QueueStatusDisplay/QsdController/calls4w1Cont';
 $route['calls4w2Rou'] = 'QueueStatusDisplay/QsdController/calls4w2Cont';
 $route['calls4w3Rou'] = 'QueueStatusDisplay/QsdController/calls4w3Cont';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$route['qsfs2w1PrioTest'] = 'QueueStepFlow/QsfControllerTest/prioTestCont';

@@ -1,0 +1,294 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background: #cbdce8;
+	height: 100vh;
+	width: 100vw;
+	margin: 0;
+	overflow: hidden;
+}
+.header {
+	height: 8vh;
+	background-image: url("../resources/qsfHeader.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.main {
+	height: 84vh;
+	width: 100%;
+	background-color: #cbdce8;
+}
+.container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	height: 100%;
+	/* width: 100%; */
+	/* padding: 5px; */
+	/* border: 1px solid orange; */
+}
+.col1,
+.col2,
+.col3 {
+	display: block;
+	flex-grow: 1;
+	flex-shrink: 3;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	height: auto;
+	/* border: 1px solid #3de20b; */
+	width: 33.33%;
+}
+.col1Card {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	height: 98%;
+	/* border: 1px solid brown; */
+	/* padding: 5px; */
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: none;
+}
+.col2Card {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	height: 98%;
+	/* border: 1px solid brown; */
+	padding: 5px;
+	/* padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px; */
+}
+.col3Card {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	height: 98%;
+	/* border: 1px solid brown; */
+	/* padding: 5px; */
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: none;
+	padding-right: 10px;
+}
+
+.col1Header,
+.col2Header,
+.col3Header {
+	display: flex;
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	height: 6vh;
+	/* border: 1px solid yellow; */
+	background-color: #150e60;
+	border-radius: 5px;
+	color: white;
+	align-items: center;
+	justify-content: center;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+.col1Body,
+.col2Body {
+	display: block;
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	height: 78vh;
+	/* border: 1px solid red; */
+	background-color: #f6f9ff;
+	border-radius: 5px;
+	margin-top: 5px;
+	padding-top: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.queues {
+	display: flex;
+	background-color: #d92d27;
+	border-radius: 5px;
+	height: 6vh;
+	color: white;
+	align-items: center;
+	justify-content: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 700;
+	font-size: 1.5rem;
+	margin-top: 5px;
+	opacity: 90%;
+	/* width: 80%; */
+}
+.pendingQueues {
+	display: flex;
+	background-color: #d92d27;
+	border-radius: 5px;
+	height: 6vh;
+	color: white;
+	align-items: center;
+	justify-content: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 700;
+	font-size: 1.5rem;
+	margin-top: 5px;
+	opacity: 90%;
+	/* width: 80%; */
+}
+.col3Body {
+	display: block;
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	height: 78vh;
+	/* border: 1px solid red; */
+	background-color: #f6f9ff;
+	border-radius: 5px;
+	margin-top: 5px;
+	/*padding-top: 5px;
+	padding-left: 15px;
+	padding-right: 15px; */
+}
+.col3row1 {
+	height: 5%;
+	width: 100%;
+	background-image: url("../resources/col3row1.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: top;
+	border-radius: 5px;
+}
+.col3row2 {
+	/* border: 1px solid black; */
+	height: 56%;
+}
+.moduleInfo {
+	/* border: 1px solid red; */
+	height: 30%;
+}
+.moduleInfo h3 {
+	/* border: 1px solid black; */
+	color: black;
+	text-align: center;
+	margin: 5px;
+	font-size: 1.5rem;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.servingCard {
+	/* border: 1px solid green; */
+	height: 70%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.servingCard span {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 900;
+	text-align: center;
+	font-size: 5rem;
+	margin: 5%;
+}
+.col3row3 {
+	height: 9%;
+	background-image: url("../resources/col3row3.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+.col3row4 {
+	/* border: 1px solid black; */
+	height: 30%;
+}
+.topButtons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	height: 8vh;
+	padding: 5px;
+}
+.priorityBtn {
+	display: block;
+	flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	background-color: #d92d27;
+	cursor: pointer;
+	border-radius: 15px;
+	margin: 5px;
+}
+.dummyBtn {
+	display: block;
+	flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	background-color: #d92d27;
+	cursor: pointer;
+	border-radius: 15px;
+	margin: 5px;
+}
+.botButtons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	/* justify-content: flex-start; */
+	/* align-items: stretch;
+	align-content: stretch; */
+	height: 8vh;
+	padding: 5px;
+	justify-content: space-between;
+	align-content: space-between;
+}
+.skipBtn,
+.callBtn,
+.proceedBtn {
+	/* display: block; */
+	flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	background-color: #150e60;
+	cursor: pointer;
+	border-radius: 15px;
+	margin: 5px;
+}
+
+.footer {
+	height: 8vh;
+	background-image: url("../resources/qsfFooter.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	/* border: 1px solid red; */
+}
