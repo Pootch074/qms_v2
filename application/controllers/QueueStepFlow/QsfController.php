@@ -524,13 +524,19 @@ class QsfController extends CI_Controller
 	public function s2w1pending()
 	{
 		$pending = $this->QsfModel->s2w1pending();
-		if (!empty($pending)) {
-			foreach ($pending as $row) {
-				echo '<div class="pendingQueues">A' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '</div>';
-			}
-		} else {
-			echo '<p>Empty</p>';
+		$json_data['data'] = $pending;
+		echo json_encode($json_data);
+	}
+
+	public function s2w1updatePendingCont($id = null)
+	{
+		if ($id === null) {
+			$id = $this->input->post('id'); // Accept ID via POST if not in URL
 		}
+
+		$this->load->model('QsfModel');
+		$this->QsfModel->s2w1updatePendingMod($id);
+		echo json_encode(['status' => 'success']);
 	}
 	public function s2w1serve()
 	{
@@ -541,5 +547,19 @@ class QsfController extends CI_Controller
 			}
 		} else {
 		}
+	}
+
+	public function s2w1nextServeCont()
+	{
+		$this->load->model('QsfModel');
+		$this->QsfModel->s2w1nextServeMod();
+		echo json_encode(array('status' => 'success'));
+	}
+
+	public function s2w1nextSkipCont()
+	{
+		$this->load->model('QsfModel');
+		$this->QsfModel->s2w1nextSkipMod();
+		echo json_encode(array('status' => 'success'));
 	}
 }

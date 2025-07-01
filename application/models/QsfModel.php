@@ -601,7 +601,20 @@ class QsfModel extends CI_Model
         $this->db->where('category', 'PRIORITY');
         $this->db->order_by('queue_num', 'ASC');
         $query = $this->db->get('tbl_transactions');
-        return $query->result();
+        $result = $query->result();
+        foreach ($result as $row) {
+            $row->queue_num = str_pad($row->queue_num, 3, '0', STR_PAD_LEFT);
+        }
+        return $result;
+    }
+
+    public function s2w1updatePendingMod($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->where('status', 2);
+        $this->db->where('step_id', 2);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->update('tbl_transactions', array('step_id' => 3, 'status' => 0, 'window_id' => null));
     }
 
     public function s2w1serve()
@@ -612,5 +625,34 @@ class QsfModel extends CI_Model
         $this->db->where('category', 'PRIORITY');
         $query = $this->db->get('tbl_transactions');
         return $query->result();
+    }
+    public function s2w1nextServeMod()
+    {
+        $this->db->where('status', 0);
+        $this->db->where('step_id', 2);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->limit(1);
+        $query = $this->db->get('tbl_transactions');
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            $this->db->where('id', $row->id);
+            $this->db->update('tbl_transactions', array('status' => 1, 'window_id' => 1, 'call_stat' => 1));
+        }
+    }
+
+    public function s2w1nextSkipMod()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->limit(1);
+
+        $query = $this->db->get('tbl_transactions');
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            $this->db->where('id', $row->id);
+            $this->db->update('tbl_transactions', array('status' => 2, 'window_id' => null));
+        }
     }
 }
