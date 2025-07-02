@@ -16,6 +16,7 @@
 <!-- <script src="../assets/js/dataTables.js"></script> -->
 <!-- <script src="../assets/js/qsfdigitalClock.js"></script> -->
 <script src="../assets/plugins/jquery/jquery.min.js"></script>
+<script src="../assets/js/qsfdigitalClock.js"></script>
 
 
 <!-- <script>
@@ -127,6 +128,41 @@
     });
 
     // ================================== SKIP FUNCTIONS END ==================================
+    // ================================== PROCEED FUNCTIONS START ==================================\
+    let proceedPrioId = null;
+
+    function s2w1ProceedPrioBtn(id) {
+        proceedPrioId = id;
+        document.getElementById("proceedbttnModal").style.display = "block";
+    }
+
+    function proceedModal() {
+        document.getElementById("proceedbttnModal").style.display = "none";
+        proceedPrioId = null;
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("proceedBtnCnfrmYes").addEventListener("click", function() {
+            if (proceedPrioId !== null) {
+                $.ajax({
+                    url: '<?= base_url('s2w1ProceedPrioBtnRou'); ?>',
+                    type: 'POST',
+                    data: {
+                        id: proceedPrioId
+                    },
+                    success: function(response) {
+                        console.log("Client confirmed:", response);
+                        proceedModal();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error confirming client:", error);
+                        alert("There was an error. Please try again.");
+                    }
+                });
+            }
+        });
+    });
+    // ================================== PROCEED FUNCTIONS END ==================================
 
 
     let isCallCooldown = false;
@@ -206,12 +242,32 @@
                 console.error("Error fetching data:", error); // Log any errors
             }
         });
-
-
-
     }
 </script>
 
+
+
+
+
+
+
+
+<!-- ================== Sign out ================== -->
+<script>
+    const dropdown = document.getElementById('userDropdown');
+    const button = dropdown.querySelector('.user-button');
+
+    button.addEventListener('click', () => {
+        dropdown.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('active');
+        }
+    });
+</script>
+<!-- ================== Sign out ================== -->
 </body>
 
 </html>

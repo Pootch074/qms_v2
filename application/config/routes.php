@@ -307,6 +307,7 @@ $route['s2w1updatePending'] = 'QueueStepFlow/QsfController/s2w1updatePendingCont
 $route['s2w1/serve'] = 'QueueStepFlow/QsfController/s2w1serve';
 $route['s2w1nextServe'] = 'QueueStepFlow/QsfController/s2w1nextServeCont';
 $route['s2w1nextSkip'] = 'QueueStepFlow/QsfController/s2w1nextSkipCont';
+$route['s2w1ProceedPrioBtnRou'] = 'QueueStepFlow/QsfController/s2w1ProceedPrioBtnCont';
 
 $route['display/priority'] = 'QueueStatusDisplay/QsdController/displayPriority';
 $route['display/regular'] = 'QueueStatusDisplay/QsdController/displayRegular';

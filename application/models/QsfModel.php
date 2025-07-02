@@ -655,4 +655,26 @@ class QsfModel extends CI_Model
             $this->db->update('tbl_transactions', array('status' => 2, 'window_id' => null));
         }
     }
+
+
+
+
+    public function s2w1ProceedPrioBtnMod()
+    {
+        // Retrieve the transaction record that needs updating
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 1);
+        $this->db->where('category', 'PRIORITY');
+        $this->db->limit(1);
+        $query = $this->db->get('tbl_transactions');
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+
+            // Update the transaction with the calculated next window_id
+            $this->db->where('id', $row->id);
+            $this->db->update('tbl_transactions', array('step_id' => 3, 'window_id' => null,  'status' => 0));
+        }
+    }
 }

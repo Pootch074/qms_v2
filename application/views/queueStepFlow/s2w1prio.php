@@ -32,7 +32,6 @@
                 </div>
             </div>
         </div>
-        <!-- ================================== SKIP FUNCTIONS MODAL START ================================== -->
         <div id="skipbttnModal" class="custom-modal">
             <div class="custom-modal-content">
                 <div class="custom-modal-header">
@@ -48,7 +47,23 @@
                 </div>
             </div>
         </div>
-        <!-- ================================== SKIP FUNCTIONS MODAL END ================================== -->
+        <!-- ================================== PROCEED FUNCTIONS MODAL START ================================== -->
+        <div id="proceedbttnModal" class="custom-modal">
+            <div class="custom-modal-content">
+                <div class="custom-modal-header">
+                    <h5 class="modal-title" id="modalLabel">Confirmation</h5>
+                    <span class="custom-modal-close" onclick="proceedModal()">&times;</span>
+                </div>
+                <div class="custom-modal-body">
+                    Proceed client to next step?
+                </div>
+                <div class="custom-modal-footer">
+                    <button onclick="proceedModal()">No</button>
+                    <button id="proceedBtnCnfrmYes">Yes</button>
+                </div>
+            </div>
+        </div>
+        <!-- ================================== PROCEED FUNCTIONS MODAL END ================================== -->
 
         <!-- ==================================== MODALS ======================================== -->
         <div class="col1">
@@ -86,19 +101,19 @@
                     <div class="col3row4">
                         <div class="topButtons">
                             <button class="priorityBtn" onclick="s2w1PrioBtn()" id="prioBtnID">
-                                <i class="bi bi-people-fill" style="font-size: 3rem; color: white;"></i>
+                                <i class="bi bi-people-fill" style="font-size: 5vh; color: white;"></i>
                             </button>
                             <button class="dummyBtn"></button>
                         </div>
                         <div class="botButtons">
                             <button class="skipBtn" onclick="s2w1SkipPrioBtn()" id="skipBtnID">
-                                <i class="bi bi-skip-backward-fill" style="font-size: 3rem; color: white;"></i>
+                                <i class="bi bi-skip-backward-fill" style="font-size: 5vh; color: white;"></i>
                             </button>
-                            <button class="callBtn" id="callBtnID">
-                                <i class="bi bi-volume-up-fill" style="font-size: 3rem; color: white;"></i>
+                            <button class="callBtn" onclick="s2w1CallPrioBtn()" id="callBtnID">
+                                <i class="bi bi-volume-up-fill" style="font-size: 5vh; color: white;"></i>
                             </button>
-                            <button class="proceedBtn" id="proceedBtnID">
-                                <i class="bi bi-check-circle-fill" style="font-size: 2.9rem; color: white;"></i>
+                            <button class="proceedBtn" onclick="s2w1ProceedPrioBtn()" id="proceedBtnID">
+                                <i class="bi bi-check-circle-fill" style="font-size: 5vh; color: white;"></i>
                             </button>
                         </div>
                     </div>

@@ -518,7 +518,8 @@ class QsfController extends CI_Controller
 				echo '<div class="queues">A' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '</div>';
 			}
 		} else {
-			echo '<p>Empty</p>';
+			// echo '<p>Empty</p>';
+			echo '';
 		}
 	}
 	public function s2w1pending()
@@ -560,6 +561,16 @@ class QsfController extends CI_Controller
 	{
 		$this->load->model('QsfModel');
 		$this->QsfModel->s2w1nextSkipMod();
+		echo json_encode(array('status' => 'success'));
+	}
+
+
+	public function s2w1ProceedPrioBtnCont()
+	{
+		$this->load->model('QsfModel');
+		$ass_step = $this->session->userdata('ass_step');
+		$ass_category = $this->session->userdata('ass_category');
+		$this->QsfModel->s2w1ProceedPrioBtnMod($ass_step, $ass_category);
 		echo json_encode(array('status' => 'success'));
 	}
 }
