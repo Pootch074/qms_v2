@@ -40,6 +40,7 @@ class LoginController extends CI_Controller
 					'lname'      => $result->lname,
 					'role'      => $result->role,
 					'ass_step'   => $result->ass_step,
+					'ass_window'   => $result->ass_window,
 					'ass_category' => $result->ass_category,
 					'logged_in'  => TRUE
 				];
