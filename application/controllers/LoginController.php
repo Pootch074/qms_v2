@@ -104,8 +104,12 @@ class LoginController extends CI_Controller
 			redirect(base_url('display/regular'));
 		} elseif ($result->role == 'Admin' && $result->ass_category == 'BOTH' && $result->status == 'APPROVED') {
 			redirect(base_url('admin'));
-		} elseif ($result->role == 'Encode' && $result->ass_step == 2 && $result->ass_window == 1 && $result->ass_category == 'PRIORITY' && $result->status == 'APPROVED') {
-			redirect(base_url('s2w1/prio'));
+		}
+		// elseif ($result->role == 'Encode' && $result->ass_step == 2 && $result->ass_window == 1 && $result->ass_category == 'PRIORITY' && $result->status == 'APPROVED') {
+		// 	redirect(base_url('encoding'));
+		// } 
+		elseif ($result->role == 'Encode' && $result->ass_step == 2 && $result->status == 'APPROVED') {
+			redirect(base_url('encoding'));
 		} elseif ($result->role == 'Encode' && $result->ass_step == 2 && $result->ass_window == 2 && $result->ass_category == 'PRIORITY' && $result->status == 'APPROVED') {
 			redirect(base_url('qsfs2w2PrioRou'));
 		} else {

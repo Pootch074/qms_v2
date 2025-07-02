@@ -486,7 +486,7 @@ class QsfController extends CI_Controller
 	{
 		$fname = $this->session->userdata('fname');
 		$lname = $this->session->userdata('lname');
-		$position = $this->session->userdata('position');
+		$role = $this->session->userdata('role');
 		$ass_step = $this->session->userdata('ass_step');
 		$ass_window = $this->session->userdata('ass_window');
 		$ass_category = $this->session->userdata('ass_category');
@@ -495,7 +495,7 @@ class QsfController extends CI_Controller
 		$data = [
 			'fname' => $fname,
 			'lname' => $lname,
-			'position' => $position,
+			'role' => $role,
 			'ass_step' => $ass_step,
 			'ass_window' => $ass_window,
 			'ass_category' => $ass_category,
