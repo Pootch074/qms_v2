@@ -85,7 +85,7 @@
         <div class="col3">
             <div class="col3Card">
                 <div class="col3Header">
-                     SERVING STEP <?= htmlspecialchars($ass_step ?? 'N/A') ?> WINDOW <?= htmlspecialchars($ass_window ?? 'N/A') ?>
+                    SERVING STEP <?= htmlspecialchars($ass_step ?? 'N/A') ?> WINDOW <?= htmlspecialchars($ass_window ?? 'N/A') ?>
                 </div>
 
                 <div class="col3Body">
@@ -96,29 +96,55 @@
                             <h3>PROTECTIVE SERVICE DIVISION</h3>
                             <h3>CRISIS INTERVENTION SECTION</h3>
                         </div>
-                        <div class="servingCard" id="s2w1serving">
-                        </div>
+                        <?php if ($ass_step == 2 && $ass_window == 1): ?>
+                            <div class="servingCard" id="s2w1serving">
+                            </div>
+                        <?php elseif ($ass_step == 2 && $ass_window == 2): ?>
+                            <div class="servingCard" id="s2w2serving">
+                            </div>
+                        <?php endif; ?>
 
                     </div>
                     <div class="col3row3"></div>
                     <div class="col3row4">
-                        <div class="topButtons">
-                            <button class="priorityBtn" onclick="s2w1PrioBtn()" id="prioBtnID">
-                                <i class="bi bi-people-fill" style="font-size: 5vh; color: white;"></i>
-                            </button>
-                            <button class="dummyBtn"></button>
-                        </div>
-                        <div class="botButtons">
-                            <button class="skipBtn" onclick="s2w1SkipPrioBtn()" id="skipBtnID">
-                                <i class="bi bi-skip-backward-fill" style="font-size: 5vh; color: white;"></i>
-                            </button>
-                            <button class="callBtn" onclick="s2w1CallPrioBtn()" id="callBtnID">
-                                <i class="bi bi-volume-up-fill" style="font-size: 5vh; color: white;"></i>
-                            </button>
-                            <button class="proceedBtn" onclick="s2w1ProceedPrioBtn()" id="proceedBtnID">
-                                <i class="bi bi-check-circle-fill" style="font-size: 5vh; color: white;"></i>
-                            </button>
-                        </div>
+                        <?php if ($ass_step == 2 && $ass_window == 1): ?>
+                            <div class="topButtons">
+                                <button class="priorityBtn" onclick="s2w1PrioBtn()" id="prioBtnID">
+                                    <i class="bi bi-people-fill" style="font-size: 5vh; color: white;"></i>
+                                </button>
+                                <button class="dummyBtn"></button>
+                            </div>
+                            <div class="botButtons">
+                                <button class="skipBtn" onclick="s2w1SkipPrioBtn()" id="skipBtnID">
+                                    <i class="bi bi-skip-backward-fill" style="font-size: 5vh; color: white;"></i>
+                                </button>
+                                <button class="callBtn" onclick="s2w1CallPrioBtn()" id="callBtnID">
+                                    <i class="bi bi-volume-up-fill" style="font-size: 5vh; color: white;"></i>
+                                </button>
+                                <button class="proceedBtn" onclick="s2w1ProceedPrioBtn()" id="proceedBtnID">
+                                    <i class="bi bi-check-circle-fill" style="font-size: 5vh; color: white;"></i>
+                                </button>
+                            </div>
+                        <?php elseif ($ass_step == 2 && $ass_window == 2): ?>
+                            <div class="topButtons">
+                                <button class="priorityBtn" onclick="s2w2PrioBtn()" id="prioBtnID">
+                                    <i class="bi bi-people-fill" style="font-size: 5vh; color: white;"></i>
+                                </button>
+                                <button class="dummyBtn"></button>
+                            </div>
+                            <div class="botButtons">
+                                <button class="skipBtn" onclick="s2w2SkipPrioBtn()" id="skipBtnID">
+                                    <i class="bi bi-skip-backward-fill" style="font-size: 5vh; color: white;"></i>
+                                </button>
+                                <button class="callBtn" onclick="s2w2CallPrioBtn()" id="callBtnID">
+                                    <i class="bi bi-volume-up-fill" style="font-size: 5vh; color: white;"></i>
+                                </button>
+                                <button class="proceedBtn" onclick="s2w2ProceedPrioBtn()" id="proceedBtnID">
+                                    <i class="bi bi-check-circle-fill" style="font-size: 5vh; color: white;"></i>
+                                </button>
+                            </div>
+                        <?php endif; ?>
+
                     </div>
                 </div>
             </div>

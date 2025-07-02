@@ -626,6 +626,16 @@ class QsfModel extends CI_Model
         $query = $this->db->get('tbl_transactions');
         return $query->result();
     }
+
+    public function s2w2serve()
+    {
+        $this->db->where('status', 1);
+        $this->db->where('step_id', 2);
+        $this->db->where('window_id', 2);
+        $this->db->where('category', 'PRIORITY');
+        $query = $this->db->get('tbl_transactions');
+        return $query->result();
+    }
     public function s2w1nextServeMod()
     {
         $this->db->where('status', 0);

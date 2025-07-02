@@ -22,238 +22,199 @@
 <!-- <script>
     var ass_category = '<?= $ass_category ?>'; // Pass PHP variable to JavaScript
 </script> -->
-<script>
-    let selectedPendingId = null;
 
+<script>
+    // General Modal Control Variables
+    let selectedPendingId = null;
+    let selectedPrioId = null;
+    let selectedSkipId = null;
+    let selectedProceedId = null;
+
+    // ======================= Modal Control =======================
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+
+    // ======================= Pending Client =======================
     function pendingBtnMdl(id) {
         selectedPendingId = id;
-        document.getElementById("pendingBtnMdl").style.display = "block";
+        openModal("pendingBtnMdl");
     }
 
     function closePendingModal() {
-        document.getElementById("pendingBtnMdl").style.display = "none";
+        closeModal("pendingBtnMdl");
         selectedPendingId = null;
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("pendingBtnCnfrmYes").addEventListener("click", function() {
-            if (selectedPendingId !== null) {
-                $.ajax({
-                    url: '<?= base_url('s2w1updatePending/'); ?>',
-                    type: 'POST',
-                    data: {
-                        id: selectedPendingId
-                    },
-                    success: function(response) {
-                        console.log("Client confirmed:", response);
-                        closePendingModal();
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("Error confirming client:", error);
-                        alert("There was an error. Please try again.");
-                    }
-                });
-            }
-        });
-    });
-
-    let selectedPrioId = null;
-
+    // ======================= Priority Serve =======================
     function s2w1PrioBtn(id) {
-        selectedPrioId = id;
-        document.getElementById("prioBttnModal").style.display = "block";
+        selectedPrioId = {
+            id,
+            route: 's2w1nextServe'
+        };
+        openModal("prioBttnModal");
+    }
+
+    function s2w2PrioBtn(id) {
+        selectedPrioId = {
+            id,
+            route: 's2w2PrioBtnRou'
+        };
+        openModal("prioBttnModal");
     }
 
     function closePrioModal() {
-        document.getElementById("prioBttnModal").style.display = "none";
+        closeModal("prioBttnModal");
         selectedPrioId = null;
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("prioBtnCnfrmYes").addEventListener("click", function() {
-            if (selectedPrioId !== null) {
-                $.ajax({
-                    url: '<?= base_url('s2w1nextServe'); ?>',
-                    type: 'POST',
-                    data: {
-                        id: selectedPrioId
-                    },
-                    success: function(response) {
-                        console.log("Client confirmed:", response);
-                        closePrioModal();
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("Error confirming client:", error);
-                        alert("There was an error. Please try again.");
-                    }
-                });
-            }
-        });
-    });
-
-
-    // ================================== SKIP FUNCTIONS START ==================================
-    let skipPrioId = null;
-
+    // ======================= Skip Client =======================
     function s2w1SkipPrioBtn(id) {
-        skipPrioId = id;
-        document.getElementById("skipbttnModal").style.display = "block";
+        selectedSkipId = {
+            id,
+            route: 's2w1nextSkip'
+        };
+        openModal("skipbttnModal");
     }
 
     function skipModal() {
-        document.getElementById("skipbttnModal").style.display = "none";
-        skipPrioId = null;
+        closeModal("skipbttnModal");
+        selectedSkipId = null;
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("skipBtnCnfrmYes").addEventListener("click", function() {
-            if (skipPrioId !== null) {
-                $.ajax({
-                    url: '<?= base_url('s2w1nextSkip'); ?>',
-                    type: 'POST',
-                    data: {
-                        id: skipPrioId
-                    },
-                    success: function(response) {
-                        console.log("Client confirmed:", response);
-                        skipModal();
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("Error confirming client:", error);
-                        alert("There was an error. Please try again.");
-                    }
-                });
-            }
-        });
-    });
-
-    // ================================== SKIP FUNCTIONS END ==================================
-    // ================================== PROCEED FUNCTIONS START ==================================\
-    let proceedPrioId = null;
-
+    // ======================= Proceed Client =======================
     function s2w1ProceedPrioBtn(id) {
-        proceedPrioId = id;
-        document.getElementById("proceedbttnModal").style.display = "block";
+        selectedProceedId = {
+            id,
+            route: 's2w1ProceedPrioBtnRou'
+        };
+        openModal("proceedbttnModal");
     }
 
     function proceedModal() {
-        document.getElementById("proceedbttnModal").style.display = "none";
-        proceedPrioId = null;
+        closeModal("proceedbttnModal");
+        selectedProceedId = null;
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("proceedBtnCnfrmYes").addEventListener("click", function() {
-            if (proceedPrioId !== null) {
-                $.ajax({
-                    url: '<?= base_url('s2w1ProceedPrioBtnRou'); ?>',
-                    type: 'POST',
-                    data: {
-                        id: proceedPrioId
-                    },
-                    success: function(response) {
-                        console.log("Client confirmed:", response);
-                        proceedModal();
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("Error confirming client:", error);
-                        alert("There was an error. Please try again.");
-                    }
-                });
+    // ======================= AJAX Request Handler =======================
+    function sendPostRequest(target, data, callback) {
+        $.ajax({
+            url: `<?= base_url(); ?>${target}`,
+            type: 'POST',
+            data,
+            success: function(response) {
+                console.log("Success:", response);
+                callback();
+            },
+            error: function(xhr, status, error) {
+                console.error("Error:", error);
+                alert("There was an error. Please try again.");
             }
         });
-    });
-    // ================================== PROCEED FUNCTIONS END ==================================
+    }
 
+    // ======================= DOMContentLoaded Events =======================
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("pendingBtnCnfrmYes").addEventListener("click", function() {
+            if (selectedPendingId) {
+                sendPostRequest('s2w1updatePending/', {
+                    id: selectedPendingId
+                }, closePendingModal);
+            }
+        });
 
-    let isCallCooldown = false;
-    $(document).ready(function() {
+        document.getElementById("prioBtnCnfrmYes").addEventListener("click", function() {
+            if (selectedPrioId) {
+                sendPostRequest(selectedPrioId.route, {
+                    id: selectedPrioId.id
+                }, closePrioModal);
+            }
+        });
+
+        document.getElementById("skipBtnCnfrmYes").addEventListener("click", function() {
+            if (selectedSkipId) {
+                sendPostRequest(selectedSkipId.route, {
+                    id: selectedSkipId.id
+                }, skipModal);
+            }
+        });
+
+        document.getElementById("proceedBtnCnfrmYes").addEventListener("click", function() {
+            if (selectedProceedId) {
+                sendPostRequest(selectedProceedId.route, {
+                    id: selectedProceedId.id
+                }, proceedModal);
+            }
+        });
+
+        // Load initial state and set refresh
         loadStepFlow();
         setInterval(loadStepFlow, 1000);
     });
 
+    // ======================= Step Flow Loader =======================
+    let isCallCooldown = false;
+
     function loadStepFlow() {
-        $.ajax({
-            url: '<?= base_url('s2w1/serve') ?>',
-            type: 'GET',
-            success: function(data) {
-                $('#s2w1serving').html(data);
-                if ($('#s2w1serving').text().trim() !== '') {
-                    // $('#prioBtnID').prop('disabled', true);
-                    // $('#prioBtnID').prop('disabled', true).hide();
-
-                    $('#prioBtnID').prop('disabled', true).addClass('disabled-style');
-                    $('#skipBtnID').prop('disabled', false).removeClass('disabled-style');
-                    if (!isCallCooldown) {
-                        $('#callBtnID').prop('disabled', false).removeClass('disabled-style');
-                    }
-                    $('#proceedBtnID').prop('disabled', false).removeClass('disabled-style');
-                } else {
-                    // $('#prioBtnID').prop('disabled', false);
-                    // $('#prioBtnID').prop('disabled', false).show();
-                    $('#prioBtnID').prop('disabled', false).removeClass('disabled-style');
-                    $('#skipBtnID').prop('disabled', true).addClass('disabled-style');
-                    $('#callBtnID').prop('disabled', true).addClass('disabled-style');
-                    $('#proceedBtnID').prop('disabled', true).addClass('disabled-style');
+        const windows = ['s2w1', 's2w2'];
+        windows.forEach(win => {
+            $.ajax({
+                url: `<?= base_url(); ?>${win}/serve`,
+                type: 'GET',
+                success: function(data) {
+                    $(`#${win}serving`).html(data);
+                    const isServing = $(`#${win}serving`).text().trim() !== '';
+                    toggleButtons(isServing);
                 }
-
-            },
-            error: function(xhr, status, error) {
-                console.error("Error: " + error);
-            }
+            });
         });
 
-        $.ajax({
-            url: '<?= base_url('s2w1/upcoming') ?>',
-            type: 'GET',
-            success: function(data) {
-                $('#s2w1upcoming').html(data);
-            },
-            error: function(xhr, status, error) {
-                console.error("Error: " + error);
+        // s2w1-specific updates
+        $.get('<?= base_url('s2w1/upcoming') ?>', data => $('#s2w1upcoming').html(data));
+        $.get('<?= base_url('s2w1/pending') ?>', function(response) {
+            const data = JSON.parse(response).data;
+            let html = '';
+            if (data && data.length > 0) {
+                data.forEach(item => {
+                    html += `
+                        <div class="pendingQueues">
+                            <button data-id="${item.id}" onclick="pendingBtnMdl(${item.id})">A${item.queue_num}</button>
+                        </div>`;
+                });
             }
-        });
-
-        $.ajax({
-            url: '<?= base_url('s2w1/pending'); ?>', // Fetch data from server
-            type: 'GET',
-            success: function(response) {
-                var data = JSON.parse(response).data; // Parse the JSON response
-                var html = '';
-                if (data && data.length > 0) {
-                    data.forEach(function(item) {
-                        html += `
-                    <div class="pendingQueues">
-                        <button data-id="${item.id}"
-                            class=""
-                            onclick="pendingBtnMdl(${item.id})">
-                            A${item.queue_num}
-                        </button>
-                    </div>
-              `;
-                    });
-                } else {
-                    // html = '<p>Empty</p>';
-                    html = '';
-                }
-
-                $('#s2w1pending').html(html);
-            },
-            error: function(xhr, status, error) {
-                console.error("Error fetching data:", error); // Log any errors
-            }
+            $('#s2w1pending').html(html);
         });
     }
-</script>
+
+    // ======================= Toggle Buttons =======================
+    function toggleButtons(isServing) {
+        const prio = $('#prioBtnID');
+        const skip = $('#skipBtnID');
+        const call = $('#callBtnID');
+        const proceed = $('#proceedBtnID');
+
+        if (isServing) {
+            prio.prop('disabled', true).addClass('disabled-style');
+            skip.prop('disabled', false).removeClass('disabled-style');
+            if (!isCallCooldown) {
+                call.prop('disabled', false).removeClass('disabled-style');
+            }
+            proceed.prop('disabled', false).removeClass('disabled-style');
+        } else {
+            prio.prop('disabled', false).removeClass('disabled-style');
+            skip.prop('disabled', true).addClass('disabled-style');
+            call.prop('disabled', true).addClass('disabled-style');
+            proceed.prop('disabled', true).addClass('disabled-style');
+        }
+    }
 
 
 
-
-
-
-
-
-<!-- ================== Sign out ================== -->
-<script>
+    // ======================= Dropdown Toggle =======================
     const dropdown = document.getElementById('userDropdown');
     const button = dropdown.querySelector('.user-button');
 
@@ -261,13 +222,9 @@
         dropdown.classList.toggle('active');
     });
 
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', e => {
         if (!dropdown.contains(e.target)) {
             dropdown.classList.remove('active');
         }
     });
 </script>
-<!-- ================== Sign out ================== -->
-</body>
-
-</html>

@@ -552,6 +552,17 @@ class QsfController extends CI_Controller
 		}
 	}
 
+	public function s2w2serve()
+	{
+		$serving = $this->QsfModel->s2w2serve();
+		if (!empty($serving)) {
+			foreach ($serving as $row) {
+				echo '<span>A' . str_pad($row->queue_num, 3, '0', STR_PAD_LEFT) . '</span>';
+			}
+		} else {
+		}
+	}
+
 	public function s2w1nextServeCont()
 	{
 		$this->load->model('QsfModel');
