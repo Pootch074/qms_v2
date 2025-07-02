@@ -484,27 +484,27 @@ class QsfController extends CI_Controller
 
 	public function s2w1prio()
 	{
-		// $fname = $this->session->userdata('fname');
-		// $lname = $this->session->userdata('lname');
-		// $position = $this->session->userdata('position');
-		// $ass_step = $this->session->userdata('ass_step');
-		// $ass_category = $this->session->userdata('ass_category');
-		// $section = $this->session->userdata('section');
+		$fname = $this->session->userdata('fname');
+		$lname = $this->session->userdata('lname');
+		$position = $this->session->userdata('position');
+		$ass_step = $this->session->userdata('ass_step');
+		$ass_category = $this->session->userdata('ass_category');
+		$section = $this->session->userdata('section');
 
-		// $data = [
-		// 	'fname' => $fname,
-		// 	'lname' => $lname,
-		// 	'position' => $position,
-		// 	'ass_step' => $ass_step,
-		// 	'ass_category' => $ass_category,
-		// 	'section' => $section
-		// ];
+		$data = [
+			'fname' => $fname,
+			'lname' => $lname,
+			'position' => $position,
+			'ass_step' => $ass_step,
+			'ass_category' => $ass_category,
+			'section' => $section
+		];
 
 		// $this->load->view('template/headerTest', $data);
 		// $this->load->view('queueStepFlow/prioTestView', $data);
 
 		$this->load->view('queueStepFlow/header');
-		$this->load->view('queueStepFlow/s2w1prio');
+		$this->load->view('queueStepFlow/s2w1prio', $data);
 		$this->load->view('queueStepFlow/footer');
 	}
 
@@ -565,12 +565,12 @@ class QsfController extends CI_Controller
 	}
 
 
-	public function s2w1ProceedPrioBtnCont()
-	{
-		$this->load->model('QsfModel');
-		$ass_step = $this->session->userdata('ass_step');
-		$ass_category = $this->session->userdata('ass_category');
-		$this->QsfModel->s2w1ProceedPrioBtnMod($ass_step, $ass_category);
-		echo json_encode(array('status' => 'success'));
-	}
+	// public function s2w1ProceedPrioBtnCont()
+	// {
+	// 	$this->load->model('QsfModel');
+	// 	$ass_step = $this->session->userdata('ass_step');
+	// 	$ass_category = $this->session->userdata('ass_category');
+	// 	$this->QsfModel->s2w1ProceedPrioBtnMod($ass_step, $ass_category);
+	// 	echo json_encode(array('status' => 'success'));
+	// }
 }

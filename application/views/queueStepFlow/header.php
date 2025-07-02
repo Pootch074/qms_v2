@@ -59,7 +59,26 @@
     <div class="hcol3">
       <div class="user-dropdown" id="userDropdown">
         <button class="user-button">
-          <i class="bi bi-person-circle" style="color: white; font-size:5vh;"></i> Juan Dela Cruz
+          <i class="bi bi-person-circle" style="color: white; font-size:5vh;"></i>
+
+
+
+          <?php
+          $fname = $this->session->userdata('fname');
+          $lname = $this->session->userdata('lname');
+          if ($fname && $lname) {
+            echo htmlspecialchars($fname . ' ' . $lname, ENT_QUOTES, 'UTF-8');
+          } elseif ($fname) {
+            echo htmlspecialchars($fname, ENT_QUOTES, 'UTF-8');
+          } else {
+            echo 'Guest';
+          }
+          ?>
+
+
+
+
+
           <i class="bi bi-caret-down-fill" style="color: white; font-size:2vh;"></i>
         </button>
         <div class="dropdown-menu">

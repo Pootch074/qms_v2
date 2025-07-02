@@ -84,7 +84,10 @@
         </div>
         <div class="col3">
             <div class="col3Card">
-                <div class="col3Header">SERVING STEP 2 WINDOW 1</div>
+                <div class="col3Header">
+                    SERVING STEP <?= htmlspecialchars($ass_step) ?> WINDOW <?= htmlspecialchars($section) ?>
+                </div>
+
                 <div class="col3Body">
                     <div class="col3row1"></div>
                     <div class="col3row2">
